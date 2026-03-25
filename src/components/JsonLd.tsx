@@ -1,5 +1,3 @@
-import { Helmet } from "react-helmet-async";
-
 interface JsonLdProps {
   type: "LocalBusiness" | "FAQPage" | "Service" | "WebPage";
   data?: Record<string, unknown>;
