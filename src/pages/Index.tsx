@@ -44,6 +44,7 @@ const steps = [
 const Index = () => {
   return (
     <main>
+      <JsonLdLocalBusiness />
       {/* Hero */}
       <section className="relative min-h-[90vh] flex items-center">
         <div className="absolute inset-0">
