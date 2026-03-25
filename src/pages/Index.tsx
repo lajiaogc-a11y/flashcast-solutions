@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Phone, ArrowRight, MapPin, Star, CheckCircle, Home, Building2, Warehouse, PaintBucket, Ruler, FileCheck } from "lucide-react";
+import { JsonLdLocalBusiness } from "@/components/JsonLd";
 import heroImg from "@/assets/hero-renovation.jpg";
 import residentialImg from "@/assets/residential-renovation.jpg";
 import commercialImg from "@/assets/commercial-renovation.jpg";
@@ -43,6 +44,7 @@ const steps = [
 const Index = () => {
   return (
     <main>
+      <JsonLdLocalBusiness />
       {/* Hero */}
       <section className="relative min-h-[90vh] flex items-center">
         <div className="absolute inset-0">
