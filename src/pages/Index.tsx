@@ -10,12 +10,12 @@ import warehouseImg from "@/assets/warehouse-shelving.jpg";
 import exteriorImg from "@/assets/exterior-works.jpg";
 
 const services = [
-  { icon: Home, title: "Interior Renovation", desc: "Complete home renovation solutions", link: "/services" },
-  { icon: Building2, title: "Commercial Renovation", desc: "Shop, office & F&B fit-outs", link: "/services" },
-  { icon: Ruler, title: "Custom Built-In", desc: "Wardrobes, cabinets & storage", link: "/services" },
-  { icon: PaintBucket, title: "Exterior Works", desc: "Shopfront, signage & façade", link: "/services" },
-  { icon: Warehouse, title: "Warehouse & Shelving", desc: "Racking & industrial solutions", link: "/services" },
-  { icon: FileCheck, title: "Design & Permitting", desc: "Plans, drawings & approvals", link: "/services" },
+  { icon: Home, title: "Interior Renovation", desc: "Complete home renovation solutions", link: "/services/renovation" },
+  { icon: Building2, title: "Commercial Renovation", desc: "Shop, office & F&B fit-outs", link: "/services/commercial" },
+  { icon: Ruler, title: "Custom Built-In", desc: "Wardrobes, cabinets & storage", link: "/services/builtin" },
+  { icon: PaintBucket, title: "Exterior Works", desc: "Shopfront, signage & façade", link: "/services/exterior" },
+  { icon: Warehouse, title: "Warehouse & Shelving", desc: "Racking & industrial solutions", link: "/services/warehouse" },
+  { icon: FileCheck, title: "Design & Permitting", desc: "Plans, drawings & approvals", link: "/services/design" },
 ];
 
 const materials = [
@@ -28,10 +28,10 @@ const materials = [
 ];
 
 const projects = [
-  { title: "Modern Condo Renovation", type: "Residential", location: "Mont Kiara, KL", image: residentialImg },
-  { title: "Corporate Office Fit-Out", type: "Commercial", location: "Petaling Jaya", image: commercialImg },
-  { title: "Custom Kitchen & Built-In", type: "Built-In", location: "Bangsar, KL", image: kitchenImg },
-  { title: "Industrial Warehouse Setup", type: "Warehouse", location: "Shah Alam, Selangor", image: warehouseImg },
+  { title: "Modern Condo Renovation", type: "Residential", location: "Mont Kiara, KL", image: residentialImg, slug: "modern-condo-mont-kiara" },
+  { title: "Corporate Office Fit-Out", type: "Commercial", location: "Petaling Jaya", image: commercialImg, slug: "corporate-office-petaling-jaya" },
+  { title: "Custom Kitchen & Built-In", type: "Built-In", location: "Bangsar, KL", image: kitchenImg, slug: "custom-kitchen-bangsar" },
+  { title: "Industrial Warehouse Setup", type: "Warehouse", location: "Shah Alam, Selangor", image: warehouseImg, slug: "warehouse-racking-shah-alam" },
 ];
 
 const steps = [
@@ -148,7 +148,7 @@ const Index = () => {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6">
             {projects.map((p) => (
-              <Link key={p.title} to="/projects" className="group rounded-lg overflow-hidden bg-card border border-border hover-lift">
+              <Link key={p.title} to={`/projects/${p.slug}`} className="group rounded-lg overflow-hidden bg-card border border-border hover-lift">
                 <div className="aspect-[4/3] overflow-hidden">
                   <img src={p.image} alt={p.title} loading="lazy" width={800} height={600} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 </div>

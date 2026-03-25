@@ -1,0 +1,165 @@
+import { useParams, Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { ArrowRight, ArrowLeft, CheckCircle, Phone } from "lucide-react";
+import { servicesData } from "@/data/services";
+import residentialImg from "@/assets/residential-renovation.jpg";
+import commercialImg from "@/assets/commercial-renovation.jpg";
+import kitchenImg from "@/assets/kitchen-cabinet.jpg";
+import warehouseImg from "@/assets/warehouse-shelving.jpg";
+import exteriorImg from "@/assets/exterior-works.jpg";
+
+const imageMap: Record<string, string> = {
+  design: commercialImg,
+  builtin: kitchenImg,
+  renovation: residentialImg,
+  commercial: commercialImg,
+  exterior: exteriorImg,
+  warehouse: warehouseImg,
+  approval: commercialImg,
+};
+
+const ServiceDetail = () => {
+  const { slug } = useParams<{ slug: string }>();
+  const service = servicesData.find((s) => s.slug === slug);
+
+  if (!service) {
+    return (
+      <main className="pt-16 section-padding text-center">
+        <h1 className="font-display text-3xl font-bold mb-4">Service Not Found</h1>
+        <Button asChild><Link to="/services">View All Services</Link></Button>
+      </main>
+    );
+  }
+
+  const heroImage = imageMap[service.slug] || residentialImg;
+
+  return (
+    <main className="pt-16">
+      {/* Hero */}
+      <section className="relative min-h-[50vh] flex items-center">
+        <div className="absolute inset-0">
+          <img src={heroImage} alt={service.title} className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-foreground/90 via-foreground/75 to-foreground/40" />
+        </div>
+        <div className="relative z-10 container-narrow px-4 md:px-8 py-20">
+          <Link to="/services" className="inline-flex items-center gap-1 text-steel-light text-sm hover:text-accent transition-colors mb-6">
+            <ArrowLeft className="w-3.5 h-3.5" /> All Services
+          </Link>
+          <div className="accent-line mb-4" />
+          <h1 className="font-display text-3xl md:text-5xl font-bold text-primary-foreground mb-4">{service.title}</h1>
+          <p className="text-steel-light max-w-2xl text-lg">{service.summary}</p>
+          <div className="flex flex-col sm:flex-row gap-3 mt-8">
+            <Button size="lg" asChild>
+              <Link to="/quote">Get a Quote <ArrowRight className="w-4 h-4 ml-2" /></Link>
+            </Button>
+            <Button size="lg" variant="outline" className="border-steel text-primary-foreground hover:bg-primary-foreground/10" asChild>
+              <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">
+                <Phone className="w-4 h-4 mr-2" /> WhatsApp Us
+              </a>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Description */}
+      <section className="section-padding bg-background">
+        <div className="container-narrow">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div>
+              <h2 className="font-display text-2xl md:text-3xl font-bold mb-4">Overview</h2>
+              <p className="text-muted-foreground leading-relaxed mb-6">{service.description}</p>
+              <h3 className="font-semibold mb-3">Suitable For</h3>
+              <ul className="space-y-2 mb-6">
+                {service.suitableFor.map((s) => (
+                  <li key={s} className="flex items-start gap-2 text-sm text-muted-foreground">
+                    <CheckCircle className="w-4 h-4 text-accent mt-0.5 shrink-0" />
+                    {s}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-3">What We Offer</h3>
+              <div className="grid grid-cols-1 gap-2">
+                {service.items.map((item) => (
+                  <div key={item} className="flex items-center gap-2 py-2.5 px-4 bg-muted rounded-md text-sm">
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Common Projects */}
+      <section className="section-padding bg-muted">
+        <div className="container-narrow">
+          <h2 className="font-display text-2xl font-bold mb-6">Common Projects</h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+            {service.commonProjects.map((proj) => (
+              <div key={proj} className="p-4 bg-background rounded-lg text-center text-sm font-medium border border-border">
+                {proj}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Process */}
+      <section className="section-padding bg-background">
+        <div className="container-narrow max-w-3xl">
+          <h2 className="font-display text-2xl md:text-3xl font-bold mb-8 text-center">Our Process</h2>
+          <div className="space-y-6">
+            {service.processSteps.map((step, i) => (
+              <div key={i} className="flex gap-4">
+                <div className="shrink-0 w-10 h-10 rounded-full bg-accent text-accent-foreground flex items-center justify-center text-sm font-bold">
+                  {i + 1}
+                </div>
+                <div className="pt-1">
+                  <h3 className="font-semibold mb-1">{step.title}</h3>
+                  <p className="text-muted-foreground text-sm">{step.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="section-padding bg-muted">
+        <div className="container-narrow max-w-3xl">
+          <h2 className="font-display text-2xl font-bold mb-6 text-center">Frequently Asked Questions</h2>
+          <Accordion type="single" collapsible className="space-y-2">
+            {service.faqs.map((f, i) => (
+              <AccordionItem key={i} value={`faq-${i}`} className="bg-background rounded-lg border border-border px-4">
+                <AccordionTrigger className="text-left font-medium text-sm md:text-base">{f.q}</AccordionTrigger>
+                <AccordionContent className="text-muted-foreground text-sm">{f.a}</AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="section-padding bg-accent text-accent-foreground text-center">
+        <div className="container-narrow">
+          <h2 className="font-display text-3xl font-bold mb-4">Interested in {service.title}?</h2>
+          <p className="mb-6 opacity-90">Contact us for a free consultation and quotation.</p>
+          <div className="flex flex-col sm:flex-row justify-center gap-3">
+            <Button size="lg" variant="secondary" asChild>
+              <Link to="/quote">Get a Free Quote</Link>
+            </Button>
+            <Button size="lg" variant="outline" className="border-accent-foreground text-accent-foreground hover:bg-accent-foreground/10" asChild>
+              <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
+            </Button>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+};
+
+export default ServiceDetail;
