@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Phone, ArrowRight, MapPin, Star, CheckCircle, ChevronRight } from "lucide-react";
+import { Phone, ArrowRight, MapPin, Star, CheckCircle, Home, Building2, Warehouse, PaintBucket, Ruler, FileCheck } from "lucide-react";
 import heroImg from "@/assets/hero-renovation.jpg";
 import residentialImg from "@/assets/residential-renovation.jpg";
 import commercialImg from "@/assets/commercial-renovation.jpg";
@@ -9,188 +9,160 @@ import warehouseImg from "@/assets/warehouse-shelving.jpg";
 import exteriorImg from "@/assets/exterior-works.jpg";
 
 const services = [
-  { title: "Interior Renovation", desc: "Complete residential renovation from design to handover", icon: "🏠", img: residentialImg },
-  { title: "Commercial Renovation", desc: "Shop, office, F&B and retail fit-out solutions", icon: "🏢", img: commercialImg },
-  { title: "Custom Built-In", desc: "Wardrobes, kitchen cabinets, TV consoles & storage", icon: "🪑", img: kitchenImg },
-  { title: "Exterior Works", desc: "Shopfront, signage, façade & outdoor renovation", icon: "🏗️", img: exteriorImg },
-  { title: "Warehouse & Shelving", desc: "Racking systems, industrial partitions & storage", icon: "📦", img: warehouseImg },
-  { title: "Design & Permitting", desc: "Space planning, 3D visuals & submission coordination", icon: "📐", img: commercialImg },
+  { icon: Home, title: "Interior Renovation", desc: "Complete home renovation solutions", link: "/services" },
+  { icon: Building2, title: "Commercial Renovation", desc: "Shop, office & F&B fit-outs", link: "/services" },
+  { icon: Ruler, title: "Custom Built-In", desc: "Wardrobes, cabinets & storage", link: "/services" },
+  { icon: PaintBucket, title: "Exterior Works", desc: "Shopfront, signage & façade", link: "/services" },
+  { icon: Warehouse, title: "Warehouse & Shelving", desc: "Racking & industrial solutions", link: "/services" },
+  { icon: FileCheck, title: "Design & Permitting", desc: "Plans, drawings & approvals", link: "/services" },
 ];
 
 const materials = [
-  { name: "Flooring", img: residentialImg },
-  { name: "Tiles", img: kitchenImg },
-  { name: "Doors", img: exteriorImg },
-  { name: "Boards & Panels", img: residentialImg },
-  { name: "Cabinets", img: kitchenImg },
-  { name: "Glass Doors", img: commercialImg },
+  { name: "Flooring", image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&h=300&fit=crop" },
+  { name: "Tiles", image: "https://images.unsplash.com/photo-1502005229762-cf1b3a49f263?w=400&h=300&fit=crop" },
+  { name: "Doors", image: "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=400&h=300&fit=crop" },
+  { name: "Cabinets", image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=300&fit=crop" },
+  { name: "Glass Doors", image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=300&fit=crop" },
+  { name: "Boards & Panels", image: "https://images.unsplash.com/photo-1541123603104-512919d6a96c?w=400&h=300&fit=crop" },
 ];
 
 const projects = [
-  { title: "Modern Condo Renovation", type: "Residential", location: "Mont Kiara, KL", img: residentialImg },
-  { title: "Corporate Office Fit-Out", type: "Commercial", location: "Petaling Jaya", img: commercialImg },
-  { title: "Custom Kitchen & Built-In", type: "Built-In", location: "Bangsar, KL", img: kitchenImg },
-  { title: "Warehouse Racking System", type: "Warehouse", location: "Shah Alam, Selangor", img: warehouseImg },
+  { title: "Modern Condo Renovation", type: "Residential", location: "Mont Kiara, KL", image: residentialImg },
+  { title: "Corporate Office Fit-Out", type: "Commercial", location: "Petaling Jaya", image: commercialImg },
+  { title: "Custom Kitchen & Built-In", type: "Built-In", location: "Bangsar, KL", image: kitchenImg },
+  { title: "Industrial Warehouse Setup", type: "Warehouse", location: "Shah Alam, Selangor", image: warehouseImg },
 ];
 
 const steps = [
-  { num: "01", title: "Enquiry", desc: "Tell us about your project via WhatsApp, call, or our online form." },
-  { num: "02", title: "Site Measurement", desc: "Our team visits your site for accurate measurements and assessment." },
-  { num: "03", title: "Quotation & Proposal", desc: "Receive a detailed quotation with 3D visuals and material options." },
-  { num: "04", title: "Construction & Handover", desc: "Professional execution with regular updates until project completion." },
+  { num: "01", title: "Enquiry", desc: "Tell us about your project requirements" },
+  { num: "02", title: "Site Measurement", desc: "Our team visits your site for precise measurements" },
+  { num: "03", title: "Quotation & Proposal", desc: "Receive a detailed proposal with 3D visuals" },
+  { num: "04", title: "Construction & Handover", desc: "Professional execution and timely handover" },
 ];
 
 const Index = () => {
   return (
     <main>
-      {/* JSON-LD Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "HomeAndConstructionBusiness",
-            name: "FLASH CAST SDN. BHD.",
-            alternateName: "闪铸设计",
-            url: "https://flashcast.com.my",
-            telephone: "+60123456789",
-            address: {
-              "@type": "PostalAddress",
-              streetAddress: "94, Jalan Mega Mendung, Taman United",
-              addressLocality: "Kuala Lumpur",
-              postalCode: "58200",
-              addressCountry: "MY",
-            },
-            areaServed: ["Kuala Lumpur", "Selangor", "Petaling Jaya", "Cheras", "Mont Kiara", "Bangsar", "Subang Jaya"],
-            description: "Professional renovation and interior design company in Kuala Lumpur, Malaysia. Specializing in residential renovation, commercial fit-out, custom built-in furniture, and warehouse solutions.",
-          }),
-        }}
-      />
-
-      {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+      {/* Hero */}
+      <section className="relative min-h-[90vh] flex items-center">
         <div className="absolute inset-0">
-          <img src={heroImg} alt="Professional interior renovation by FLASH CAST in Kuala Lumpur" width={1920} height={1080} className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-foreground/90 via-foreground/70 to-foreground/40" />
+          <img src={heroImg} alt="FLASH CAST luxury interior renovation in Kuala Lumpur" className="w-full h-full object-cover" width={1920} height={1080} />
+          <div className="absolute inset-0 bg-gradient-to-r from-foreground/90 via-foreground/70 to-foreground/30" />
         </div>
         <div className="relative z-10 container-narrow px-4 md:px-8 py-32">
-          <div className="max-w-2xl">
+          <div className="max-w-xl">
             <p className="text-accent font-medium text-sm tracking-widest uppercase mb-4 animate-fade-in">
-              FLASH CAST SDN. BHD. — Kuala Lumpur, Malaysia
+              FLASH CAST SDN. BHD.
             </p>
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight mb-6 animate-fade-in" style={{ animationDelay: "0.1s" }}>
-              Professional Renovation.<br />Built to Last.
+              Complete Renovation Solutions in Kuala Lumpur
             </h1>
-            <p className="text-lg md:text-xl text-primary-foreground/80 mb-8 leading-relaxed animate-fade-in" style={{ animationDelay: "0.2s" }}>
-              Complete renovation solutions — from interior design and custom built-in furniture to commercial fit-out and warehouse systems. Serving Kuala Lumpur & Selangor.
+            <p className="text-steel-light text-lg mb-8 leading-relaxed animate-fade-in" style={{ animationDelay: "0.2s" }}>
+              Professional interior design, custom built-in furniture, and full renovation services. 
+              From concept to completion — your trusted renovation partner in Malaysia.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 animate-fade-in" style={{ animationDelay: "0.3s" }}>
+            <div className="flex flex-col sm:flex-row gap-3 animate-fade-in" style={{ animationDelay: "0.3s" }}>
               <Button size="lg" asChild>
-                <Link to="/quote">
-                  Get a Free Quote <ArrowRight className="ml-2 w-4 h-4" />
-                </Link>
+                <Link to="/quote">Get a Free Quote <ArrowRight className="w-4 h-4 ml-2" /></Link>
               </Button>
-              <Button size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10" asChild>
+              <Button size="lg" variant="outline" className="border-steel text-primary-foreground hover:bg-primary-foreground/10" asChild>
                 <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">
-                  <Phone className="mr-2 w-4 h-4" /> WhatsApp Us
+                  <Phone className="w-4 h-4 mr-2" /> WhatsApp Us
                 </a>
               </Button>
+            </div>
+            <div className="flex items-center gap-4 mt-8 text-steel-light text-sm animate-fade-in" style={{ animationDelay: "0.4s" }}>
+              <span className="flex items-center gap-1"><MapPin className="w-3.5 h-3.5" /> Kuala Lumpur</span>
+              <span className="flex items-center gap-1"><CheckCircle className="w-3.5 h-3.5" /> 10+ Years Experience</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Core Services */}
+      {/* Services */}
       <section className="section-padding bg-background" id="services">
         <div className="container-narrow">
           <div className="text-center mb-12">
             <div className="accent-line mx-auto mb-4" />
             <h2 className="font-display text-3xl md:text-4xl font-bold mb-3">Our Services</h2>
-            <p className="text-muted-foreground max-w-xl mx-auto">
-              FLASH CAST provides end-to-end renovation services for residential, commercial, and industrial projects across Kuala Lumpur and Selangor.
+            <p className="text-muted-foreground max-w-lg mx-auto">
+              Complete renovation and design solutions for residential, commercial, and industrial spaces in Kuala Lumpur and Selangor.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
             {services.map((s) => (
-              <Link to="/services" key={s.title} className="group hover-lift">
-                <div className="relative overflow-hidden rounded-lg aspect-[4/3]">
-                  <img src={s.img} alt={s.title} loading="lazy" width={800} height={600} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/20 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-5">
-                    <h3 className="font-display text-lg font-semibold text-primary-foreground mb-1">{s.title}</h3>
-                    <p className="text-primary-foreground/70 text-sm">{s.desc}</p>
-                  </div>
-                </div>
+              <Link key={s.title} to={s.link} className="group p-5 md:p-6 rounded-lg border border-border bg-card hover-lift text-center">
+                <s.icon className="w-8 h-8 mx-auto mb-3 text-accent group-hover:scale-110 transition-transform" />
+                <h3 className="font-semibold text-sm md:text-base mb-1">{s.title}</h3>
+                <p className="text-muted-foreground text-xs md:text-sm">{s.desc}</p>
               </Link>
             ))}
-          </div>
-          <div className="text-center mt-8">
-            <Button variant="outline" asChild>
-              <Link to="/services">View All Services <ChevronRight className="ml-1 w-4 h-4" /></Link>
-            </Button>
           </div>
         </div>
       </section>
 
-      {/* Materials Preview */}
-      <section className="section-padding bg-muted">
+      {/* Materials */}
+      <section className="section-padding bg-muted" id="materials">
         <div className="container-narrow">
-          <div className="text-center mb-12">
-            <div className="accent-line mx-auto mb-4" />
-            <h2 className="font-display text-3xl md:text-4xl font-bold mb-3">Material Library</h2>
-            <p className="text-muted-foreground max-w-xl mx-auto">
-              Browse our curated selection of flooring, tiles, doors, boards, cabinets, and glass doors. View styles first, then contact us for pricing.
-            </p>
+          <div className="flex items-end justify-between mb-8">
+            <div>
+              <div className="accent-line mb-4" />
+              <h2 className="font-display text-3xl md:text-4xl font-bold mb-2">Materials</h2>
+              <p className="text-muted-foreground text-sm">Browse our quality material selections</p>
+            </div>
+            <Link to="/materials" className="text-accent text-sm font-medium hover:underline hidden sm:block">
+              View All <ArrowRight className="w-3.5 h-3.5 inline ml-1" />
+            </Link>
           </div>
-          <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide">
+          <div className="flex gap-4 overflow-x-auto pb-4 -mx-4 px-4 snap-x snap-mandatory scrollbar-hide">
             {materials.map((m) => (
-              <Link to="/materials" key={m.name} className="snap-start shrink-0 w-48 md:w-56 group">
-                <div className="relative overflow-hidden rounded-lg aspect-square">
-                  <img src={m.img} alt={m.name} loading="lazy" width={400} height={400} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 to-transparent" />
-                  <span className="absolute bottom-3 left-3 text-primary-foreground font-medium text-sm">{m.name}</span>
+              <Link
+                key={m.name}
+                to="/materials"
+                className="snap-start shrink-0 w-[160px] md:w-[200px] group"
+              >
+                <div className="aspect-square rounded-lg overflow-hidden mb-2 bg-card">
+                  <img src={m.image} alt={m.name} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                 </div>
+                <p className="font-medium text-sm text-center">{m.name}</p>
               </Link>
             ))}
           </div>
-          <div className="text-center mt-6">
-            <Button variant="outline" asChild>
-              <Link to="/materials">Explore Materials <ChevronRight className="ml-1 w-4 h-4" /></Link>
-            </Button>
-          </div>
+          <Link to="/materials" className="text-accent text-sm font-medium hover:underline sm:hidden mt-4 block text-center">
+            View All Materials <ArrowRight className="w-3.5 h-3.5 inline ml-1" />
+          </Link>
         </div>
       </section>
 
-      {/* Featured Projects */}
-      <section className="section-padding bg-background">
+      {/* Projects */}
+      <section className="section-padding bg-background" id="projects">
         <div className="container-narrow">
           <div className="text-center mb-12">
             <div className="accent-line mx-auto mb-4" />
             <h2 className="font-display text-3xl md:text-4xl font-bold mb-3">Featured Projects</h2>
-            <p className="text-muted-foreground max-w-xl mx-auto">
-              Real completed projects by FLASH CAST across Kuala Lumpur and Selangor — residential, commercial, and industrial.
+            <p className="text-muted-foreground max-w-lg mx-auto">
+              Explore our completed renovation projects across Kuala Lumpur, Selangor, and surrounding areas.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6">
             {projects.map((p) => (
-              <Link to="/projects" key={p.title} className="group hover-lift">
-                <div className="relative overflow-hidden rounded-lg aspect-[16/10]">
-                  <img src={p.img} alt={p.title} loading="lazy" width={800} height={600} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-5">
-                    <span className="text-accent text-xs font-medium uppercase tracking-wider">{p.type}</span>
-                    <h3 className="font-display text-lg font-semibold text-primary-foreground">{p.title}</h3>
-                    <span className="flex items-center gap-1 text-primary-foreground/60 text-sm mt-1">
-                      <MapPin className="w-3 h-3" /> {p.location}
-                    </span>
-                  </div>
+              <Link key={p.title} to="/projects" className="group rounded-lg overflow-hidden bg-card border border-border hover-lift">
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img src={p.image} alt={p.title} loading="lazy" width={800} height={600} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                </div>
+                <div className="p-4 md:p-5">
+                  <span className="text-accent text-xs font-medium uppercase tracking-wider">{p.type}</span>
+                  <h3 className="font-display text-lg font-semibold mt-1 mb-1">{p.title}</h3>
+                  <p className="text-muted-foreground text-sm flex items-center gap-1">
+                    <MapPin className="w-3.5 h-3.5" /> {p.location}
+                  </p>
                 </div>
               </Link>
             ))}
           </div>
           <div className="text-center mt-8">
             <Button variant="outline" asChild>
-              <Link to="/projects">View All Projects <ChevronRight className="ml-1 w-4 h-4" /></Link>
+              <Link to="/projects">View All Projects <ArrowRight className="w-4 h-4 ml-2" /></Link>
             </Button>
           </div>
         </div>
@@ -202,65 +174,71 @@ const Index = () => {
           <div className="text-center mb-12">
             <div className="accent-line mx-auto mb-4" />
             <h2 className="font-display text-3xl md:text-4xl font-bold text-primary-foreground mb-3">How We Work</h2>
-            <p className="text-primary-foreground/60 max-w-xl mx-auto">
-              A clear, reliable process from first contact to project completion.
+            <p className="text-steel-light max-w-lg mx-auto">
+              A streamlined process to bring your renovation vision to life.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {steps.map((s) => (
               <div key={s.num} className="text-center">
-                <span className="text-accent text-3xl font-display font-bold">{s.num}</span>
-                <h3 className="font-display text-lg font-semibold text-primary-foreground mt-3 mb-2">{s.title}</h3>
-                <p className="text-primary-foreground/60 text-sm">{s.desc}</p>
+                <span className="text-accent font-display text-3xl md:text-4xl font-bold">{s.num}</span>
+                <h3 className="font-semibold text-primary-foreground mt-2 mb-1">{s.title}</h3>
+                <p className="text-steel text-sm">{s.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Trust Section */}
+      {/* Trust */}
       <section className="section-padding bg-background">
         <div className="container-narrow">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div>
-              <div className="flex justify-center mb-3">
-                <CheckCircle className="w-8 h-8 text-accent" />
-              </div>
-              <h3 className="font-display text-lg font-semibold mb-2">Registered Company</h3>
-              <p className="text-muted-foreground text-sm">FLASH CAST SDN. BHD. — SSM registered renovation company based in Kuala Lumpur.</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center p-6">
+              <Star className="w-8 h-8 mx-auto mb-3 text-gold" />
+              <h3 className="font-display text-2xl font-bold mb-1">200+</h3>
+              <p className="text-muted-foreground text-sm">Projects Completed</p>
             </div>
-            <div>
-              <div className="flex justify-center mb-3">
-                <Star className="w-8 h-8 text-accent" />
-              </div>
-              <h3 className="font-display text-lg font-semibold mb-2">Quality Workmanship</h3>
-              <p className="text-muted-foreground text-sm">Professional project management with experienced in-house teams for consistent quality.</p>
+            <div className="text-center p-6">
+              <CheckCircle className="w-8 h-8 mx-auto mb-3 text-accent" />
+              <h3 className="font-display text-2xl font-bold mb-1">10+ Years</h3>
+              <p className="text-muted-foreground text-sm">Industry Experience</p>
             </div>
-            <div>
-              <div className="flex justify-center mb-3">
-                <MapPin className="w-8 h-8 text-accent" />
+            <div className="text-center p-6">
+              <MapPin className="w-8 h-8 mx-auto mb-3 text-accent" />
+              <h3 className="font-display text-2xl font-bold mb-1">KL & Selangor</h3>
+              <p className="text-muted-foreground text-sm">Service Coverage Area</p>
+            </div>
+          </div>
+
+          <div className="mt-12 p-6 md:p-8 bg-muted rounded-lg">
+            <div className="flex items-start gap-4">
+              <Star className="w-5 h-5 text-gold shrink-0 mt-1" />
+              <div>
+                <p className="italic text-foreground mb-2">
+                  "FLASH CAST delivered our office renovation on time and within budget. Professional team, quality workmanship, and excellent communication throughout the project."
+                </p>
+                <p className="text-sm text-muted-foreground">— Corporate Client, Petaling Jaya</p>
               </div>
-              <h3 className="font-display text-lg font-semibold mb-2">Local Team</h3>
-              <p className="text-muted-foreground text-sm">Based in Taman United, KL. Serving Kuala Lumpur, Selangor, Petaling Jaya, and surrounding areas.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Bottom */}
+      {/* CTA */}
       <section className="section-padding bg-accent text-accent-foreground">
         <div className="container-narrow text-center">
           <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">Ready to Start Your Project?</h2>
-          <p className="text-accent-foreground/80 mb-8 max-w-lg mx-auto">
-            Get a free quotation for your renovation project. We serve residential, commercial, and industrial clients across KL & Selangor.
+          <p className="mb-8 max-w-md mx-auto opacity-90">
+            Get a free consultation and quotation. We serve Kuala Lumpur, Selangor, and surrounding areas.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row justify-center gap-3">
             <Button size="lg" variant="secondary" asChild>
               <Link to="/quote">Get a Free Quote</Link>
             </Button>
-            <Button size="lg" variant="outline" className="border-accent-foreground/30 text-accent-foreground hover:bg-accent-foreground/10" asChild>
+            <Button size="lg" variant="outline" className="border-accent-foreground text-accent-foreground hover:bg-accent-foreground/10" asChild>
               <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">
-                <Phone className="mr-2 w-4 h-4" /> WhatsApp Us
+                <Phone className="w-4 h-4 mr-2" /> WhatsApp Us
               </a>
             </Button>
           </div>
