@@ -148,7 +148,7 @@ const Index = () => {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6">
             {projects.map((p) => (
-              <Link key={p.title} to="/projects" className="group rounded-lg overflow-hidden bg-card border border-border hover-lift">
+              <Link key={p.title} to={`/projects/${p.slug}`} className="group rounded-lg overflow-hidden bg-card border border-border hover-lift">
                 <div className="aspect-[4/3] overflow-hidden">
                   <img src={p.image} alt={p.title} loading="lazy" width={800} height={600} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 </div>
