@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ArrowRight, ArrowLeft, CheckCircle, Phone } from "lucide-react";
 import { servicesData } from "@/data/services";
+import Reveal from "@/components/Reveal";
 import residentialImg from "@/assets/residential-renovation.jpg";
 import commercialImg from "@/assets/commercial-renovation.jpg";
 import kitchenImg from "@/assets/kitchen-cabinet.jpg";
@@ -37,18 +38,18 @@ const ServiceDetail = () => {
   return (
     <main className="pt-16">
       {/* Hero */}
-      <section className="relative min-h-[50vh] flex items-center">
+      <section className="relative min-h-[50vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
-          <img src={heroImage} alt={service.title} className="w-full h-full object-cover" />
+          <img src={heroImage} alt={service.title} className="w-full h-full object-cover scale-105 animate-[scale-up_1.2s_ease-out_forwards]" />
           <div className="absolute inset-0 bg-gradient-to-r from-foreground/90 via-foreground/75 to-foreground/40" />
         </div>
         <div className="relative z-10 container-narrow px-4 md:px-8 py-20">
           <Link to="/services" className="inline-flex items-center gap-1 text-steel-light text-sm hover:text-accent transition-colors mb-6">
             <ArrowLeft className="w-3.5 h-3.5" /> All Services
           </Link>
-          <div className="accent-line mb-4" />
-          <h1 className="font-display text-3xl md:text-5xl font-bold text-primary-foreground mb-4">{service.title}</h1>
-          <p className="text-steel-light max-w-2xl text-lg">{service.summary}</p>
+          <div className="accent-line mb-4 animate-fade-in" />
+          <h1 className="font-display text-3xl md:text-5xl font-bold text-primary-foreground mb-4 animate-slide-up" style={{ opacity: 0, animationDelay: "0.15s" }}>{service.title}</h1>
+          <p className="text-steel-light max-w-2xl text-lg animate-fade-in" style={{ opacity: 0, animationDelay: "0.3s" }}>{service.summary}</p>
           <div className="flex flex-col sm:flex-row gap-3 mt-8">
             <Button size="lg" asChild>
               <Link to="/quote">Get a Quote <ArrowRight className="w-4 h-4 ml-2" /></Link>
@@ -66,30 +67,34 @@ const ServiceDetail = () => {
       <section className="section-padding bg-background">
         <div className="container-narrow">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div>
-              <h2 className="font-display text-2xl md:text-3xl font-bold mb-4">Overview</h2>
-              <p className="text-muted-foreground leading-relaxed mb-6">{service.description}</p>
-              <h3 className="font-semibold mb-3">Suitable For</h3>
-              <ul className="space-y-2 mb-6">
-                {service.suitableFor.map((s) => (
-                  <li key={s} className="flex items-start gap-2 text-sm text-muted-foreground">
-                    <CheckCircle className="w-4 h-4 text-accent mt-0.5 shrink-0" />
-                    {s}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold mb-3">What We Offer</h3>
-              <div className="grid grid-cols-1 gap-2">
-                {service.items.map((item) => (
-                  <div key={item} className="flex items-center gap-2 py-2.5 px-4 bg-muted rounded-md text-sm">
-                    <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
-                    {item}
-                  </div>
-                ))}
+            <Reveal direction="left">
+              <div>
+                <h2 className="font-display text-2xl md:text-3xl font-bold mb-4">Overview</h2>
+                <p className="text-muted-foreground leading-relaxed mb-6">{service.description}</p>
+                <h3 className="font-semibold mb-3">Suitable For</h3>
+                <ul className="space-y-2 mb-6">
+                  {service.suitableFor.map((s) => (
+                    <li key={s} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <CheckCircle className="w-4 h-4 text-accent mt-0.5 shrink-0" />
+                      {s}
+                    </li>
+                  ))}
+                </ul>
               </div>
-            </div>
+            </Reveal>
+            <Reveal direction="right" delay={150}>
+              <div>
+                <h3 className="font-semibold mb-3">What We Offer</h3>
+                <div className="grid grid-cols-1 gap-2">
+                  {service.items.map((item) => (
+                    <div key={item} className="flex items-center gap-2 py-2.5 px-4 bg-muted rounded-md text-sm transition-colors hover:bg-accent/10">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>
