@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import Reveal from "@/components/Reveal";
 
 const faqData = [
   {
@@ -41,9 +42,9 @@ const FAQ = () => {
     <main className="pt-16">
       <section className="section-padding bg-surface-dark">
         <div className="container-narrow text-center">
-          <div className="accent-line mx-auto mb-4" />
-          <h1 className="font-display text-4xl md:text-5xl font-bold text-primary-foreground mb-4">Frequently Asked Questions</h1>
-          <p className="text-primary-foreground/70 max-w-2xl mx-auto text-lg">
+          <div className="accent-line mx-auto mb-4 animate-fade-in" />
+          <h1 className="font-display text-4xl md:text-5xl font-bold text-primary-foreground mb-4 animate-slide-up" style={{ opacity: 0, animationDelay: "0.1s" }}>Frequently Asked Questions</h1>
+          <p className="text-primary-foreground/70 max-w-2xl mx-auto text-lg animate-fade-in" style={{ opacity: 0, animationDelay: "0.3s" }}>
             Common questions about our renovation services, process, pricing, and materials.
           </p>
         </div>
@@ -51,35 +52,39 @@ const FAQ = () => {
 
       <section className="section-padding bg-background">
         <div className="container-narrow max-w-3xl">
-          {faqData.map((cat) => (
-            <div key={cat.category} className="mb-10">
-              <h2 className="font-display text-xl font-bold mb-4">{cat.category}</h2>
-              <Accordion type="single" collapsible>
-                {cat.items.map((item, i) => (
-                  <AccordionItem key={i} value={`${cat.category}-${i}`}>
-                    <AccordionTrigger className="text-left text-sm font-medium">{item.q}</AccordionTrigger>
-                    <AccordionContent className="text-muted-foreground text-sm">{item.a}</AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </div>
+          {faqData.map((cat, catIdx) => (
+            <Reveal key={cat.category} delay={catIdx * 100}>
+              <div className="mb-10">
+                <h2 className="font-display text-xl font-bold mb-4">{cat.category}</h2>
+                <Accordion type="single" collapsible>
+                  {cat.items.map((item, i) => (
+                    <AccordionItem key={i} value={`${cat.category}-${i}`}>
+                      <AccordionTrigger className="text-left text-sm font-medium">{item.q}</AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground text-sm">{item.a}</AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              </div>
+            </Reveal>
           ))}
         </div>
       </section>
 
       <section className="section-padding bg-accent text-accent-foreground text-center">
-        <div className="container-narrow">
-          <h2 className="font-display text-3xl font-bold mb-4">Still Have Questions?</h2>
-          <p className="text-accent-foreground/80 mb-6">Reach out to us directly — we're happy to help.</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="secondary" size="lg" asChild>
-              <Link to="/contact">Contact Us</Link>
-            </Button>
-            <Button variant="outline" size="lg" className="border-accent-foreground/30 text-accent-foreground hover:bg-accent-foreground/10" asChild>
-              <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
-            </Button>
+        <Reveal>
+          <div className="container-narrow">
+            <h2 className="font-display text-3xl font-bold mb-4">Still Have Questions?</h2>
+            <p className="text-accent-foreground/80 mb-6">Reach out to us directly — we're happy to help.</p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button variant="secondary" size="lg" className="btn-press" asChild>
+                <Link to="/contact">Contact Us</Link>
+              </Button>
+              <Button variant="outline" size="lg" className="border-accent-foreground/30 text-accent-foreground hover:bg-accent-foreground/10 btn-press" asChild>
+                <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
+              </Button>
+            </div>
           </div>
-        </div>
+        </Reveal>
       </section>
     </main>
   );
