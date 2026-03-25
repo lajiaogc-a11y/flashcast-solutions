@@ -119,6 +119,9 @@
   .text-steel {
     color: hsl(var(--steel));
   }
+  .text-steel-light {
+    color: hsl(var(--steel-light));
+  }
   .bg-surface-dark {
     background-color: hsl(var(--surface-dark));
     color: hsl(var(--surface-dark-foreground));
@@ -135,9 +138,53 @@
   .accent-line {
     @apply w-12 h-0.5 bg-accent;
   }
+
+  /* Card hover — subtle lift + shadow */
   .hover-lift {
-    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+    @apply transition-all duration-300 ease-out hover:-translate-y-1.5;
+    &:hover {
+      box-shadow: 0 12px 32px -8px hsl(var(--foreground) / 0.1);
+    }
   }
+
+  /* Image zoom on hover (apply to parent, img inside scales) */
+  .img-zoom img {
+    @apply transition-transform duration-700 ease-out;
+  }
+  .img-zoom:hover img {
+    @apply scale-105;
+  }
+
+  /* Button press effect */
+  .btn-press {
+    @apply transition-transform duration-150 active:scale-[0.97];
+  }
+
+  /* Stagger children animation helper */
+  .stagger-children > * {
+    @apply opacity-0;
+    animation: fade-in 0.5s ease-out forwards;
+  }
+  .stagger-children > *:nth-child(1) { animation-delay: 0ms; }
+  .stagger-children > *:nth-child(2) { animation-delay: 80ms; }
+  .stagger-children > *:nth-child(3) { animation-delay: 160ms; }
+  .stagger-children > *:nth-child(4) { animation-delay: 240ms; }
+  .stagger-children > *:nth-child(5) { animation-delay: 320ms; }
+  .stagger-children > *:nth-child(6) { animation-delay: 400ms; }
+  .stagger-children > *:nth-child(7) { animation-delay: 480ms; }
+  .stagger-children > *:nth-child(8) { animation-delay: 560ms; }
+
+  /* Scrollbar hide for horizontal scroll */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar { display: none; }
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 html {
