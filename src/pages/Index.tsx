@@ -10,12 +10,12 @@ import warehouseImg from "@/assets/warehouse-shelving.jpg";
 import exteriorImg from "@/assets/exterior-works.jpg";
 
 const services = [
-  { icon: Home, title: "Interior Renovation", desc: "Complete home renovation solutions", link: "/services" },
-  { icon: Building2, title: "Commercial Renovation", desc: "Shop, office & F&B fit-outs", link: "/services" },
-  { icon: Ruler, title: "Custom Built-In", desc: "Wardrobes, cabinets & storage", link: "/services" },
-  { icon: PaintBucket, title: "Exterior Works", desc: "Shopfront, signage & façade", link: "/services" },
-  { icon: Warehouse, title: "Warehouse & Shelving", desc: "Racking & industrial solutions", link: "/services" },
-  { icon: FileCheck, title: "Design & Permitting", desc: "Plans, drawings & approvals", link: "/services" },
+  { icon: Home, title: "Interior Renovation", desc: "Complete home renovation solutions", link: "/services/renovation" },
+  { icon: Building2, title: "Commercial Renovation", desc: "Shop, office & F&B fit-outs", link: "/services/commercial" },
+  { icon: Ruler, title: "Custom Built-In", desc: "Wardrobes, cabinets & storage", link: "/services/builtin" },
+  { icon: PaintBucket, title: "Exterior Works", desc: "Shopfront, signage & façade", link: "/services/exterior" },
+  { icon: Warehouse, title: "Warehouse & Shelving", desc: "Racking & industrial solutions", link: "/services/warehouse" },
+  { icon: FileCheck, title: "Design & Permitting", desc: "Plans, drawings & approvals", link: "/services/design" },
 ];
 
 const materials = [
