@@ -28,10 +28,10 @@ const materials = [
 ];
 
 const projects = [
-  { title: "Modern Condo Renovation", type: "Residential", location: "Mont Kiara, KL", image: residentialImg },
-  { title: "Corporate Office Fit-Out", type: "Commercial", location: "Petaling Jaya", image: commercialImg },
-  { title: "Custom Kitchen & Built-In", type: "Built-In", location: "Bangsar, KL", image: kitchenImg },
-  { title: "Industrial Warehouse Setup", type: "Warehouse", location: "Shah Alam, Selangor", image: warehouseImg },
+  { title: "Modern Condo Renovation", type: "Residential", location: "Mont Kiara, KL", image: residentialImg, slug: "modern-condo-mont-kiara" },
+  { title: "Corporate Office Fit-Out", type: "Commercial", location: "Petaling Jaya", image: commercialImg, slug: "corporate-office-petaling-jaya" },
+  { title: "Custom Kitchen & Built-In", type: "Built-In", location: "Bangsar, KL", image: kitchenImg, slug: "custom-kitchen-bangsar" },
+  { title: "Industrial Warehouse Setup", type: "Warehouse", location: "Shah Alam, Selangor", image: warehouseImg, slug: "warehouse-racking-shah-alam" },
 ];
 
 const steps = [
