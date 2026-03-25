@@ -1,7 +1,33 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/hooks/use-toast";
 import { Phone } from "lucide-react";
 
+const projectTypes = [
+  "Residential Renovation",
+  "Commercial / Office Fit-Out",
+  "Custom Built-In Furniture",
+  "Kitchen Cabinet",
+  "Shop Renovation",
+  "Exterior / Shopfront Works",
+  "Warehouse & Shelving",
+  "Other",
+];
+
 const Quote = () => {
+  const { toast } = useToast();
+  const [form, setForm] = useState({
+    name: "", phone: "", email: "", projectType: "", location: "", propertySize: "", details: "",
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    toast({ title: "Quote Request Submitted!", description: "We'll contact you within 24 hours to arrange a site visit." });
+    setForm({ name: "", phone: "", email: "", projectType: "", location: "", propertySize: "", details: "" });
+  };
+
   return (
     <main className="pt-16">
       <section className="section-padding bg-surface-dark">
@@ -16,46 +42,46 @@ const Quote = () => {
 
       <section className="section-padding bg-background">
         <div className="container-narrow max-w-2xl">
-          <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
+          <form className="space-y-5" onSubmit={handleSubmit}>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium mb-1">Name *</label>
-                <input type="text" required className="w-full px-4 py-3 rounded-md border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-accent" placeholder="Your name" />
+                <Input required placeholder="Your name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} />
               </div>
               <div>
                 <label className="block text-sm font-medium mb-1">Phone *</label>
-                <input type="tel" required className="w-full px-4 py-3 rounded-md border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-accent" placeholder="+60 12-345 6789" />
+                <Input type="tel" required placeholder="+60 12-345 6789" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} />
               </div>
             </div>
             <div>
               <label className="block text-sm font-medium mb-1">Email</label>
-              <input type="email" className="w-full px-4 py-3 rounded-md border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-accent" placeholder="your@email.com" />
+              <Input type="email" placeholder="your@email.com" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} />
             </div>
             <div>
               <label className="block text-sm font-medium mb-1">Project Type *</label>
-              <select required className="w-full px-4 py-3 rounded-md border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-accent">
+              <select
+                required
+                value={form.projectType}
+                onChange={(e) => setForm({ ...form, projectType: e.target.value })}
+                className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+              >
                 <option value="">Select project type</option>
-                <option>Residential Renovation</option>
-                <option>Commercial / Office Fit-Out</option>
-                <option>Custom Built-In Furniture</option>
-                <option>Kitchen Cabinet</option>
-                <option>Shop Renovation</option>
-                <option>Exterior / Shopfront Works</option>
-                <option>Warehouse & Shelving</option>
-                <option>Other</option>
+                {projectTypes.map((t) => (
+                  <option key={t} value={t}>{t}</option>
+                ))}
               </select>
             </div>
             <div>
               <label className="block text-sm font-medium mb-1">Location *</label>
-              <input type="text" required className="w-full px-4 py-3 rounded-md border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-accent" placeholder="e.g. Mont Kiara, KL" />
+              <Input required placeholder="e.g. Mont Kiara, KL" value={form.location} onChange={(e) => setForm({ ...form, location: e.target.value })} />
             </div>
             <div>
               <label className="block text-sm font-medium mb-1">Property Size (approx.)</label>
-              <input type="text" className="w-full px-4 py-3 rounded-md border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-accent" placeholder="e.g. 1,200 sqft" />
+              <Input placeholder="e.g. 1,200 sqft" value={form.propertySize} onChange={(e) => setForm({ ...form, propertySize: e.target.value })} />
             </div>
             <div>
               <label className="block text-sm font-medium mb-1">Project Details</label>
-              <textarea rows={5} className="w-full px-4 py-3 rounded-md border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-accent resize-none" placeholder="Describe your project — what do you need? Any specific requirements?" />
+              <Textarea rows={5} placeholder="Describe your project — what do you need? Any specific requirements?" value={form.details} onChange={(e) => setForm({ ...form, details: e.target.value })} />
             </div>
             <div>
               <label className="block text-sm font-medium mb-2">Upload Photos (optional)</label>
