@@ -1,8 +1,21 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/hooks/use-toast";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 
 const Contact = () => {
+  const { toast } = useToast();
+  const [form, setForm] = useState({ name: "", phone: "", email: "", message: "" });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Mock submit — no backend call
+    toast({ title: "Message Sent!", description: "We'll get back to you within 24 hours." });
+    setForm({ name: "", phone: "", email: "", message: "" });
+  };
+
   return (
     <main className="pt-16">
       <section className="section-padding bg-surface-dark">
@@ -59,22 +72,22 @@ const Contact = () => {
 
             <div>
               <h2 className="font-display text-2xl font-bold mb-6">Send Us a Message</h2>
-              <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+              <form className="space-y-4" onSubmit={handleSubmit}>
                 <div>
                   <label className="block text-sm font-medium mb-1">Name</label>
-                  <input type="text" className="w-full px-4 py-3 rounded-md border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-accent" placeholder="Your name" />
+                  <Input placeholder="Your name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} />
                 </div>
                 <div>
                   <label className="block text-sm font-medium mb-1">Phone</label>
-                  <input type="tel" className="w-full px-4 py-3 rounded-md border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-accent" placeholder="+60 12-345 6789" />
+                  <Input type="tel" placeholder="+60 12-345 6789" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} />
                 </div>
                 <div>
                   <label className="block text-sm font-medium mb-1">Email</label>
-                  <input type="email" className="w-full px-4 py-3 rounded-md border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-accent" placeholder="your@email.com" />
+                  <Input type="email" placeholder="your@email.com" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} />
                 </div>
                 <div>
                   <label className="block text-sm font-medium mb-1">Message</label>
-                  <textarea rows={4} className="w-full px-4 py-3 rounded-md border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-accent resize-none" placeholder="Tell us about your project..." />
+                  <Textarea rows={4} placeholder="Tell us about your project..." value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} />
                 </div>
                 <Button type="submit" size="lg" className="w-full">Send Message</Button>
               </form>
