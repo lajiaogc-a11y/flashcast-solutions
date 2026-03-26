@@ -41,7 +41,7 @@ const HeroStats = () => {
 
   return (
     <div className="mt-10 animate-fade-in" style={{ animationDelay: "0.8s", opacity: 0 }}>
-      <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-0">
+      <div className="flex flex-col sm:flex-row items-center sm:justify-center gap-6 sm:gap-0">
         <div ref={projects.ref} className="text-center sm:text-left">
           <span className="font-display text-2xl sm:text-3xl font-bold leading-none block" style={{ color: "rgba(255,255,255,0.95)", textShadow: "0 2px 8px rgba(0,0,0,0.4)" }}>
             {projects.count}+
