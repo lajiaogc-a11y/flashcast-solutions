@@ -33,6 +33,7 @@ export interface MaterialItem {
   name: string;              // material name, e.g. "SPC Vinyl Flooring"
   slug: string;              // URL slug
   category: string;          // parent category name
+  subcategory: string;       // subcategory slug
   type: string;              // material type, e.g. "SPC Vinyl"
   color: string;             // color / finish name
   texture: string;           // texture description
@@ -43,10 +44,21 @@ export interface MaterialItem {
   image: string;             // product image URL
 }
 
+export interface MaterialSubcategory {
+  name: string;              // subcategory name, e.g. "Kitchen Cabinets"
+  nameZh: string;            // Chinese name, e.g. "厨柜"
+  slug: string;              // URL slug
+  description: string;       // subcategory description
+  image: string;             // subcategory thumbnail
+}
+
 export interface MaterialCategory {
-  name: string;              // category name, e.g. "Flooring"
+  name: string;              // category name, e.g. "Whole House Custom"
+  nameZh: string;            // Chinese name, e.g. "全屋定制"
   slug: string;              // URL slug
   description: string;       // category description
+  image: string;             // category thumbnail
+  subcategories: MaterialSubcategory[]; // subcategories
   items: MaterialItem[];     // materials in this category
 }
 

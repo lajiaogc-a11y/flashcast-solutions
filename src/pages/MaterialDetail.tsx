@@ -40,13 +40,13 @@ const MaterialDetail = () => {
         keywords={`${material.name}, ${material.category} KL, renovation material Malaysia`}
         canonicalPath={`/materials/${material.slug}`}
       />
-      <JsonLdBreadcrumb items={[{ name: "Home", url: "/" }, { name: "Materials", url: "/materials" }, { name: category.name, url: "/materials" }, { name: material.name, url: `/materials/${material.slug}` }]} />
+      <JsonLdBreadcrumb items={[{ name: "Home", url: "/" }, { name: "Materials", url: "/materials" }, { name: category.name, url: `/materials/category/${category.slug}` }, { name: material.name, url: `/materials/${material.slug}` }]} />
       {/* Breadcrumb */}
       <section className="bg-muted px-4 md:px-8 py-3">
         <div className="container-narrow flex items-center gap-2 text-sm text-muted-foreground">
           <Link to="/materials" className="hover:text-accent">Materials</Link>
           <span>/</span>
-          <span>{category.name}</span>
+          <Link to={`/materials/category/${category.slug}`} className="hover:text-accent">{category.name}</Link>
           <span>/</span>
           <span className="text-foreground">{material.name}</span>
         </div>

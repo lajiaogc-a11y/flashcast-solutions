@@ -9,7 +9,6 @@ import { JsonLdBreadcrumb } from "@/components/JsonLd";
 
 const MaterialCategoryPage = () => {
   const { categorySlug } = useParams<{ categorySlug: string }>();
-
   const category = materialsData.find((c) => c.slug === categorySlug);
 
   if (!category) {
@@ -24,9 +23,9 @@ const MaterialCategoryPage = () => {
   return (
     <main className="pt-16">
       <PageMeta
-        title={`${category.name} | Renovation Materials Kuala Lumpur | FLASH CAST`}
+        title={`${category.name} ${category.nameZh} | Renovation Materials | FLASH CAST`}
         description={`${category.description} Browse ${category.name.toLowerCase()} options for your renovation project in Kuala Lumpur and Selangor.`}
-        keywords={`${category.name} KL, ${category.name.toLowerCase()} renovation Malaysia, ${category.name.toLowerCase()} Kuala Lumpur`}
+        keywords={`${category.name} KL, ${category.name.toLowerCase()} renovation Malaysia`}
         canonicalPath={`/materials/category/${category.slug}`}
       />
       <JsonLdBreadcrumb items={[
@@ -36,46 +35,86 @@ const MaterialCategoryPage = () => {
       ]} />
 
       {/* Hero */}
-      <section className="bg-muted border-b border-border">
-        <div className="container-narrow px-5 md:px-8 py-12 md:py-16">
-          <Link to="/materials" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-accent mb-6 transition-colors">
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={category.image} alt={category.name} className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/35 to-transparent" />
+        </div>
+        <div className="relative z-10 container-narrow px-5 md:px-8 py-12 md:py-20">
+          <Link to="/materials" className="inline-flex items-center gap-1.5 text-sm hover:text-accent mb-6 transition-colors" style={{ color: "rgba(255,255,255,0.75)" }}>
             <ArrowLeft className="w-4 h-4" /> All Materials
           </Link>
-          <div className="accent-line mb-4" />
-          <h1 className="font-display text-3xl md:text-4xl font-bold mb-2">{category.name}</h1>
-          <p className="text-muted-foreground max-w-xl">{category.description}</p>
+          <h1 className="font-display text-3xl md:text-4xl font-bold mb-1" style={{ color: "#fff", textShadow: "0 2px 6px rgba(0,0,0,0.5)" }}>
+            {category.name}
+          </h1>
+          <p className="text-lg font-medium mb-3" style={{ color: "rgba(255,255,255,0.85)" }}>{category.nameZh}</p>
+          <p className="max-w-xl" style={{ color: "rgba(255,255,255,0.75)" }}>{category.description}</p>
         </div>
       </section>
 
-      {/* Grid */}
+      {/* Subcategories Grid */}
       <section className="section-padding bg-background">
         <div className="container-narrow">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-6">
-            {category.items.map((item, i) => (
-              <Reveal key={item.id} delay={i * 60} direction="none">
+          <Reveal>
+            <h2 className="font-display text-xl md:text-2xl font-bold mb-6">Browse Subcategories</h2>
+          </Reveal>
+
+          {/* Mobile: horizontal scroll. Desktop: grid */}
+          <div className="flex gap-4 overflow-x-auto pb-4 -mx-4 px-4 snap-x snap-mandatory scrollbar-hide md:grid md:grid-cols-3 lg:grid-cols-4 md:overflow-visible md:mx-0 md:px-0 md:pb-0 md:gap-5">
+            {category.subcategories.map((sub, i) => (
+              <Reveal key={sub.slug} delay={i * 60} direction="none">
                 <Link
-                  to={`/materials/${item.slug}`}
-                  className="group block hover-lift"
+                  to={`/materials/category/${category.slug}/${sub.slug}`}
+                  className="snap-start shrink-0 w-44 sm:w-48 md:w-auto group block hover-lift"
                 >
-                  <div className="relative overflow-hidden rounded-lg aspect-square mb-3 bg-muted border border-border img-zoom">
+                  <div className="relative overflow-hidden rounded-xl aspect-square bg-muted border border-border">
                     <img
-                      src={item.image}
-                      alt={`${item.name} - ${item.category} material for renovation in Kuala Lumpur`}
+                      src={sub.image}
+                      alt={`${sub.name} - ${sub.nameZh}`}
                       loading="lazy"
-                      width={400}
-                      height={400}
-                      className="w-full h-full object-cover"
+                      width={300}
+                      height={300}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 p-3">
+                      <h3 className="font-semibold text-sm leading-tight" style={{ color: "#fff", textShadow: "0 1px 3px rgba(0,0,0,0.5)" }}>
+                        {sub.name}
+                      </h3>
+                      <p className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.75)" }}>{sub.nameZh}</p>
+                    </div>
                   </div>
-                  <h3 className="font-semibold text-sm mb-1 group-hover:text-accent transition-colors">{item.name}</h3>
-                  <p className="text-muted-foreground text-xs">Color: {item.color}</p>
-                  <p className="text-muted-foreground text-xs">Suitable: {item.suitableSpaces.join(", ")}</p>
                 </Link>
               </Reveal>
             ))}
           </div>
         </div>
       </section>
+
+      {/* All items in this category */}
+      {category.items.length > 0 && (
+        <section className="section-padding bg-muted">
+          <div className="container-narrow">
+            <Reveal>
+              <h2 className="font-display text-xl md:text-2xl font-bold mb-6">All {category.name} Products</h2>
+            </Reveal>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5">
+              {category.items.map((item, i) => (
+                <Reveal key={item.id} delay={i * 60} direction="none">
+                  <Link to={`/materials/${item.slug}`} className="group block hover-lift">
+                    <div className="relative overflow-hidden rounded-lg aspect-square mb-3 bg-card border border-border img-zoom">
+                      <img src={item.image} alt={item.name} loading="lazy" width={400} height={400} className="w-full h-full object-cover" />
+                    </div>
+                    <h3 className="font-semibold text-sm mb-1 group-hover:text-accent transition-colors">{item.name}</h3>
+                    <p className="text-muted-foreground text-xs">Color: {item.color}</p>
+                    <p className="text-muted-foreground text-xs">Suitable: {item.suitableSpaces.join(", ")}</p>
+                  </Link>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* CTA */}
       <section className="section-padding bg-accent text-accent-foreground text-center">
