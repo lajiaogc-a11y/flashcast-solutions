@@ -41,22 +41,22 @@ const HeroStats = () => {
 
   return (
     <div className="mt-10 animate-fade-in" style={{ animationDelay: "0.8s", opacity: 0 }}>
-      <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-0">
-        <div ref={projects.ref} className="text-center sm:text-left">
+      <div className="flex flex-col sm:flex-row items-center sm:justify-center gap-6 sm:gap-0">
+        <div ref={projects.ref} className="text-center">
           <span className="font-display text-2xl sm:text-3xl font-bold leading-none block" style={{ color: "rgba(255,255,255,0.95)", textShadow: "0 2px 8px rgba(0,0,0,0.4)" }}>
             {projects.count}+
           </span>
           <span className="text-[10px] sm:text-xs font-medium tracking-wider uppercase mt-1.5 block" style={{ color: "rgba(255,255,255,0.45)" }}>Projects Completed</span>
         </div>
         <div className="hidden sm:block w-px h-10 mx-6" style={{ background: "rgba(255,255,255,0.15)" }} />
-        <div ref={years.ref} className="text-center sm:text-left">
+        <div ref={years.ref} className="text-center">
           <span className="font-display text-2xl sm:text-3xl font-bold leading-none block" style={{ color: "rgba(255,255,255,0.95)", textShadow: "0 2px 8px rgba(0,0,0,0.4)" }}>
             {years.count}+
           </span>
           <span className="text-[10px] sm:text-xs font-medium tracking-wider uppercase mt-1.5 block" style={{ color: "rgba(255,255,255,0.45)" }}>Years Experience</span>
         </div>
         <div className="hidden sm:block w-px h-10 mx-6" style={{ background: "rgba(255,255,255,0.15)" }} />
-        <div className="text-center sm:text-left">
+        <div className="text-center">
           <span className="font-display text-2xl sm:text-3xl font-bold leading-none block" style={{ color: "rgba(255,255,255,0.95)", textShadow: "0 2px 8px rgba(0,0,0,0.4)" }}>KL</span>
           <span className="text-[10px] sm:text-xs font-medium tracking-wider uppercase mt-1.5 block" style={{ color: "rgba(255,255,255,0.45)" }}>& Selangor Coverage</span>
         </div>
@@ -77,11 +77,11 @@ const HeroSection = () => {
           height={1080}
           fetchPriority="high"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/25 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/25 to-transparent md:bg-black/40 md:bg-none" />
       </div>
 
       <div className="relative z-10 container-narrow px-5 md:px-8 py-24 md:py-32 lg:py-40">
-        <div className="max-w-xl">
+        <div className="max-w-xl md:max-w-2xl md:mx-auto md:text-center">
           <p
             className="font-body font-semibold text-[11px] tracking-[0.3em] uppercase mb-6 animate-fade-in"
             style={{ animationDelay: "0.15s", color: "hsl(var(--gold))" }}
@@ -107,7 +107,7 @@ const HeroSection = () => {
           </h1>
 
           <p
-            className="text-[15px] md:text-lg leading-relaxed mb-8 max-w-md animate-fade-in"
+            className="text-[15px] md:text-lg leading-relaxed mb-8 max-w-md md:mx-auto animate-fade-in"
             style={{
               animationDelay: "0.45s",
               opacity: 0,
@@ -120,7 +120,7 @@ const HeroSection = () => {
 
           {/* CTA Buttons — icons both on left for alignment */}
           <div
-            className="flex flex-col sm:flex-row gap-3 sm:gap-4 animate-fade-in"
+            className="flex flex-col sm:flex-row sm:justify-center gap-3 sm:gap-4 animate-fade-in"
             style={{ animationDelay: "0.6s", opacity: 0 }}
           >
             <Button
