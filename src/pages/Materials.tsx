@@ -55,7 +55,7 @@ const Materials = () => {
                 <Reveal key={item.id} delay={i * 80} direction="none">
                   <Link
                     to={`/materials/${item.slug}`}
-                    className="snap-start shrink-0 w-64 md:w-72 group cursor-pointer hover-lift block"
+                    className="snap-start shrink-0 w-60 sm:w-64 md:w-72 group cursor-pointer hover-lift block"
                   >
                     <div className="relative overflow-hidden rounded-lg aspect-square mb-3 bg-muted img-zoom">
                       <img
