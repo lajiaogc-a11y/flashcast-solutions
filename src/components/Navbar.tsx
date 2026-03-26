@@ -1,19 +1,19 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone, ArrowRight } from "lucide-react";
+import { Menu, X, Phone, ArrowRight, Home, Info, Wrench, Layers, FolderOpen, GitBranch, BookOpen, HelpCircle, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logoImg from "@/assets/logo-flashcast.png";
 
 const navItems = [
-  { label: "Home", path: "/" },
-  { label: "About", path: "/about" },
-  { label: "Services", path: "/services" },
-  { label: "Materials", path: "/materials" },
-  { label: "Projects", path: "/projects" },
-  { label: "Process", path: "/process" },
-  { label: "Blog", path: "/blog" },
-  { label: "FAQ", path: "/faq" },
-  { label: "Contact", path: "/contact" },
+  { label: "Home", path: "/", icon: Home },
+  { label: "About", path: "/about", icon: Info },
+  { label: "Services", path: "/services", icon: Wrench },
+  { label: "Materials", path: "/materials", icon: Layers },
+  { label: "Projects", path: "/projects", icon: FolderOpen },
+  { label: "Process", path: "/process", icon: GitBranch },
+  { label: "Blog", path: "/blog", icon: BookOpen },
+  { label: "FAQ", path: "/faq", icon: HelpCircle },
+  { label: "Contact", path: "/contact", icon: Mail },
 ];
 
 const Navbar = () => {
@@ -27,10 +27,15 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close mobile menu on route change
   useEffect(() => {
     setIsOpen(false);
   }, [location.pathname]);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [isOpen]);
 
   return (
     <header
@@ -45,7 +50,7 @@ const Navbar = () => {
         <Link to="/" className="flex items-center shrink-0">
           <img
             src={logoImg}
-            alt="FLASH CAST SDN. BHD. - Renovation Company Kuala Lumpur"
+            alt="FLASH CAST SDN. BHD."
             className="h-8 md:h-9 w-auto object-contain"
           />
         </Link>
@@ -84,7 +89,7 @@ const Navbar = () => {
 
         {/* Mobile Toggle */}
         <button
-          className="lg:hidden p-2.5 -mr-2 rounded-md hover:bg-muted transition-colors"
+          className="lg:hidden w-10 h-10 flex items-center justify-center rounded-lg hover:bg-muted transition-colors -mr-1"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >
@@ -92,39 +97,56 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu — Full-screen overlay */}
       {isOpen && (
-        <div className="lg:hidden bg-background border-b border-border animate-fade-in" style={{ animationDuration: "0.2s" }}>
-          <nav className="flex flex-col px-4 py-3">
-            {/* Main links */}
-            <div className="space-y-0.5">
-              {navItems.map((item) => {
-                const isActive = location.pathname === item.path;
-                return (
-                  <Link
-                    key={item.path}
-                    to={item.path}
-                    className={`block py-3 px-4 rounded-md text-sm font-medium transition-colors ${
-                      isActive
-                        ? "text-accent bg-accent/8"
-                        : "text-foreground hover:bg-muted"
-                    }`}
-                  >
-                    {item.label}
-                  </Link>
-                );
-              })}
+        <div
+          className="lg:hidden fixed inset-0 top-16 z-40 bg-background animate-fade-in"
+          style={{ animationDuration: "0.15s" }}
+        >
+          <nav className="flex flex-col h-full">
+            {/* Navigation links with icons */}
+            <div className="flex-1 overflow-y-auto px-5 py-4">
+              <p className="text-[10px] font-semibold tracking-[0.2em] uppercase text-muted-foreground mb-3 px-3">
+                Navigation
+              </p>
+              <div className="space-y-0.5">
+                {navItems.map((item) => {
+                  const isActive = location.pathname === item.path;
+                  const Icon = item.icon;
+                  return (
+                    <Link
+                      key={item.path}
+                      to={item.path}
+                      className={`flex items-center gap-3 py-3.5 px-3 rounded-lg text-[15px] font-medium transition-colors ${
+                        isActive
+                          ? "text-accent bg-accent/8"
+                          : "text-foreground active:bg-muted"
+                      }`}
+                    >
+                      <Icon className={`w-[18px] h-[18px] shrink-0 ${isActive ? "text-accent" : "text-muted-foreground"}`} />
+                      {item.label}
+                    </Link>
+                  );
+                })}
+              </div>
             </div>
 
-            {/* CTA buttons */}
-            <div className="flex gap-2 mt-4 pt-4 border-t border-border">
-              <Button variant="outline" size="sm" className="flex-1" asChild>
-                <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">
-                  <Phone className="w-4 h-4 mr-1.5" /> WhatsApp
-                </a>
+            {/* Bottom CTA — fixed at bottom */}
+            <div className="border-t border-border bg-background px-5 py-4 space-y-2.5">
+              <Button size="lg" className="w-full font-semibold h-12 text-sm" asChild>
+                <Link to="/quote">
+                  Get a Free Quote <ArrowRight className="w-4 h-4 ml-2" />
+                </Link>
               </Button>
-              <Button size="sm" className="flex-1 font-semibold" asChild>
-                <Link to="/quote">Get a Quote</Link>
+              <Button
+                size="lg"
+                variant="outline"
+                className="w-full h-12 text-sm font-medium"
+                asChild
+              >
+                <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">
+                  <Phone className="w-4 h-4 mr-2 text-green-600" /> WhatsApp Us
+                </a>
               </Button>
             </div>
           </nav>
