@@ -129,7 +129,7 @@ const MaterialCategoryPage = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white/50 text-white hover:bg-white/15 hover:text-white btn-press h-12 px-8 font-semibold"
+                className="bg-white text-neutral-800 hover:bg-white/90 border-0 btn-press h-12 px-8 font-semibold shadow-md"
                 style={{ textShadow: "0 1px 3px rgba(0,0,0,0.3)" }}
                 asChild
               >

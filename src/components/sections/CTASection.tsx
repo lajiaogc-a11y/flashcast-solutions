@@ -20,7 +20,7 @@ const CTASection = () => {
             <Button
               size="lg"
               variant="outline"
-              className="border-white/50 text-white hover:bg-white/15 hover:text-white btn-press h-12 px-8 font-semibold"
+              className="bg-white text-neutral-800 hover:bg-white/90 border-0 btn-press h-12 px-8 font-semibold shadow-md"
               asChild
             >
               <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">
