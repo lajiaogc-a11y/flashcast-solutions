@@ -87,25 +87,27 @@ const HeroSection = () => {
             className="mt-10 animate-fade-in"
             style={{ animationDelay: "0.8s", opacity: 0 }}
           >
-            <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 sm:gap-0">
+            <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-0">
               {[
                 { number: "200+", label: "Projects Completed" },
                 { number: "10+", label: "Years Experience" },
                 { number: "KL", label: "& Selangor Coverage" },
               ].map((stat, i) => (
-                <div key={stat.label} className="text-center flex flex-col items-center">
+                <div key={stat.label} className="flex items-center">
                   {i > 0 && (
-                    <div className="hidden sm:block absolute h-8 w-px -ml-[1px]" style={{ background: "rgba(255,255,255,0.15)" }} />
+                    <div className="hidden sm:block w-px h-10 mx-6" style={{ background: "rgba(255,255,255,0.15)" }} />
                   )}
-                  <span
-                    className="font-display text-2xl sm:text-3xl font-bold leading-none"
-                    style={{ color: "rgba(255,255,255,0.95)", textShadow: "0 2px 8px rgba(0,0,0,0.4)" }}
-                  >
-                    {stat.number}
-                  </span>
-                  <span className="text-[10px] sm:text-xs font-medium tracking-wider uppercase mt-1.5" style={{ color: "rgba(255,255,255,0.45)" }}>
-                    {stat.label}
-                  </span>
+                  <div className="text-center sm:text-left">
+                    <span
+                      className="font-display text-2xl sm:text-3xl font-bold leading-none block"
+                      style={{ color: "rgba(255,255,255,0.95)", textShadow: "0 2px 8px rgba(0,0,0,0.4)" }}
+                    >
+                      {stat.number}
+                    </span>
+                    <span className="text-[10px] sm:text-xs font-medium tracking-wider uppercase mt-1.5 block" style={{ color: "rgba(255,255,255,0.45)" }}>
+                      {stat.label}
+                    </span>
+                  </div>
                 </div>
               ))}
             </div>
