@@ -50,7 +50,7 @@ const Materials = () => {
             </div>
           </Reveal>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {materialsData.map((cat, i) => (
               <Reveal key={cat.slug} delay={i * 80}>
                 <Link
