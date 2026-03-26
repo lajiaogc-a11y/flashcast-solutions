@@ -3,8 +3,8 @@ import Reveal from "@/components/Reveal";
 
 const GeoSection = () => {
   return (
-    <section className="py-10 md:py-14 bg-muted border-t border-border">
-      <div className="container-narrow px-5 md:px-8">
+    <section className="section-padding bg-muted border-t border-border">
+      <div className="container-narrow">
         <Reveal>
           <p className="text-muted-foreground text-sm md:text-base leading-relaxed text-center max-w-3xl mx-auto mb-4">
             <strong className="text-foreground">FLASH CAST SDN. BHD.</strong> (闪铸设计) is a professional{" "}
