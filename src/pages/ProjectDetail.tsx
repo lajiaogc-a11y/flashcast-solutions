@@ -198,9 +198,9 @@ const ProjectDetail = () => {
                 <Button variant="secondary" size="sm" className="w-full mb-2 btn-press" asChild>
                   <Link to="/quote">Get a Free Quote <ArrowRight className="w-3.5 h-3.5 ml-1" /></Link>
                 </Button>
-                <Button variant="outline" size="sm" className="w-full border-white/50 text-white hover:bg-white/15 hover:text-white btn-press" asChild>
+                <Button variant="outline" size="sm" className="w-full bg-white text-neutral-800 hover:bg-white/90 border-0 btn-press shadow-md" asChild>
                   <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">
-                    <WhatsAppIcon className="w-4 h-4 mr-1" /> WhatsApp Us
+                    <WhatsAppIcon className="w-4 h-4 mr-1 text-[#25D366]" /> WhatsApp Us
                   </a>
                 </Button>
               </div>
