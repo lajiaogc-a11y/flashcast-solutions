@@ -7,6 +7,7 @@ import commercialImg from "@/assets/services/commercial-works.jpg";
 import exteriorImg from "@/assets/services/exterior-works.jpg";
 import warehouseImg from "@/assets/services/warehouse-shelving.jpg";
 import approvalImg from "@/assets/services/approval-docs.jpg";
+import artisticCoatingImg from "@/assets/services/artistic-coating.jpg";
 
 export const servicesData: ServiceItem[] = [
   {
@@ -100,6 +101,40 @@ export const servicesData: ServiceItem[] = [
       { q: "How fast can you complete a shop renovation?", a: "A typical shop lot renovation takes 4-8 weeks depending on scope." },
     ],
     image: commercialImg,
+  },
+  {
+    id: "artistic-coating",
+    title: "Artistic Wall Coating — Remmers",
+    slug: "artistic-coating",
+    summary: "Authorized applicator for German Remmers artistic wall coatings in Malaysia. Premium textured finishes, lime-based coatings, metallic effects, and decorative plasters for luxury residential and commercial interiors.",
+    description: "FLASH CAST is an authorized applicator for Remmers, a leading German manufacturer of premium architectural coatings. Our trained technicians apply authentic European artistic wall coatings that transform ordinary walls into stunning feature surfaces. Unlike regular paint, these coatings create unique textures, depth, and visual effects that cannot be replicated by conventional methods. Each application is handcrafted — no two walls are exactly alike.\n\nOur Remmers coating range includes lime-based finishes (Kalkfarbe), metallic effects (Artisto Fill Metallic), decorative plasters (Dekorputz), Venetian-style finishes, and natural stone effects. All products are imported directly from Germany, ensuring authentic quality and durability.\n\nArtistic wall coatings are ideal for feature walls in living rooms, bedrooms, lobbies, hotel corridors, restaurant interiors, showrooms, and any space where you want a truly unique, premium finish.",
+    suitableFor: ["Homeowners wanting premium feature walls", "Interior designers seeking unique finishes", "Hotels and hospitality venues", "Restaurants and F&B interiors", "Commercial showrooms and lobbies", "Anyone who wants a one-of-a-kind wall finish"],
+    commonProjects: ["Living room TV feature wall", "Master bedroom accent wall", "Hotel lobby and corridor coating", "Restaurant interior wall finish", "Office reception feature wall", "Showroom display wall"],
+    processSteps: [
+      { title: "Consultation & Color Selection", desc: "We discuss your vision, show physical samples, and recommend coatings that suit your space and style." },
+      { title: "Surface Preparation", desc: "We prepare the wall surface — cleaning, priming, and ensuring the substrate is ready for coating." },
+      { title: "Sample Application", desc: "We apply a test patch on-site so you can see and approve the actual finish before full application." },
+      { title: "Full Application", desc: "Our trained technicians apply the coating by hand — each layer is carefully worked to achieve the desired texture." },
+      { title: "Sealing & Protection", desc: "The finished surface is sealed for durability, easy cleaning, and long-term protection." },
+    ],
+    items: [
+      "Remmers Lime-Based Coatings (Kalkfarbe)",
+      "Artisto Fill Metallic Effects",
+      "Decorative Plaster (Dekorputz)",
+      "Venetian-Style Finishes",
+      "Natural Stone & Concrete Effects",
+      "Marmorino & Stucco Finishes",
+      "Rust & Oxidation Effects",
+      "Custom Color Mixing & Matching",
+    ],
+    faqs: [
+      { q: "What is artistic wall coating and how is it different from paint?", a: "Artistic wall coatings are premium decorative finishes that create texture, depth, and visual effects on walls. Unlike regular paint which is flat and uniform, these coatings are hand-applied in multiple layers to create unique patterns and surfaces. Each wall is one-of-a-kind." },
+      { q: "Why Remmers? What makes it special?", a: "Remmers is a German manufacturer with over 75 years of experience in architectural coatings. Their products use natural ingredients like lime, marble dust, and mineral pigments. The result is breathable, durable, and environmentally friendly — far superior to generic decorative paints." },
+      { q: "How durable is artistic wall coating?", a: "When properly applied and sealed, Remmers coatings last 10-15+ years. They are washable, scratch-resistant, and maintain their appearance over time. We also provide a product warranty." },
+      { q: "How much does artistic wall coating cost per square foot?", a: "Pricing depends on the coating type and complexity. Basic lime finishes start from RM 15-25 per sqft, while premium metallic and multi-layer finishes range from RM 30-60+ per sqft. We provide a detailed quotation after consultation." },
+      { q: "Can it be applied over existing painted walls?", a: "Yes, in most cases. The existing surface needs to be in good condition and properly primed. Our team will assess the wall condition during the site visit." },
+    ],
+    image: artisticCoatingImg,
   },
   {
     id: "exterior",

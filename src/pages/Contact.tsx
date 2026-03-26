@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { MapPin, Phone, Mail, Clock, ArrowRight } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, ArrowRight, CheckCircle } from "lucide-react";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
 import Reveal from "@/components/Reveal";
 import PageMeta from "@/components/PageMeta";
 import { JsonLdBreadcrumb } from "@/components/JsonLd";
@@ -44,7 +46,7 @@ const Contact = () => {
             Contact Us
           </h1>
           <p className="max-w-xl text-base md:text-lg leading-relaxed" style={{ color: "rgba(255,255,255,0.9)", textShadow: "0 1px 4px rgba(0,0,0,0.4)" }}>
-            Get in touch with FLASH CAST for your renovation project. We serve Kuala Lumpur, Selangor, and surrounding areas.
+            Ready to start your renovation project? Get in touch with FLASH CAST — we serve Kuala Lumpur, Selangor, and surrounding areas.
           </p>
         </div>
       </section>
@@ -74,11 +76,34 @@ const Contact = () => {
                     </div>
                   ))}
                 </div>
-                <div className="mt-8">
+
+                <div className="mt-6 p-4 bg-muted rounded-lg border border-border">
+                  <h3 className="font-semibold text-sm mb-3">Our Services</h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    {[
+                      "Interior Renovation",
+                      "Custom Built-In Furniture",
+                      "Commercial Renovation",
+                      "Artistic Wall Coating",
+                      "Exterior Works",
+                      "Warehouse & Shelving",
+                    ].map((s) => (
+                      <div key={s} className="flex items-center gap-2 text-xs text-muted-foreground">
+                        <CheckCircle className="w-3.5 h-3.5 text-accent shrink-0" />
+                        {s}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="mt-6 flex flex-col sm:flex-row gap-3">
                   <Button size="lg" className="btn-press font-semibold h-12 px-8" asChild>
                     <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">
-                      <Phone className="w-4 h-4 mr-2" /> Chat on WhatsApp
+                      <WhatsAppIcon className="w-[18px] h-[18px] mr-2" /> WhatsApp Us
                     </a>
+                  </Button>
+                  <Button size="lg" variant="outline" className="btn-press font-semibold h-12 px-8" asChild>
+                    <Link to="/quote">Get a Free Quote <ArrowRight className="w-4 h-4 ml-2" /></Link>
                   </Button>
                 </div>
               </div>
@@ -89,20 +114,20 @@ const Contact = () => {
                 <h2 className="font-display text-2xl font-bold mb-6">Send Us a Message</h2>
                 <form className="space-y-4" onSubmit={handleSubmit}>
                   <div>
-                    <label className="block text-sm font-medium mb-1.5">Name</label>
-                    <Input placeholder="Your name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} />
+                    <label className="block text-sm font-medium mb-1.5">Name *</label>
+                    <Input required placeholder="Your name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-1.5">Phone</label>
-                    <Input type="tel" placeholder="+60 12-345 6789" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} />
+                    <label className="block text-sm font-medium mb-1.5">Phone / WhatsApp *</label>
+                    <Input type="tel" required placeholder="+60 12-345 6789" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} />
                   </div>
                   <div>
                     <label className="block text-sm font-medium mb-1.5">Email</label>
                     <Input type="email" placeholder="your@email.com" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-1.5">Message</label>
-                    <Textarea rows={4} placeholder="Tell us about your project..." value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} />
+                    <label className="block text-sm font-medium mb-1.5">Message *</label>
+                    <Textarea required rows={5} placeholder="Tell us about your project — what type of renovation, location, timeline, and any specific requirements..." value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} />
                   </div>
                   <Button type="submit" size="lg" className="w-full btn-press font-semibold h-12">
                     Send Message <ArrowRight className="w-4 h-4 ml-2" />
@@ -111,6 +136,45 @@ const Contact = () => {
               </div>
             </Reveal>
           </div>
+        </div>
+      </section>
+
+      {/* Map Section */}
+      <section className="section-padding bg-muted">
+        <div className="container-narrow">
+          <Reveal>
+            <div className="text-center mb-8">
+              <div className="accent-line mx-auto mb-4" />
+              <h2 className="font-display text-2xl md:text-3xl font-bold mb-3">Visit Our Office</h2>
+              <p className="text-muted-foreground text-sm">Located in Taman United, Kuala Lumpur — serving KL, Selangor, and the Klang Valley</p>
+            </div>
+          </Reveal>
+          <div className="rounded-lg overflow-hidden border border-border">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.0!2d101.68!3d3.11!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM8KwMDYnMzYuMCJOIDEwMcKwNDAnNDguMCJF!5e0!3m2!1sen!2smy!4v1600000000000"
+              width="100%"
+              height="350"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="FLASH CAST office location in Kuala Lumpur"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Internal links */}
+      <section className="py-8 bg-background border-t border-border">
+        <div className="container-narrow text-center">
+          <p className="text-muted-foreground text-sm">
+            <Link to="/services" className="text-accent hover:underline">Our Services</Link>{" · "}
+            <Link to="/projects" className="text-accent hover:underline">Projects</Link>{" · "}
+            <Link to="/materials" className="text-accent hover:underline">Materials</Link>{" · "}
+            <Link to="/faq" className="text-accent hover:underline">FAQ</Link>{" · "}
+            <Link to="/about" className="text-accent hover:underline">About Us</Link>{" · "}
+            <Link to="/blog" className="text-accent hover:underline">Blog</Link>
+          </p>
         </div>
       </section>
     </main>
