@@ -1,5 +1,13 @@
 import { ServiceItem } from "./types";
 
+import designImg from "@/assets/services/design-services.jpg";
+import builtinImg from "@/assets/services/builtin-solutions.jpg";
+import renovationImg from "@/assets/services/renovation-works.jpg";
+import commercialImg from "@/assets/services/commercial-works.jpg";
+import exteriorImg from "@/assets/services/exterior-works.jpg";
+import warehouseImg from "@/assets/services/warehouse-shelving.jpg";
+import approvalImg from "@/assets/services/approval-docs.jpg";
+
 export const servicesData: ServiceItem[] = [
   {
     id: "design",
@@ -22,7 +30,7 @@ export const servicesData: ServiceItem[] = [
       { q: "Can I see the design before construction?", a: "Yes. We provide 3D visualizations so you can see and approve the design before any work begins." },
       { q: "How long does the design process take?", a: "Typically 1-2 weeks for residential projects and 2-4 weeks for commercial projects." },
     ],
-    image: "",
+    image: designImg,
   },
   {
     id: "builtin",
@@ -45,7 +53,7 @@ export const servicesData: ServiceItem[] = [
       { q: "How long does custom furniture take?", a: "Typically 2-4 weeks from confirmed design to installation." },
       { q: "Can I choose my own handles and hardware?", a: "Yes. We offer a wide range of handles, knobs, and hardware for you to choose from." },
     ],
-    image: "",
+    image: builtinImg,
   },
   {
     id: "renovation",
@@ -68,7 +76,7 @@ export const servicesData: ServiceItem[] = [
       { q: "Can I renovate while living in the unit?", a: "It depends on the scope. For partial renovations, yes. For full renovations, we recommend temporary alternative accommodation." },
       { q: "Do you provide warranty?", a: "Yes. We provide workmanship warranty on all renovation works." },
     ],
-    image: "",
+    image: renovationImg,
   },
   {
     id: "commercial",
@@ -91,7 +99,7 @@ export const servicesData: ServiceItem[] = [
       { q: "Do you handle fire safety and signage compliance?", a: "Yes. We coordinate fire safety installations and ensure compliance with local regulations." },
       { q: "How fast can you complete a shop renovation?", a: "A typical shop lot renovation takes 4-8 weeks depending on scope." },
     ],
-    image: "",
+    image: commercialImg,
   },
   {
     id: "exterior",
@@ -112,7 +120,7 @@ export const servicesData: ServiceItem[] = [
       { q: "What types of signage do you make?", a: "We fabricate 3D lettering, lightbox signs, LED channel letters, and digital signage." },
       { q: "Do you handle local council signage permits?", a: "Yes. We assist with signage license applications with the relevant local authority." },
     ],
-    image: "",
+    image: exteriorImg,
   },
   {
     id: "warehouse",
@@ -133,7 +141,7 @@ export const servicesData: ServiceItem[] = [
       { q: "What load capacity can your racking handle?", a: "Our heavy-duty pallet racking supports up to 2,000 kg per level. Medium-duty shelving supports up to 500 kg per level." },
       { q: "Can you install in stages?", a: "Yes. We can phase the installation so your operations continue uninterrupted." },
     ],
-    image: "",
+    image: warehouseImg,
   },
   {
     id: "approval",
@@ -154,6 +162,6 @@ export const servicesData: ServiceItem[] = [
       { q: "How long does it take to get a renovation permit?", a: "Management office approvals typically take 1-2 weeks. DBKL permits may take 2-4 weeks depending on the project scope." },
       { q: "Can you handle the entire permit process?", a: "Yes. We handle everything from document preparation to submission and follow-up." },
     ],
-    image: "",
+    image: approvalImg,
   },
 ];
