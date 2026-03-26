@@ -1,5 +1,6 @@
 import Reveal from "@/components/Reveal";
 
+/** Lightweight homepage process steps — kept simple for at-a-glance overview */
 const steps = [
   { num: "01", title: "Free Consultation", desc: "Tell us about your project — we'll discuss your requirements, preferences, and budget." },
   { num: "02", title: "Site Measurement", desc: "Our team visits the site for precise on-site measurements and condition assessment." },
@@ -22,10 +23,10 @@ const ProcessSection = () => {
             </p>
           </div>
         </Reveal>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5">
           {steps.map((s, i) => (
             <Reveal key={s.num} delay={i * 100}>
-              <div className="text-center group">
+              <div className="text-center group p-5 md:p-6 rounded-lg border border-white/10 bg-white/[0.03] h-full">
                 <span className="text-gold font-display text-3xl md:text-4xl font-bold transition-transform duration-300 inline-block group-hover:scale-110">
                   {s.num}
                 </span>

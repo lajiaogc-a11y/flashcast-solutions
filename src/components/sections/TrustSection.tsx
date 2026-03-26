@@ -34,10 +34,10 @@ const TrustSection = () => {
     <section className="section-padding bg-background" id="trust">
       <div className="container-narrow">
         {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
           {stats.map((item, i) => (
             <Reveal key={item.label} delay={i * 100}>
-              <div className="text-center p-5 group">
+              <div className="text-center p-5 md:p-6 rounded-lg border border-border bg-card group h-full">
                 <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-muted flex items-center justify-center">
                   <item.icon className={`w-5 h-5 ${item.iconClass} transition-transform duration-300 group-hover:scale-110`} />
                 </div>
@@ -51,15 +51,15 @@ const TrustSection = () => {
         {/* Testimonials */}
         <Reveal delay={200}>
           <div className="mt-12">
-            <div className="text-center mb-8">
+            <div className="text-center mb-10 md:mb-14">
               <div className="accent-line mx-auto mb-4" />
               <h2 className="font-display text-2xl md:text-3xl font-bold mb-2">What Our Clients Say</h2>
               <p className="text-muted-foreground text-sm">Feedback from homeowners and businesses across KL and Selangor.</p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
               {testimonials.map((t, i) => (
                 <Reveal key={i} delay={250 + i * 100}>
-                  <div className="p-6 bg-card rounded-lg border border-border h-full flex flex-col">
+                  <div className="p-5 md:p-6 bg-card rounded-lg border border-border h-full flex flex-col">
                     <div className="flex gap-1 mb-3">
                       {[...Array(5)].map((_, j) => (
                         <Star key={j} className="w-3.5 h-3.5 text-gold fill-gold" />
