@@ -107,8 +107,8 @@ const Navbar = () => {
           className="lg:hidden fixed inset-x-0 top-16 bottom-0 z-40 bg-background animate-fade-in flex flex-col"
           style={{ animationDuration: "0.15s" }}
         >
-          {/* Navigation links with icons */}
-          <div className="flex-1 overflow-y-auto px-5 py-4">
+          {/* Navigation links */}
+          <div className="flex-1 min-h-0 overflow-y-auto px-5 py-4">
             <p className="text-[10px] font-semibold tracking-[0.2em] uppercase text-muted-foreground mb-3 px-3">
               Navigation
             </p>
@@ -120,7 +120,7 @@ const Navbar = () => {
                   <Link
                     key={item.path}
                     to={item.path}
-                    className={`flex items-center gap-3 py-3.5 px-3 rounded-lg text-[15px] font-medium transition-colors ${
+                    className={`flex items-center gap-3 py-3 px-3 rounded-lg text-[15px] font-medium transition-colors ${
                       isActive
                         ? "text-accent bg-accent/8"
                         : "text-foreground active:bg-muted"
@@ -134,21 +134,19 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Bottom CTA */}
+          {/* Bottom CTA — no icons, centered text */}
           <div className="shrink-0 border-t border-border bg-background px-5 py-4 space-y-2.5">
-            <Button size="lg" className="w-full font-semibold h-12 text-sm" asChild>
-              <Link to="/quote">
-                Get a Free Quote <ArrowRight className="w-4 h-4 ml-2" />
-              </Link>
+            <Button size="lg" className="w-full font-semibold h-12 text-sm justify-center" asChild>
+              <Link to="/quote">Get a Free Quote</Link>
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="w-full h-12 text-sm font-medium"
+              className="w-full h-12 text-sm font-medium justify-center"
               asChild
             >
               <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">
-                <WhatsAppIcon className="w-[18px] h-[18px] mr-2 text-[#25D366]" /> WhatsApp Us
+                WhatsApp Us
               </a>
             </Button>
           </div>
