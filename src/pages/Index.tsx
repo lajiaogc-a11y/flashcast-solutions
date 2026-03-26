@@ -53,11 +53,19 @@ const Index = () => {
     <main>
       <JsonLdLocalBusiness />
 
-      {/* Hero */}
+      {/* Hero — cinematic parallax-style with enhanced clarity */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
-          <img src={heroImg} alt="FLASH CAST luxury interior renovation in Kuala Lumpur" className="w-full h-full object-cover scale-105 animate-[scale-up_1.2s_ease-out_forwards]" width={1920} height={1080} />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/65 to-black/20" />
+          <img
+            src={heroImg}
+            alt="FLASH CAST luxury interior renovation in Kuala Lumpur"
+            className="w-full h-full object-cover animate-[hero-zoom_20s_ease-in-out_infinite_alternate]"
+            width={1920}
+            height={1080}
+          />
+          {/* Multi-layer overlay for text clarity without killing image */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
         </div>
         <div className="relative z-10 container-narrow px-4 md:px-8 py-32">
           <div className="max-w-xl">
@@ -67,7 +75,7 @@ const Index = () => {
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight mb-6 text-shadow-hero animate-slide-up" style={{ animationDelay: "0.3s", opacity: 0 }}>
               Complete Renovation Solutions in Kuala Lumpur
             </h1>
-            <p className="text-white/70 text-lg mb-8 leading-relaxed animate-fade-in" style={{ animationDelay: "0.5s", opacity: 0 }}>
+            <p className="text-white/80 text-lg mb-8 leading-relaxed animate-fade-in" style={{ animationDelay: "0.5s", opacity: 0 }}>
               Professional interior design, custom built-in furniture, and full renovation services.
               From concept to completion — your trusted renovation partner in Malaysia.
             </p>
@@ -75,13 +83,13 @@ const Index = () => {
               <Button size="lg" className="btn-press" asChild>
                 <Link to="/quote">Get a Free Quote <ArrowRight className="w-4 h-4 ml-2" /></Link>
               </Button>
-              <Button size="lg" variant="outline" className="bg-transparent border-white/30 text-white hover:bg-white/10 hover:text-white btn-press" asChild>
+              <Button size="lg" variant="outline" className="bg-white/10 border-white/30 text-white hover:bg-white/20 hover:text-white btn-press backdrop-blur-sm" asChild>
                 <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">
                   <Phone className="w-4 h-4 mr-2" /> WhatsApp Us
                 </a>
               </Button>
             </div>
-            <div className="flex items-center gap-4 mt-8 text-steel-light text-sm animate-fade-in" style={{ animationDelay: "0.9s", opacity: 0 }}>
+            <div className="flex items-center gap-4 mt-8 text-white/60 text-sm animate-fade-in" style={{ animationDelay: "0.9s", opacity: 0 }}>
               <span className="flex items-center gap-1"><MapPin className="w-3.5 h-3.5" /> Kuala Lumpur</span>
               <span className="flex items-center gap-1"><CheckCircle className="w-3.5 h-3.5" /> 10+ Years Experience</span>
             </div>
@@ -115,7 +123,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Materials */}
+      {/* Materials — uniform grid layout */}
       <section className="section-padding bg-muted" id="materials">
         <div className="container-narrow">
           <Reveal>
@@ -130,22 +138,22 @@ const Index = () => {
               </Link>
             </div>
           </Reveal>
-          <div className="flex gap-4 overflow-x-auto pb-4 -mx-4 px-4 snap-x snap-mandatory scrollbar-hide scroll-fade-right">
+          <div className="grid grid-cols-3 md:grid-cols-6 gap-4 md:gap-5">
             {materials.map((m, i) => (
               <Reveal key={m.name} delay={i * 60}>
                 <Link
                   to="/materials"
-                  className="snap-start shrink-0 w-[160px] md:w-[200px] group"
+                  className="group block"
                 >
-                  <div className="aspect-square rounded-lg overflow-hidden mb-2 bg-card img-zoom">
-                    <img src={m.image} alt={m.name} loading="lazy" className="w-full h-full object-cover" />
+                  <div className="aspect-square rounded-lg overflow-hidden mb-2.5 bg-card border border-border img-zoom">
+                    <img src={m.image} alt={m.name} loading="lazy" className="w-full h-full object-cover" width={200} height={200} />
                   </div>
-                  <p className="font-medium text-sm text-center group-hover:text-accent transition-colors">{m.name}</p>
+                  <p className="font-medium text-xs md:text-sm text-center group-hover:text-accent transition-colors leading-tight">{m.name}</p>
                 </Link>
               </Reveal>
             ))}
           </div>
-          <Link to="/materials" className="text-accent text-sm font-medium hover:underline sm:hidden mt-4 block text-center">
+          <Link to="/materials" className="text-accent text-sm font-medium hover:underline sm:hidden mt-6 block text-center">
             View All Materials <ArrowRight className="w-3.5 h-3.5 inline ml-1" />
           </Link>
         </div>
