@@ -114,7 +114,7 @@ const MaterialDetail = () => {
                 </Button>
                 <Button size="lg" variant="outline" asChild>
                   <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">
-                    <Phone className="w-4 h-4 mr-2" /> WhatsApp
+                    <WhatsAppIcon className="w-[18px] h-[18px] mr-2 text-[#25D366]" /> WhatsApp
                   </a>
                 </Button>
               </div>

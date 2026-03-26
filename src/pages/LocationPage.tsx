@@ -1,7 +1,8 @@
 import { useParams, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { MapPin, Phone, ArrowRight, CheckCircle } from "lucide-react";
+import { MapPin, ArrowRight, CheckCircle } from "lucide-react";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
 import residentialImg from "@/assets/residential-renovation.jpg";
 import commercialImg from "@/assets/commercial-renovation.jpg";
 import kitchenImg from "@/assets/kitchen-cabinet.jpg";
@@ -189,7 +190,7 @@ const LocationPage = () => {
             </Button>
             <Button size="lg" variant="outline" className="border-steel text-primary-foreground hover:bg-primary-foreground/10" asChild>
               <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">
-                <Phone className="w-4 h-4 mr-2" /> WhatsApp Us
+                <WhatsAppIcon className="w-[18px] h-[18px] mr-2" /> WhatsApp Us
               </a>
             </Button>
           </div>
@@ -279,7 +280,7 @@ const LocationPage = () => {
               <Link to="/quote">Get a Free Quote</Link>
             </Button>
             <Button size="lg" variant="outline" className="border-accent-foreground text-accent-foreground hover:bg-accent-foreground/10" asChild>
-              <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
+              <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer"><WhatsAppIcon className="w-[18px] h-[18px] mr-2" /> WhatsApp Us</a>
             </Button>
           </div>
         </div>

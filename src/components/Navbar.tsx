@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone, ArrowRight, Home, Info, Wrench, Layers, FolderOpen, GitBranch, BookOpen, HelpCircle, Mail } from "lucide-react";
+import { Menu, X, ArrowRight, Home, Info, Wrench, Layers, FolderOpen, GitBranch, BookOpen, HelpCircle, Mail } from "lucide-react";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
 import { Button } from "@/components/ui/button";
 import logoImg from "@/assets/logo-flashcast.png";
 
@@ -79,7 +80,7 @@ const Navbar = () => {
         <div className="hidden lg:flex items-center gap-2 shrink-0">
           <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground" asChild>
             <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">
-              <Phone className="w-4 h-4 mr-1.5" /> WhatsApp
+              <WhatsAppIcon className="w-4 h-4 mr-1.5 text-[#25D366]" /> WhatsApp
             </a>
           </Button>
           <Button size="sm" className="font-semibold" asChild>
@@ -145,7 +146,7 @@ const Navbar = () => {
                 asChild
               >
                 <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">
-                  <Phone className="w-4 h-4 mr-2 text-green-600" /> WhatsApp Us
+                  <WhatsAppIcon className="w-[18px] h-[18px] mr-2 text-[#25D366]" /> WhatsApp Us
                 </a>
               </Button>
             </div>
