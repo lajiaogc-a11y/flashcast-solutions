@@ -77,13 +77,11 @@ const HeroSection = () => {
             </Button>
             <Button
               size="lg"
-              variant="outline"
-              className="border-white text-white hover:bg-white/20 hover:text-white btn-press backdrop-blur-md font-semibold text-sm px-8 h-12 bg-white/10"
-              style={{ textShadow: "0 1px 4px rgba(0,0,0,0.5)" }}
+              className="btn-press h-12 px-8 text-sm font-semibold bg-background/95 text-foreground border border-border/70 hover:bg-background hover:text-foreground backdrop-blur-md shadow-lg"
               asChild
             >
-              <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">
-                <Phone className="w-4 h-4 mr-2" /> WhatsApp Us
+              <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer" aria-label="Contact FLASH CAST on WhatsApp">
+                <Phone className="w-4 h-4 mr-2 text-accent" /> WhatsApp Us
               </a>
             </Button>
           </div>
