@@ -33,7 +33,7 @@ const ProjectsSection = () => {
             <Reveal key={p.title} delay={i * 100}>
               <Link to={`/projects/${p.slug}`} className="group rounded-lg overflow-hidden bg-card border border-border hover-lift block">
                 <div className="aspect-[4/3] overflow-hidden img-zoom">
-                  <img src={p.image} alt={p.title} loading="lazy" width={800} height={600} className="w-full h-full object-cover" />
+                  <img src={p.image} alt={`${p.title} - ${p.type} renovation project in ${p.location}`} loading="lazy" width={800} height={600} className="w-full h-full object-cover" />
                 </div>
                 <div className="p-4 md:p-5">
                   <span className="inline-block text-accent text-[10px] font-bold uppercase tracking-widest bg-accent/10 px-2.5 py-1 rounded-sm mb-2">

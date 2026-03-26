@@ -47,7 +47,7 @@ const Materials = () => {
                     <div className="relative overflow-hidden rounded-lg aspect-square mb-3 bg-muted img-zoom">
                       <img
                         src={item.image}
-                        alt={item.name}
+                        alt={`${item.name} - ${item.category} material for renovation in Kuala Lumpur`}
                         loading="lazy"
                         width={400}
                         height={400}

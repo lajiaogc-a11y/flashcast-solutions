@@ -68,7 +68,7 @@ const Services = () => {
               </Reveal>
               <Reveal direction={i % 2 !== 0 ? "left" : "right"} delay={150}>
                 <div className={`${i % 2 !== 0 ? "lg:order-1" : ""} overflow-hidden rounded-lg img-zoom`}>
-                  <img src={imageMap[cat.slug] || residentialImg} alt={cat.title} loading="lazy" width={800} height={600} className="w-full object-cover aspect-[4/3]" />
+                  <img src={imageMap[cat.slug] || residentialImg} alt={`${cat.title} service by FLASH CAST in Kuala Lumpur`} loading="lazy" width={800} height={600} className="w-full object-cover aspect-[4/3]" />
                 </div>
               </Reveal>
             </div>

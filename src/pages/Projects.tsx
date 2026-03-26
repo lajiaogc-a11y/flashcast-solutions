@@ -73,7 +73,7 @@ const Projects = () => {
                   <div className="relative overflow-hidden rounded-lg aspect-[4/3] mb-4 img-zoom">
                     <img
                       src={typeImageMap[p.type] || residentialImg}
-                      alt={p.title}
+                      alt={`${p.title} - ${p.type} renovation in ${p.location}`}
                       loading="lazy"
                       width={800}
                       height={500}
