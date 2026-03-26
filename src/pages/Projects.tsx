@@ -116,11 +116,29 @@ const Projects = () => {
           <div className="container-narrow">
             <h2 className="font-display text-3xl font-bold mb-4">Have a Similar Project?</h2>
             <p className="text-accent-foreground/80 mb-6 max-w-lg mx-auto">Share your requirements and we'll provide a tailored proposal with accurate pricing.</p>
-            <Button variant="secondary" size="lg" className="btn-press font-semibold h-12 px-8" asChild>
-              <Link to="/quote">Get a Free Quote <ArrowRight className="w-4 h-4 ml-2" /></Link>
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <Button variant="secondary" size="lg" className="btn-press font-semibold h-12 px-8" asChild>
+                <Link to="/quote">Get a Free Quote <ArrowRight className="w-4 h-4 ml-2" /></Link>
+              </Button>
+              <Button variant="outline" size="lg" className="border-white/50 text-white hover:bg-white/15 hover:text-white btn-press h-12 px-8 font-semibold" asChild>
+                <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
+              </Button>
+            </div>
           </div>
         </Reveal>
+      </section>
+
+      {/* Internal Links */}
+      <section className="py-8 bg-background border-t border-border">
+        <div className="container-narrow text-center">
+          <p className="text-muted-foreground text-sm">
+            <Link to="/services" className="text-accent hover:underline">Services</Link>{" · "}
+            <Link to="/materials" className="text-accent hover:underline">Materials</Link>{" · "}
+            <Link to="/blog" className="text-accent hover:underline">Blog</Link>{" · "}
+            <Link to="/faq" className="text-accent hover:underline">FAQ</Link>{" · "}
+            <Link to="/contact" className="text-accent hover:underline">Contact</Link>
+          </p>
+        </div>
       </section>
     </main>
   );
