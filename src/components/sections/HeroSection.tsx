@@ -77,11 +77,11 @@ const HeroSection = () => {
           height={1080}
           fetchPriority="high"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/25 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/25 to-transparent md:bg-black/40 md:bg-none" />
       </div>
 
       <div className="relative z-10 container-narrow px-5 md:px-8 py-24 md:py-32 lg:py-40">
-        <div className="max-w-xl">
+        <div className="max-w-xl md:max-w-2xl md:mx-auto md:text-center">
           <p
             className="font-body font-semibold text-[11px] tracking-[0.3em] uppercase mb-6 animate-fade-in"
             style={{ animationDelay: "0.15s", color: "hsl(var(--gold))" }}
