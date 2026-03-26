@@ -16,12 +16,12 @@ const MaterialsSection = () => {
         </Reveal>
 
         {/* Horizontal scroll on mobile, grid on desktop */}
-        <div className="flex gap-4 overflow-x-auto pb-4 -mx-4 px-4 snap-x snap-mandatory scrollbar-hide md:flex-wrap md:justify-center md:overflow-visible md:mx-0 md:px-0 md:pb-0 md:gap-5">
+        <div className="flex gap-4 overflow-x-auto pb-4 -mx-4 px-4 snap-x snap-mandatory scrollbar-hide md:grid md:grid-cols-4 md:overflow-visible md:mx-0 md:px-0 md:pb-0 md:gap-5">
           {materialsData.map((cat, i) => (
             <Reveal key={cat.slug} delay={i * 60}>
               <Link
                 to={`/materials/category/${cat.slug}`}
-                className="snap-start shrink-0 w-32 sm:w-36 md:w-[calc(25%-15px)] group block"
+                className="snap-start shrink-0 w-32 sm:w-36 md:w-auto group block"
               >
                 <div className="aspect-square rounded-lg overflow-hidden mb-2.5 bg-card border border-border img-zoom">
                   <img src={cat.image} alt={cat.name} loading="lazy" className="w-full h-full object-cover" width={200} height={200} />
