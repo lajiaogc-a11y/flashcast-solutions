@@ -28,23 +28,24 @@ const locationLinks = [
 ];
 
 const serviceLinks = [
+  { name: "Interior Renovation", slug: "renovation" },
+  { name: "Custom Built-In Furniture", slug: "builtin" },
+  { name: "Commercial Renovation", slug: "commercial" },
+  { name: "Artistic Wall Coating", slug: "artistic-coating" },
   { name: "Design Services", slug: "design" },
-  { name: "Custom Built-In", slug: "builtin" },
-  { name: "Renovation Works", slug: "renovation" },
-  { name: "Commercial Works", slug: "commercial" },
   { name: "Exterior Works", slug: "exterior" },
   { name: "Warehouse & Shelving", slug: "warehouse" },
-  { name: "Approval & Docs", slug: "approval" },
 ];
 
 const companyLinks = [
   { name: "About Us", path: "/about" },
   { name: "Projects", path: "/projects" },
-  { name: "Materials", path: "/materials" },
+  { name: "Materials Library", path: "/materials" },
   { name: "Our Process", path: "/process" },
-  { name: "Blog / Insights", path: "/blog" },
+  { name: "Blog & Guides", path: "/blog" },
   { name: "FAQ", path: "/faq" },
-  { name: "Contact", path: "/contact" },
+  { name: "Get a Quote", path: "/quote" },
+  { name: "Contact Us", path: "/contact" },
 ];
 
 const SectionTitle = ({ children }: { children: React.ReactNode }) => (
@@ -151,11 +152,14 @@ const Footer = () => {
               <div className="mb-6">
                 <img src={logoImg} alt="FLASH CAST" className="h-10 w-auto brightness-0 invert opacity-90" />
               </div>
-              <p className="text-sm text-white/40 leading-relaxed mb-8 max-w-[280px]">
-                Professional renovation & interior design company based in Kuala Lumpur.
+              <p className="text-sm text-white/40 leading-relaxed mb-3 max-w-[300px]">
+                Professional renovation & interior design company in Kuala Lumpur, Malaysia. Specializing in residential renovation, custom built-in furniture, commercial fit-out, and artistic wall coating (German Remmers).
+              </p>
+              <p className="text-xs text-white/25 mb-8 max-w-[300px]">
+                SSM Registered · In-House Design & Build Team
               </p>
 
-              <div className="flex flex-col gap-4 text-sm text-white/45 mb-8">
+              <div className="flex flex-col gap-4 text-sm text-white/45 mb-4">
                 {[
                   { icon: MapPin, text: "94, Jalan Mega Mendung, Taman United, 58200 KL", start: true },
                   { icon: Phone, text: "+60 12-345 6789" },
@@ -169,6 +173,7 @@ const Footer = () => {
                   </span>
                 ))}
               </div>
+              <p className="text-xs text-white/25 mb-8">Mon – Sat · 9:00 AM – 6:00 PM</p>
 
               {/* Social icons */}
               <div className="flex gap-3">
@@ -220,9 +225,10 @@ const Footer = () => {
           <div className="lg:hidden">
             <div className="flex flex-col items-center mb-10">
               <img src={logoImg} alt="FLASH CAST" className="h-9 w-auto brightness-0 invert opacity-90 mb-5" />
-              <p className="text-sm text-white/40 leading-relaxed mb-7 max-w-[260px] text-center">
-                Professional renovation & interior design company based in Kuala Lumpur.
+              <p className="text-sm text-white/40 leading-relaxed mb-2 max-w-[280px] text-center">
+                Professional renovation & interior design company in Kuala Lumpur, Malaysia.
               </p>
+              <p className="text-xs text-white/25 mb-7 text-center">SSM Registered · Mon–Sat 9AM–6PM</p>
 
               <div className="flex flex-col gap-4 text-sm text-white/45 mb-7 w-full max-w-[280px]">
                 {[
