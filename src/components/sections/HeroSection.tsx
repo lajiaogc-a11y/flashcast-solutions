@@ -68,7 +68,7 @@ const HeroSection = () => {
           >
             <Button
               size="lg"
-              className="btn-press bg-accent hover:bg-accent/90 text-accent-foreground font-semibold shadow-lg shadow-accent/30 text-sm px-8 h-12"
+              className="btn-press text-sm px-10 h-13 font-bold tracking-wide shadow-xl shadow-accent/40 bg-accent hover:bg-accent/90 text-accent-foreground rounded-md"
               asChild
             >
               <Link to="/quote">
@@ -77,11 +77,11 @@ const HeroSection = () => {
             </Button>
             <Button
               size="lg"
-              className="btn-press h-12 px-8 text-sm font-semibold bg-background/95 text-foreground border border-border/70 hover:bg-background hover:text-foreground backdrop-blur-md shadow-lg"
+              className="btn-press h-13 px-8 text-sm font-semibold bg-white/90 text-neutral-800 border-0 hover:bg-white backdrop-blur-md shadow-md rounded-md"
               asChild
             >
               <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer" aria-label="Contact FLASH CAST on WhatsApp">
-                <Phone className="w-4 h-4 mr-2 text-accent" /> WhatsApp Us
+                <Phone className="w-4 h-4 mr-2 text-green-600" /> WhatsApp Us
               </a>
             </Button>
           </div>
