@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { MapPin, Phone, Mail, Facebook, Instagram, MessageCircle, ArrowRight, ChevronDown } from "lucide-react";
+import logoImg from "@/assets/logo-flashcast.png";
 
 const locationLinks = [
   { name: "Kuala Lumpur", slug: "kuala-lumpur" },

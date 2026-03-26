@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logoImg from "@/assets/logo-flashcast.png";
 
 const navItems = [
   { label: "Home", path: "/" },
@@ -41,13 +42,12 @@ const Navbar = () => {
     >
       <div className="container-narrow flex items-center justify-between h-16 px-4 md:px-8">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 shrink-0">
-          <span className="font-display text-lg md:text-xl font-bold tracking-tight text-foreground">
-            FLASH CAST
-          </span>
-          <span className="hidden sm:inline text-steel text-[10px] font-body tracking-[0.2em] uppercase font-medium">
-            SDN. BHD.
-          </span>
+        <Link to="/" className="flex items-center gap-0 shrink-0">
+          <img
+            src={logoImg}
+            alt="FLASH CAST SDN. BHD. - Renovation Company Kuala Lumpur"
+            className="h-9 md:h-10 w-auto object-contain"
+          />
         </Link>
 
         {/* Desktop Nav */}
