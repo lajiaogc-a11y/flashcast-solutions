@@ -11,7 +11,7 @@ import commercialImg from "@/assets/commercial-renovation.jpg";
 import kitchenImg from "@/assets/kitchen-cabinet.jpg";
 import warehouseImg from "@/assets/warehouse-shelving.jpg";
 import exteriorImg from "@/assets/exterior-works.jpg";
-import heroImg from "@/assets/hero-renovation-hd.jpg";
+import heroImg from "@/assets/hero-projects.jpg";
 
 const typeImageMap: Record<string, string> = {
   Residential: residentialImg,
