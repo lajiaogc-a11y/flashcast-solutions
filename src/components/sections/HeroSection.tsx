@@ -56,7 +56,7 @@ const HeroStats = () => {
           <span className="text-[10px] sm:text-xs font-medium tracking-wider uppercase mt-1.5 block" style={{ color: "rgba(255,255,255,0.45)" }}>Years Experience</span>
         </div>
         <div className="hidden sm:block w-px h-10 mx-6" style={{ background: "rgba(255,255,255,0.15)" }} />
-        <div className="text-center sm:text-left">
+        <div className="text-center">
           <span className="font-display text-2xl sm:text-3xl font-bold leading-none block" style={{ color: "rgba(255,255,255,0.95)", textShadow: "0 2px 8px rgba(0,0,0,0.4)" }}>KL</span>
           <span className="text-[10px] sm:text-xs font-medium tracking-wider uppercase mt-1.5 block" style={{ color: "rgba(255,255,255,0.45)" }}>& Selangor Coverage</span>
         </div>
