@@ -78,7 +78,7 @@ const HeroSection = () => {
             <Button
               size="lg"
               variant="outline"
-              className="border-white/60 text-white hover:bg-white/20 hover:text-white btn-press backdrop-blur-sm font-semibold text-sm px-8 h-12"
+              className="border-white text-white hover:bg-white/20 hover:text-white btn-press backdrop-blur-md font-semibold text-sm px-8 h-12 bg-white/10"
               style={{ textShadow: "0 1px 4px rgba(0,0,0,0.5)" }}
               asChild
             >
