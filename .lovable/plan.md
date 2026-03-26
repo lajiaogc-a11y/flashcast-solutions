@@ -1,26 +1,33 @@
 
 
-## Fix: Mobile Navigation Menu Links Not Visible
+## Mobile Navigation Menu Visual Enhancement
 
-### Problem
-When tapping the hamburger menu, the menu opens (X icon appears) but the 9 navigation links are invisible. The page content shows through the menu area because the mobile menu panel's `z-40` is lower than needed, and being a `fixed` child inside a `fixed` header creates stacking context issues.
+Keep the current layout and structure unchanged — only add visual polish to make the expanded mobile menu feel more premium.
 
-### Root Cause
-The mobile menu uses `fixed` positioning with `z-40` inside a header with `z-50`. Since both are `fixed`, they compete in the root stacking context, and the main page content can overlap the menu.
+### Changes (single file: `src/components/Navbar.tsx`)
 
-### Solution
+**1. Staggered entrance animation for each nav link**
+- Each link fades in and slides up with a slight delay based on its index (`style={{ animationDelay: \`${index * 40}ms\` }}`)
+- Use the existing `animate-fade-in` keyframe with `opacity-0` initial state and `animation-fill-mode: forwards`
 
-**File: `src/components/Navbar.tsx`**
+**2. Active link gets a gold left border accent**
+- Active item: add `border-l-2 border-accent` instead of just background tint
+- Slightly more visible active background: `bg-accent/10`
 
-1. Move the mobile menu **outside** the `<header>` element (render it as a sibling) so it's not constrained by the header's stacking context
-2. Increase z-index to `z-[60]` to ensure it sits above everything
-3. Ensure `bg-background` is fully opaque (no transparency)
-4. Remove `animate-fade-in` (which starts at opacity 0 with translateY) and use a simpler opacity transition or no animation to prevent the invisible state
+**3. Icon container with subtle background circle**
+- Wrap each icon in a `w-8 h-8 rounded-full flex items-center justify-center` container
+- Active: `bg-accent/15` background on the circle; Inactive: `bg-muted/50`
 
-### Technical Details
+**4. Subtle separator line between nav section and CTA**
+- Already has `border-t`, enhance with a thin gold gradient line using a pseudo-element or a small `<div>` with `bg-gradient-to-r from-transparent via-accent/30 to-transparent h-px`
 
-- Restructure the component to render the mobile menu overlay as a portal-like sibling to `<header>`, not a child
-- Use `z-[60]` on the mobile menu container
-- Replace `animate-fade-in` with a simpler `animate-in fade-in-0` from tailwindcss-animate or remove animation entirely
-- Keep the absolute positioning strategy for the scrollable nav area (`top-0 bottom-[140px]`) and fixed CTA (`bottom-0`)
+**5. Bottom CTA area polish**
+- Add `pb-safe` (safe area inset) padding for notched phones
+- WhatsApp button gets the green WhatsApp icon inline
+- Slight frosted glass feel on CTA area: `bg-background/95 backdrop-blur-sm`
+
+**6. "Navigation" label gets a small gold dot before it**
+- Prefix the section label with a `w-1.5 h-1.5 rounded-full bg-accent inline-block mr-2` dot
+
+All changes are purely decorative CSS/className modifications within the existing JSX structure — no layout or DOM restructuring.
 
