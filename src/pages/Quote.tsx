@@ -6,7 +6,7 @@ import { useToast } from "@/hooks/use-toast";
 import { Phone, ArrowRight } from "lucide-react";
 import PageMeta from "@/components/PageMeta";
 import { JsonLdBreadcrumb } from "@/components/JsonLd";
-import heroImg from "@/assets/hero-renovation-hd.jpg";
+import heroImg from "@/assets/hero-quote.jpg";
 
 const projectTypes = [
   "Residential Renovation",

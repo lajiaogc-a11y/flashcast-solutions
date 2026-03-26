@@ -7,7 +7,7 @@ import { MapPin, Phone, Mail, Clock, ArrowRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import PageMeta from "@/components/PageMeta";
 import { JsonLdBreadcrumb } from "@/components/JsonLd";
-import heroImg from "@/assets/hero-renovation-hd.jpg";
+import heroImg from "@/assets/hero-contact.jpg";
 
 const Contact = () => {
   const { toast } = useToast();

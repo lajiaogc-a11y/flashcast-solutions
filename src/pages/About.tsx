@@ -4,7 +4,7 @@ import { MapPin, Users, Target, Shield, ArrowRight, Phone } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import PageMeta from "@/components/PageMeta";
 import { JsonLdBreadcrumb } from "@/components/JsonLd";
-import heroImg from "@/assets/hero-renovation-hd.jpg";
+import heroImg from "@/assets/hero-about.jpg";
 
 const About = () => {
   return (

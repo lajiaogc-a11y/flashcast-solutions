@@ -5,7 +5,7 @@ import { materialsData } from "@/data/materials";
 import Reveal from "@/components/Reveal";
 import PageMeta from "@/components/PageMeta";
 import { JsonLdBreadcrumb } from "@/components/JsonLd";
-import heroImg from "@/assets/hero-renovation-hd.jpg";
+import heroImg from "@/assets/hero-materials.jpg";
 
 const Materials = () => {
   return (
