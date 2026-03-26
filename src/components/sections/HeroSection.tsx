@@ -26,7 +26,7 @@ const useCountUp = (end: number, duration = 1800) => {
     const startTime = performance.now();
     const step = (now: number) => {
       const progress = Math.min((now - startTime) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
       setCount(Math.round(eased * end));
       if (progress < 1) requestAnimationFrame(step);
     };
@@ -35,12 +35,13 @@ const useCountUp = (end: number, duration = 1800) => {
 
   return { count, ref };
 };
+
 const HeroStats = () => {
   const projects = useCountUp(200);
   const years = useCountUp(10);
 
   return (
-    <div className="mt-10 animate-fade-in" style={{ animationDelay: "0.8s", opacity: 0 }}>
+    <div className="mt-12 animate-fade-in" style={{ animationDelay: "0.8s", opacity: 0 }}>
       <div className="flex flex-col sm:flex-row items-center sm:justify-center gap-6 sm:gap-0">
         <div ref={projects.ref} className="text-center">
           <span className="font-display text-2xl sm:text-3xl font-bold leading-none block" style={{ color: "rgba(255,255,255,0.95)", textShadow: "0 2px 8px rgba(0,0,0,0.4)" }}>
@@ -48,14 +49,14 @@ const HeroStats = () => {
           </span>
           <span className="text-[10px] sm:text-xs font-medium tracking-wider uppercase mt-1.5 block" style={{ color: "rgba(255,255,255,0.45)" }}>Projects Completed</span>
         </div>
-        <div className="hidden sm:block w-px h-10 mx-6" style={{ background: "rgba(255,255,255,0.15)" }} />
+        <div className="hidden sm:block w-px h-10 mx-8" style={{ background: "rgba(255,255,255,0.15)" }} />
         <div ref={years.ref} className="text-center">
           <span className="font-display text-2xl sm:text-3xl font-bold leading-none block" style={{ color: "rgba(255,255,255,0.95)", textShadow: "0 2px 8px rgba(0,0,0,0.4)" }}>
             {years.count}+
           </span>
           <span className="text-[10px] sm:text-xs font-medium tracking-wider uppercase mt-1.5 block" style={{ color: "rgba(255,255,255,0.45)" }}>Years Experience</span>
         </div>
-        <div className="hidden sm:block w-px h-10 mx-6" style={{ background: "rgba(255,255,255,0.15)" }} />
+        <div className="hidden sm:block w-px h-10 mx-8" style={{ background: "rgba(255,255,255,0.15)" }} />
         <div className="text-center">
           <span className="font-display text-2xl sm:text-3xl font-bold leading-none block" style={{ color: "rgba(255,255,255,0.95)", textShadow: "0 2px 8px rgba(0,0,0,0.4)" }}>KL</span>
           <span className="text-[10px] sm:text-xs font-medium tracking-wider uppercase mt-1.5 block" style={{ color: "rgba(255,255,255,0.45)" }}>& Selangor Coverage</span>
@@ -68,29 +69,32 @@ const HeroStats = () => {
 const HeroSection = () => {
   return (
     <section className="relative min-h-[100svh] flex items-center overflow-hidden">
+      {/* Background image with Ken Burns effect — disabled for reduced motion */}
       <div className="absolute inset-0">
         <img
           src={heroImg}
           alt="FLASH CAST luxury interior renovation showroom in Kuala Lumpur"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover motion-safe:animate-[hero-ken-burns_12s_ease-in-out_infinite_alternate]"
           width={1920}
           height={1080}
           fetchPriority="high"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/25 to-transparent md:bg-black/40 md:bg-none" />
+        {/* Mobile: directional gradient | Desktop: centered overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/25 to-transparent md:bg-none" />
+        <div className="absolute inset-0 hidden md:block bg-black/40" />
       </div>
 
       <div className="relative z-10 container-narrow px-5 md:px-8 py-24 md:py-32 lg:py-40">
         <div className="max-w-xl md:max-w-2xl md:mx-auto md:text-center">
           <p
-            className="font-body font-semibold text-[11px] tracking-[0.3em] uppercase mb-6 animate-fade-in"
+            className="font-body font-semibold text-[11px] tracking-[0.3em] uppercase mb-5 animate-fade-in"
             style={{ animationDelay: "0.15s", color: "hsl(var(--gold))" }}
           >
             FLASH CAST SDN. BHD. — Kuala Lumpur
           </p>
 
           <h1
-            className="font-display text-[2rem] sm:text-[2.5rem] md:text-5xl lg:text-[3.25rem] font-bold leading-[1.12] mb-5 animate-slide-up"
+            className="font-display text-[2rem] sm:text-[2.5rem] md:text-5xl lg:text-[3.25rem] font-bold leading-[1.12] mb-6 animate-slide-up"
             style={{
               animationDelay: "0.25s",
               opacity: 0,
@@ -107,7 +111,7 @@ const HeroSection = () => {
           </h1>
 
           <p
-            className="text-[15px] md:text-lg leading-relaxed mb-8 max-w-md md:mx-auto animate-fade-in"
+            className="text-[15px] md:text-lg leading-relaxed mb-10 max-w-md md:mx-auto animate-fade-in"
             style={{
               animationDelay: "0.45s",
               opacity: 0,
@@ -118,7 +122,7 @@ const HeroSection = () => {
             Professional interior design, custom built-in furniture, and full renovation services. From concept to completion — your trusted partner in Malaysia.
           </p>
 
-          {/* CTA Buttons — icons both on left for alignment */}
+          {/* CTA Buttons */}
           <div
             className="flex flex-col sm:flex-row sm:justify-center gap-3 sm:gap-4 animate-fade-in"
             style={{ animationDelay: "0.6s", opacity: 0 }}
