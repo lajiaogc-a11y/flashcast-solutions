@@ -58,12 +58,26 @@ const About = () => {
         <Reveal>
           <div className="container-narrow">
             <div className="text-center mb-10">
-              <h2 className="font-display text-2xl md:text-3xl font-bold mb-3">Our Address</h2>
+              <h2 className="font-display text-2xl md:text-3xl font-bold mb-3">Our Location</h2>
             </div>
-            <div className="bg-background p-8 rounded-lg text-center max-w-md mx-auto hover-lift">
-              <MapPin className="w-8 h-8 text-accent mx-auto mb-3" />
-              <p className="font-semibold mb-1">FLASH CAST SDN. BHD.</p>
-              <p className="text-muted-foreground text-sm">94, Jalan Mega Mendung, Taman United,<br />58200 Kuala Lumpur, Malaysia</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch max-w-3xl mx-auto">
+              <div className="bg-background p-8 rounded-lg text-center hover-lift flex flex-col items-center justify-center">
+                <MapPin className="w-8 h-8 text-accent mx-auto mb-3" />
+                <p className="font-semibold mb-1">FLASH CAST SDN. BHD.</p>
+                <p className="text-muted-foreground text-sm">94, Jalan Mega Mendung, Taman United,<br />58200 Kuala Lumpur, Malaysia</p>
+              </div>
+              <div className="rounded-lg overflow-hidden bg-background border border-border min-h-[220px]">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.0!2d101.68!3d3.11!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM8KwMDYnMzYuMCJOIDEwMcKwNDAnNDguMCJF!5e0!3m2!1sen!2smy!4v1600000000000"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0, minHeight: "220px" }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="FLASH CAST office location"
+                />
+              </div>
             </div>
           </div>
         </Reveal>

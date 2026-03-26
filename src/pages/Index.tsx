@@ -58,10 +58,10 @@ const Index = () => {
             <p className="text-accent font-medium text-sm tracking-widest uppercase mb-4 animate-fade-in" style={{ animationDelay: "0.2s" }}>
               FLASH CAST SDN. BHD.
             </p>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight mb-6 animate-slide-up" style={{ animationDelay: "0.3s", opacity: 0 }}>
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight mb-6 text-shadow-hero animate-slide-up" style={{ animationDelay: "0.3s", opacity: 0 }}>
               Complete Renovation Solutions in Kuala Lumpur
             </h1>
-            <p className="text-steel-light text-lg mb-8 leading-relaxed animate-fade-in" style={{ animationDelay: "0.5s", opacity: 0 }}>
+            <p className="text-white/70 text-lg mb-8 leading-relaxed animate-fade-in" style={{ animationDelay: "0.5s", opacity: 0 }}>
               Professional interior design, custom built-in furniture, and full renovation services.
               From concept to completion — your trusted renovation partner in Malaysia.
             </p>
@@ -98,7 +98,7 @@ const Index = () => {
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
             {services.map((s, i) => (
               <Reveal key={s.title} delay={i * 80}>
-                <Link to={s.link} className="group p-5 md:p-6 rounded-lg border border-border bg-card hover-lift text-center block">
+                <Link to={s.link} className="group p-5 md:p-6 rounded-lg border border-border bg-card hover-lift text-center block h-full">
                   <s.icon className="w-8 h-8 mx-auto mb-3 text-accent transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3" />
                   <h3 className="font-semibold text-sm md:text-base mb-1">{s.title}</h3>
                   <p className="text-muted-foreground text-xs md:text-sm">{s.desc}</p>
@@ -124,7 +124,7 @@ const Index = () => {
               </Link>
             </div>
           </Reveal>
-          <div className="flex gap-4 overflow-x-auto pb-4 -mx-4 px-4 snap-x snap-mandatory scrollbar-hide">
+          <div className="flex gap-4 overflow-x-auto pb-4 -mx-4 px-4 snap-x snap-mandatory scrollbar-hide scroll-fade-right">
             {materials.map((m, i) => (
               <Reveal key={m.name} delay={i * 60}>
                 <Link

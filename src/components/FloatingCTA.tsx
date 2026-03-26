@@ -6,7 +6,7 @@ const FloatingCTA = () => {
       href="https://wa.me/60123456789"
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-[#25D366] text-white px-5 py-3 rounded-full shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-105 active:scale-95 animate-fade-in"
+      className="fixed bottom-8 right-5 sm:bottom-6 sm:right-6 z-50 flex items-center gap-2 bg-[#25D366] text-white px-5 py-3 rounded-full shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-105 active:scale-95 animate-fade-in"
       style={{ animationDelay: "1s", opacity: 0 }}
       aria-label="Chat on WhatsApp"
     >

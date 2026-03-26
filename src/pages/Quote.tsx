@@ -32,9 +32,9 @@ const Quote = () => {
     <main className="pt-16">
       <section className="section-padding bg-surface-dark">
         <div className="container-narrow text-center">
-          <div className="accent-line mx-auto mb-4" />
-          <h1 className="font-display text-4xl md:text-5xl font-bold text-primary-foreground mb-4">Get a Free Quote</h1>
-          <p className="text-primary-foreground/70 max-w-2xl mx-auto text-lg">
+          <div className="accent-line mx-auto mb-4 animate-fade-in" />
+          <h1 className="font-display text-4xl md:text-5xl font-bold text-primary-foreground mb-4 animate-slide-up" style={{ opacity: 0, animationDelay: "0.1s" }}>Get a Free Quote</h1>
+          <p className="text-primary-foreground/70 max-w-2xl mx-auto text-lg animate-fade-in" style={{ opacity: 0, animationDelay: "0.3s" }}>
             Tell us about your renovation project and we'll provide a detailed quotation. Free site measurement included for KL & Selangor.
           </p>
         </div>
