@@ -2,17 +2,10 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, MapPin } from "lucide-react";
 import Reveal from "@/components/Reveal";
-import residentialImg from "@/assets/residential-renovation.jpg";
-import commercialImg from "@/assets/commercial-renovation.jpg";
-import kitchenImg from "@/assets/kitchen-cabinet.jpg";
-import warehouseImg from "@/assets/warehouse-shelving.jpg";
+import { projectsData } from "@/data/projects";
 
-const projects = [
-  { title: "Modern Condo Renovation", type: "Residential", location: "Mont Kiara, KL", image: residentialImg, slug: "modern-condo-mont-kiara" },
-  { title: "Corporate Office Fit-Out", type: "Commercial", location: "Petaling Jaya", image: commercialImg, slug: "corporate-office-petaling-jaya" },
-  { title: "Custom Kitchen & Built-In", type: "Built-In", location: "Bangsar, KL", image: kitchenImg, slug: "custom-kitchen-bangsar" },
-  { title: "Industrial Warehouse Setup", type: "Warehouse", location: "Shah Alam, Selangor", image: warehouseImg, slug: "warehouse-racking-shah-alam" },
-];
+/** Show first 4 projects on homepage */
+const featured = projectsData.slice(0, 4);
 
 const ProjectsSection = () => {
   return (
@@ -28,14 +21,14 @@ const ProjectsSection = () => {
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6">
-          {projects.map((p, i) => (
-            <Reveal key={p.title} delay={i * 100}>
-              <Link to={`/projects/${p.slug}`} className="group rounded-lg overflow-hidden bg-card border border-border hover-lift block">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5">
+          {featured.map((p, i) => (
+            <Reveal key={p.slug} delay={i * 100}>
+              <Link to={`/projects/${p.slug}`} className="group rounded-lg overflow-hidden bg-card border border-border hover-lift block h-full">
                 <div className="aspect-[4/3] overflow-hidden img-zoom">
-                  <img src={p.image} alt={`${p.title} - ${p.type} renovation project in ${p.location}`} loading="lazy" width={800} height={600} className="w-full h-full object-cover" />
+                  <img src={p.thumbnail} alt={`${p.title} - ${p.type} renovation project in ${p.location}`} loading="lazy" width={800} height={600} className="w-full h-full object-cover" />
                 </div>
-                <div className="p-4 md:p-5">
+                <div className="p-5 md:p-6">
                   <span className="inline-block text-accent text-[10px] font-bold uppercase tracking-widest bg-accent/10 px-2.5 py-1 rounded-sm mb-2">
                     {p.type}
                   </span>

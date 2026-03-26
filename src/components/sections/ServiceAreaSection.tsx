@@ -30,7 +30,7 @@ const ServiceAreaSection = () => {
             <Reveal key={area.name} delay={i * 70}>
               <Link
                 to={`/locations/${area.slug}`}
-                className="group p-5 bg-background rounded-lg border border-border hover-lift block h-full transition-colors hover:border-accent/30"
+                className="group p-5 md:p-6 bg-background rounded-lg border border-border hover-lift block h-full transition-colors hover:border-accent/30"
               >
                 <div className="flex items-center gap-2 mb-2">
                   <MapPin className="w-4 h-4 text-accent" />
