@@ -104,14 +104,24 @@ const Navbar = () => {
             </Button>
           </div>
 
-          {/* Mobile Toggle */}
-          <button
-            className="lg:hidden w-10 h-10 flex items-center justify-center rounded-lg hover:bg-muted transition-colors -mr-1"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
-          >
-            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
+          {/* Mobile: Language + Toggle */}
+          <div className="lg:hidden flex items-center gap-1 -mr-1">
+            <button
+              onClick={() => setLanguage(language === "en" ? "zh" : "en")}
+              className="flex items-center gap-1 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors px-2 py-2 rounded-lg hover:bg-muted"
+              aria-label="Switch language"
+            >
+              <Globe className="w-3.5 h-3.5" />
+              <span className="font-semibold">{language === "en" ? "EN" : "中"}</span>
+            </button>
+            <button
+              className="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-muted transition-colors"
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label="Toggle menu"
+            >
+              {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
         </div>
       </header>
 
