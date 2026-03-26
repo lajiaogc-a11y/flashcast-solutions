@@ -42,11 +42,11 @@ const Navbar = () => {
     >
       <div className="container-narrow flex items-center justify-between h-16 px-4 md:px-8">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-0 shrink-0">
+        <Link to="/" className="flex items-center shrink-0">
           <img
             src={logoImg}
             alt="FLASH CAST SDN. BHD. - Renovation Company Kuala Lumpur"
-            className="h-9 md:h-10 w-auto object-contain"
+            className="h-8 md:h-9 w-auto object-contain"
           />
         </Link>
 
