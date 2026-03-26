@@ -40,14 +40,16 @@ const MaterialCategoryPage = () => {
           <img src={category.image} alt={category.name} className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/35 to-transparent" />
         </div>
-        <div className="relative z-10 container-narrow px-5 md:px-8 py-12 md:py-20">
-          <Link to="/materials" className="inline-flex items-center gap-1.5 text-sm hover:text-accent mb-6 transition-colors" style={{ color: "rgba(255,255,255,0.75)" }}>
-            <ArrowLeft className="w-4 h-4" /> All Materials
-          </Link>
-          <h1 className="font-display text-3xl md:text-4xl font-bold mb-3" style={{ color: "#fff", textShadow: "0 2px 6px rgba(0,0,0,0.5)" }}>
-            {category.name}
-          </h1>
-          <p className="max-w-xl" style={{ color: "rgba(255,255,255,0.75)" }}>{category.description}</p>
+        <div className="relative z-10 section-padding">
+          <div className="container-narrow">
+            <Link to="/materials" className="inline-flex items-center gap-1.5 text-sm hover:text-accent mb-6 transition-colors" style={{ color: "rgba(255,255,255,0.75)" }}>
+              <ArrowLeft className="w-4 h-4" /> All Materials
+            </Link>
+            <h1 className="font-display text-3xl md:text-4xl font-bold mb-3 md:text-center" style={{ color: "#fff", textShadow: "0 2px 6px rgba(0,0,0,0.5)" }}>
+              {category.name}
+            </h1>
+            <p className="max-w-xl md:mx-auto md:text-center" style={{ color: "rgba(255,255,255,0.75)" }}>{category.description}</p>
+          </div>
         </div>
       </section>
 

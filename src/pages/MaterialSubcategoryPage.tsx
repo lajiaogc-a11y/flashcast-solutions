@@ -40,13 +40,15 @@ const MaterialSubcategoryPage = () => {
 
       {/* Hero */}
       <section className="bg-muted border-b border-border">
-        <div className="container-narrow px-5 md:px-8 py-12 md:py-16">
-          <Link to={`/materials/category/${category.slug}`} className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-accent mb-6 transition-colors">
-            <ArrowLeft className="w-4 h-4" /> {category.name}
-          </Link>
-          <div className="accent-line mb-4" />
-          <h1 className="font-display text-3xl md:text-4xl font-bold mb-2">{subcategory.name}</h1>
-          <p className="text-muted-foreground max-w-xl">{subcategory.description}</p>
+        <div className="section-padding !pb-0">
+          <div className="container-narrow">
+            <Link to={`/materials/category/${category.slug}`} className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-accent mb-6 transition-colors">
+              <ArrowLeft className="w-4 h-4" /> {category.name}
+            </Link>
+            <div className="accent-line mb-4" />
+            <h1 className="font-display text-3xl md:text-4xl font-bold mb-2 md:text-center">{subcategory.name}</h1>
+            <p className="text-muted-foreground max-w-xl md:mx-auto md:text-center pb-12 md:pb-16">{subcategory.description}</p>
+          </div>
         </div>
       </section>
 
