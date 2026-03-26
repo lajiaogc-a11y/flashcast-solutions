@@ -9,6 +9,12 @@ import commercialImg from "@/assets/commercial-renovation.jpg";
 import kitchenImg from "@/assets/kitchen-cabinet.jpg";
 import warehouseImg from "@/assets/warehouse-shelving.jpg";
 import exteriorImg from "@/assets/exterior-works.jpg";
+import flooringImg from "@/assets/material-flooring.jpg";
+import tilesImg from "@/assets/material-tiles.jpg";
+import doorsImg from "@/assets/material-doors.jpg";
+import cabinetsImg from "@/assets/material-cabinets.jpg";
+import glassImg from "@/assets/material-glass.jpg";
+import boardsImg from "@/assets/material-boards.jpg";
 
 const services = [
   { icon: Home, title: "Interior Renovation", desc: "Complete home renovation solutions", link: "/services/renovation" },
@@ -20,12 +26,12 @@ const services = [
 ];
 
 const materials = [
-  { name: "Flooring", image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&h=300&fit=crop" },
-  { name: "Tiles", image: "https://images.unsplash.com/photo-1502005229762-cf1b3a49f263?w=400&h=300&fit=crop" },
-  { name: "Doors", image: "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=400&h=300&fit=crop" },
-  { name: "Cabinets", image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=300&fit=crop" },
-  { name: "Glass Doors", image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=300&fit=crop" },
-  { name: "Boards & Panels", image: "https://images.unsplash.com/photo-1541123603104-512919d6a96c?w=400&h=300&fit=crop" },
+  { name: "Flooring", image: flooringImg },
+  { name: "Tiles", image: tilesImg },
+  { name: "Doors", image: doorsImg },
+  { name: "Cabinets", image: cabinetsImg },
+  { name: "Glass Doors", image: glassImg },
+  { name: "Boards & Panels", image: boardsImg },
 ];
 
 const projects = [
@@ -51,7 +57,7 @@ const Index = () => {
       <section className="relative min-h-[90vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <img src={heroImg} alt="FLASH CAST luxury interior renovation in Kuala Lumpur" className="w-full h-full object-cover scale-105 animate-[scale-up_1.2s_ease-out_forwards]" width={1920} height={1080} />
-          <div className="absolute inset-0 bg-gradient-to-r from-foreground/90 via-foreground/70 to-foreground/30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/65 to-black/20" />
         </div>
         <div className="relative z-10 container-narrow px-4 md:px-8 py-32">
           <div className="max-w-xl">
