@@ -30,8 +30,25 @@ import flooringImg from "@/assets/category-flooring.jpg";
 import doorsWindowsImg from "@/assets/category-doors-windows.jpg";
 import wallPanelsImg from "@/assets/category-wall-panels.jpg";
 import artPaintImg from "@/assets/category-art-paint.jpg";
+import kitchenCabinetsImg from "@/assets/category-kitchen-cabinets.jpg";
 
 export const materialsData: MaterialCategory[] = [
+  {
+    name: "Kitchen Cabinets",
+    slug: "kitchen-cabinets",
+    description: "Premium custom kitchen cabinets in melamine, acrylic, lacquer, and solid wood finishes to suit every style and budget.",
+    image: kitchenCabinetsImg,
+    subcategories: [
+      { name: "Melamine Cabinets", slug: "melamine-cabinets", description: "Durable and affordable melamine-faced cabinets in a wide range of colours.", image: melamineGreyImg },
+      { name: "Acrylic Cabinets", slug: "acrylic-cabinets", description: "High-gloss acrylic doors for a sleek, modern kitchen look.", image: acrylicWhiteImg },
+      { name: "Solid Wood Cabinets", slug: "solid-wood-cabinets", description: "Premium solid timber cabinets with natural grain and lasting quality.", image: solidTeakImg },
+    ],
+    items: [
+      { id: "kc-1", name: "Melamine Cabinet - Grey Oak", slug: "melamine-cabinet-grey-oak", category: "Kitchen Cabinets", subcategory: "melamine-cabinets", type: "Melamine", color: "Grey Oak", texture: "Wood Grain", suitableSpaces: ["Kitchen"], recommendedPairing: "Pairs well with quartz countertops", description: "18mm melamine-faced particleboard with soft-close hinges. Budget-friendly and durable.", note: "Most popular choice for HDB and condo kitchens.", image: melamineGreyImg },
+      { id: "kc-2", name: "Acrylic Cabinet - High Gloss White", slug: "acrylic-cabinet-gloss-white", category: "Kitchen Cabinets", subcategory: "acrylic-cabinets", type: "Acrylic", color: "High Gloss White", texture: "Smooth Gloss", suitableSpaces: ["Kitchen"], recommendedPairing: "Complement with handle-less design", description: "High-gloss acrylic doors on moisture-resistant MDF. Mirror-like finish for a premium modern look.", note: "Fingerprint-resistant coating available.", image: acrylicWhiteImg },
+      { id: "kc-3", name: "Solid Wood Cabinet - Teak", slug: "solid-wood-cabinet-teak", category: "Kitchen Cabinets", subcategory: "solid-wood-cabinets", type: "Solid Wood", color: "Natural Teak", texture: "Natural Grain", suitableSpaces: ["Kitchen", "Wet Kitchen"], recommendedPairing: "Match with stone countertops for a warm, luxurious feel", description: "Kiln-dried solid teak cabinet with dovetail joints. Classic craftsmanship meets modern functionality.", note: "Requires periodic oiling for maintenance.", image: solidTeakImg },
+    ],
+  },
   {
     name: "Whole House Custom",
     slug: "whole-house-custom",
