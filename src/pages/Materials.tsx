@@ -12,9 +12,9 @@ const Materials = () => {
   return (
     <main className="pt-16">
       <PageMeta
-        title="Renovation Materials Library | Flooring, Tiles, Cabinets | Kuala Lumpur"
-        description="Browse FLASH CAST's curated material library — flooring, tiles, doors, cabinet finishes, glass, and boards for your renovation project in Kuala Lumpur and Selangor. Request samples and pricing."
-        keywords="renovation materials KL, flooring Kuala Lumpur, kitchen cabinet materials Malaysia, tiles Selangor, SPC vinyl flooring"
+        title="Renovation Materials Library | Flooring, Cabinets, Bathroom | Kuala Lumpur"
+        description="Browse FLASH CAST's curated material library — whole house custom cabinets, furniture, bathroom fittings, flooring, doors & windows, and wall panels for your renovation project in Kuala Lumpur."
+        keywords="renovation materials KL, kitchen cabinets Malaysia, bathroom fittings KL, flooring Kuala Lumpur, custom wardrobe Selangor"
         canonicalPath="/materials"
       />
       <JsonLdBreadcrumb items={[{ name: "Home", url: "/" }, { name: "Materials", url: "/materials" }]} />
@@ -34,50 +34,59 @@ const Materials = () => {
             Material Library
           </h1>
           <p className="max-w-xl text-base md:text-lg leading-relaxed" style={{ color: "rgba(255,255,255,0.9)", textShadow: "0 1px 4px rgba(0,0,0,0.4)" }}>
-            Browse our curated material selection for your renovation project. View finishes, textures, and styles — then contact us for samples and pricing.
+            Browse our curated selection for your renovation project — from custom cabinetry to furniture, bathroom fittings, flooring, and more.
           </p>
         </div>
       </section>
 
-      {materialsData.map((cat) => (
-        <section key={cat.slug} className="section-padding bg-background border-b border-border">
-          <div className="container-narrow">
-            <Reveal>
-              <div className="flex items-end justify-between mb-6">
-                <div>
-                  <h2 className="font-display text-2xl md:text-3xl font-bold">{cat.name}</h2>
-                  <p className="text-muted-foreground text-sm mt-1">{cat.description}</p>
-                </div>
-              </div>
-            </Reveal>
-            <div className="flex gap-5 overflow-x-auto pb-4 -mx-4 px-4 snap-x snap-mandatory scrollbar-hide">
-              {cat.items.map((item, i) => (
-                <Reveal key={item.id} delay={i * 80} direction="none">
-                  <Link
-                    to={`/materials/${item.slug}`}
-                    className="snap-start shrink-0 w-60 sm:w-64 md:w-72 group cursor-pointer hover-lift block"
-                  >
-                    <div className="relative overflow-hidden rounded-lg aspect-square mb-3 bg-muted img-zoom">
-                      <img
-                        src={item.image}
-                        alt={`${item.name} - ${item.category} material for renovation in Kuala Lumpur`}
-                        loading="lazy"
-                        width={400}
-                        height={400}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <h3 className="font-semibold text-sm mb-1 group-hover:text-accent transition-colors">{item.name}</h3>
-                    <p className="text-muted-foreground text-xs">Color: {item.color}</p>
-                    <p className="text-muted-foreground text-xs">Suitable for: {item.suitableSpaces.join(", ")}</p>
-                  </Link>
-                </Reveal>
-              ))}
+      {/* Category Grid */}
+      <section className="section-padding bg-background">
+        <div className="container-narrow">
+          <Reveal>
+            <div className="text-center mb-10">
+              <div className="accent-line mb-4 mx-auto" />
+              <h2 className="font-display text-2xl md:text-3xl font-bold mb-2">Choose by Category</h2>
+              <p className="text-muted-foreground text-sm">Select a category to explore options for your project</p>
             </div>
-          </div>
-        </section>
-      ))}
+          </Reveal>
 
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+            {materialsData.map((cat, i) => (
+              <Reveal key={cat.slug} delay={i * 80}>
+                <Link
+                  to={`/materials/category/${cat.slug}`}
+                  className="group block hover-lift"
+                >
+                  <div className="relative overflow-hidden rounded-xl aspect-[4/3] bg-muted border border-border">
+                    <img
+                      src={cat.image}
+                      alt={`${cat.name} - ${cat.nameZh}`}
+                      loading="lazy"
+                      width={400}
+                      height={300}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 p-4">
+                      <h3 className="font-display font-bold text-sm md:text-base leading-tight" style={{ color: "#fff", textShadow: "0 1px 4px rgba(0,0,0,0.5)" }}>
+                        {cat.name}
+                      </h3>
+                      <p className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.8)" }}>
+                        {cat.nameZh}
+                      </p>
+                      <p className="text-[10px] md:text-xs mt-1.5" style={{ color: "rgba(255,255,255,0.65)" }}>
+                        {cat.subcategories.length} subcategories
+                      </p>
+                    </div>
+                  </div>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
       <section className="section-padding bg-accent text-accent-foreground text-center">
         <Reveal>
           <div className="container-narrow">
