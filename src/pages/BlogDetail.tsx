@@ -109,7 +109,25 @@ const BlogDetail = () => {
           <div className="mt-10 p-6 bg-muted rounded-lg text-center">
             <h3 className="font-display text-xl font-bold mb-2">Ready to Start Your Project?</h3>
             <p className="text-muted-foreground text-sm mb-4">Get a free consultation and quotation from FLASH CAST.</p>
-            <Button asChild><Link to="/quote">Get a Free Quote <ArrowRight className="w-4 h-4 ml-2" /></Link></Button>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <Button asChild><Link to="/quote">Get a Free Quote <ArrowRight className="w-4 h-4 ml-2" /></Link></Button>
+              <Button variant="outline" asChild>
+                <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
+              </Button>
+            </div>
+          </div>
+
+          {/* Internal Links */}
+          <div className="mt-6 flex flex-wrap gap-3 justify-center text-sm">
+            <Link to="/services" className="text-accent hover:underline">Our Services</Link>
+            <span className="text-border">·</span>
+            <Link to="/projects" className="text-accent hover:underline">Projects</Link>
+            <span className="text-border">·</span>
+            <Link to="/materials" className="text-accent hover:underline">Materials</Link>
+            <span className="text-border">·</span>
+            <Link to="/faq" className="text-accent hover:underline">FAQ</Link>
+            <span className="text-border">·</span>
+            <Link to="/contact" className="text-accent hover:underline">Contact</Link>
           </div>
         </div>
       </section>
