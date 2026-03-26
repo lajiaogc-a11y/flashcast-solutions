@@ -43,6 +43,7 @@ const PageLoader = () => (
 );
 
 const App = () => (
+  <LanguageProvider>
   <HelmetProvider>
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
@@ -82,6 +83,7 @@ const App = () => (
       </TooltipProvider>
     </QueryClientProvider>
   </HelmetProvider>
+  </LanguageProvider>
 );
 
 export default App;
