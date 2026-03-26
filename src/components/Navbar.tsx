@@ -101,56 +101,54 @@ const Navbar = () => {
       {/* Mobile Menu — Full-screen overlay */}
       {isOpen && (
         <div
-          className="lg:hidden fixed inset-0 top-16 z-40 bg-background animate-fade-in"
+          className="lg:hidden fixed inset-x-0 top-16 bottom-0 z-40 bg-background animate-fade-in flex flex-col"
           style={{ animationDuration: "0.15s" }}
         >
-          <nav className="flex flex-col h-full">
-            {/* Navigation links with icons */}
-            <div className="flex-1 overflow-y-auto px-5 py-4">
-              <p className="text-[10px] font-semibold tracking-[0.2em] uppercase text-muted-foreground mb-3 px-3">
-                Navigation
-              </p>
-              <div className="space-y-0.5">
-                {navItems.map((item) => {
-                  const isActive = location.pathname === item.path;
-                  const Icon = item.icon;
-                  return (
-                    <Link
-                      key={item.path}
-                      to={item.path}
-                      className={`flex items-center gap-3 py-3.5 px-3 rounded-lg text-[15px] font-medium transition-colors ${
-                        isActive
-                          ? "text-accent bg-accent/8"
-                          : "text-foreground active:bg-muted"
-                      }`}
-                    >
-                      <Icon className={`w-[18px] h-[18px] shrink-0 ${isActive ? "text-accent" : "text-muted-foreground"}`} />
-                      {item.label}
-                    </Link>
-                  );
-                })}
-              </div>
+          {/* Navigation links with icons */}
+          <div className="flex-1 overflow-y-auto px-5 py-4">
+            <p className="text-[10px] font-semibold tracking-[0.2em] uppercase text-muted-foreground mb-3 px-3">
+              Navigation
+            </p>
+            <div className="space-y-0.5">
+              {navItems.map((item) => {
+                const isActive = location.pathname === item.path;
+                const Icon = item.icon;
+                return (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    className={`flex items-center gap-3 py-3.5 px-3 rounded-lg text-[15px] font-medium transition-colors ${
+                      isActive
+                        ? "text-accent bg-accent/8"
+                        : "text-foreground active:bg-muted"
+                    }`}
+                  >
+                    <Icon className={`w-[18px] h-[18px] shrink-0 ${isActive ? "text-accent" : "text-muted-foreground"}`} />
+                    {item.label}
+                  </Link>
+                );
+              })}
             </div>
+          </div>
 
-            {/* Bottom CTA — fixed at bottom */}
-            <div className="border-t border-border bg-background px-5 py-4 space-y-2.5">
-              <Button size="lg" className="w-full font-semibold h-12 text-sm" asChild>
-                <Link to="/quote">
-                  Get a Free Quote <ArrowRight className="w-4 h-4 ml-2" />
-                </Link>
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="w-full h-12 text-sm font-medium"
-                asChild
-              >
-                <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">
-                  <WhatsAppIcon className="w-[18px] h-[18px] mr-2 text-[#25D366]" /> WhatsApp Us
-                </a>
-              </Button>
-            </div>
-          </nav>
+          {/* Bottom CTA */}
+          <div className="shrink-0 border-t border-border bg-background px-5 py-4 space-y-2.5">
+            <Button size="lg" className="w-full font-semibold h-12 text-sm" asChild>
+              <Link to="/quote">
+                Get a Free Quote <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="w-full h-12 text-sm font-medium"
+              asChild
+            >
+              <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">
+                <WhatsAppIcon className="w-[18px] h-[18px] mr-2 text-[#25D366]" /> WhatsApp Us
+              </a>
+            </Button>
+          </div>
         </div>
       )}
     </header>
