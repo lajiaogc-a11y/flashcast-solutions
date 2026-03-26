@@ -69,7 +69,7 @@ const Index = () => {
               <Button size="lg" className="btn-press" asChild>
                 <Link to="/quote">Get a Free Quote <ArrowRight className="w-4 h-4 ml-2" /></Link>
               </Button>
-              <Button size="lg" variant="outline" className="border-steel text-primary-foreground hover:bg-primary-foreground/10 btn-press" asChild>
+              <Button size="lg" variant="outline" className="bg-transparent border-white/30 text-white hover:bg-white/10 hover:text-white btn-press" asChild>
                 <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">
                   <Phone className="w-4 h-4 mr-2" /> WhatsApp Us
                 </a>
