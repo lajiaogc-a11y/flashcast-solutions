@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { MapPin, Phone, Mail, Facebook, Instagram, MessageCircle, ArrowRight, ChevronDown } from "lucide-react";
+import logoImg from "@/assets/logo-flashcast.png";
 
 const locationLinks = [
   { name: "Kuala Lumpur", slug: "kuala-lumpur" },
@@ -129,8 +130,8 @@ const Footer = () => {
             <div className="hidden lg:grid grid-cols-12 gap-8">
               {/* Brand Column */}
               <div className="col-span-4">
-                <h3 className="font-display text-xl font-bold text-white tracking-wide mb-4">
-                  FLASH CAST
+                <h3 className="mb-5">
+                  <img src={logoImg} alt="FLASH CAST" className="h-10 w-auto brightness-0 invert opacity-90" />
                 </h3>
                 <p className="text-sm text-white/50 leading-relaxed mb-6 max-w-xs">
                   Professional renovation & interior design company based in Kuala Lumpur.
@@ -215,9 +216,9 @@ const Footer = () => {
             <div className="lg:hidden">
               {/* Brand info - centered */}
               <div className="flex flex-col items-center mb-8">
-                <h3 className="font-display text-xl font-bold text-white tracking-wide mb-3">
-                  FLASH CAST
-                </h3>
+                <div className="mb-4">
+                  <img src={logoImg} alt="FLASH CAST" className="h-9 w-auto brightness-0 invert opacity-90 mx-auto" />
+                </div>
                 <p className="text-sm text-white/50 leading-relaxed mb-5 max-w-[280px]">
                   Professional renovation & interior design company based in Kuala Lumpur.
                 </p>
