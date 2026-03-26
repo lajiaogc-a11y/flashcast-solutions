@@ -57,20 +57,23 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-1">
+        <nav className="hidden lg:flex items-center gap-0.5">
           {navItems.map((item) => {
             const isActive = location.pathname === item.path;
             return (
               <Link
                 key={item.path}
                 to={item.path}
-                className={`text-[13px] font-medium px-3 py-2 rounded-md transition-colors ${
+                className={`relative text-[13px] font-medium px-3 py-2 transition-colors ${
                   isActive
-                    ? "text-accent bg-accent/8"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                    ? "text-foreground"
+                    : "text-muted-foreground hover:text-foreground"
                 }`}
               >
                 {item.label}
+                {isActive && (
+                  <span className="absolute bottom-0 left-3 right-3 h-[2px] bg-accent rounded-full" />
+                )}
               </Link>
             );
           })}
