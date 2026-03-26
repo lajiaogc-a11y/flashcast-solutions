@@ -110,24 +110,28 @@ const Navbar = () => {
         >
           {/* Scrollable nav links */}
           <div className="absolute inset-x-0 top-0 bottom-[140px] overflow-y-auto px-5 py-4">
-            <p className="text-[10px] font-semibold tracking-[0.2em] uppercase text-muted-foreground mb-3 px-3">
+            <p className="text-[10px] font-semibold tracking-[0.2em] uppercase text-muted-foreground mb-3 px-3 flex items-center">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent inline-block mr-2" />
               Navigation
             </p>
             <div className="space-y-0.5">
-              {navItems.map((item) => {
+              {navItems.map((item, index) => {
                 const isActive = location.pathname === item.path;
                 const Icon = item.icon;
                 return (
                   <Link
                     key={item.path}
                     to={item.path}
-                    className={`flex items-center gap-3 py-3 px-3 rounded-lg text-[15px] font-medium transition-colors ${
+                    style={{ animationDelay: `${index * 40}ms` }}
+                    className={`flex items-center gap-3 py-3 px-3 rounded-lg text-[15px] font-medium transition-colors opacity-0 animate-fade-in [animation-fill-mode:forwards] ${
                       isActive
-                        ? "text-accent bg-accent/8"
+                        ? "text-accent bg-accent/10 border-l-2 border-accent"
                         : "text-foreground active:bg-muted"
                     }`}
                   >
-                    <Icon className={`w-[18px] h-[18px] shrink-0 ${isActive ? "text-accent" : "text-muted-foreground"}`} />
+                    <span className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 ${isActive ? "bg-accent/15" : "bg-muted/50"}`}>
+                      <Icon className={`w-[18px] h-[18px] ${isActive ? "text-accent" : "text-muted-foreground"}`} />
+                    </span>
                     {item.label}
                   </Link>
                 );
@@ -135,8 +139,13 @@ const Navbar = () => {
             </div>
           </div>
 
+          {/* Gold gradient separator */}
+          <div className="absolute inset-x-0 bottom-[140px] z-10">
+            <div className="h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
+          </div>
+
           {/* Fixed bottom CTA */}
-          <div className="absolute inset-x-0 bottom-0 border-t border-border bg-background px-5 py-4 space-y-2.5">
+          <div className="absolute inset-x-0 bottom-0 border-t border-border bg-background/95 backdrop-blur-sm px-5 py-4 pb-[max(1rem,env(safe-area-inset-bottom))] space-y-2.5">
             <Button size="lg" className="w-full font-semibold h-12 text-sm justify-center" asChild>
               <Link to="/quote">Get a Free Quote</Link>
             </Button>
@@ -147,6 +156,7 @@ const Navbar = () => {
               asChild
             >
               <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">
+                <WhatsAppIcon className="w-4 h-4 mr-1.5 text-[#25D366]" />
                 WhatsApp Us
               </a>
             </Button>
