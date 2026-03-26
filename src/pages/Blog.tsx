@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Clock, Tag } from "lucide-react";
 import { blogPosts } from "@/data/blog";
+import PageMeta from "@/components/PageMeta";
+import { JsonLdBreadcrumb } from "@/components/JsonLd";
 
 const categories = ["All", "Guides", "Materials", "Inspiration"];
 
@@ -13,6 +15,13 @@ const Blog = () => {
 
   return (
     <main className="pt-16">
+      <PageMeta
+        title="Renovation Blog & Insights | Tips & Guides | FLASH CAST Kuala Lumpur"
+        description="Renovation guides, material comparisons, design tips, and industry insights for homeowners and businesses in Kuala Lumpur and Malaysia by FLASH CAST."
+        keywords="renovation blog Malaysia, interior design tips KL, renovation guide Kuala Lumpur"
+        canonicalPath="/blog"
+      />
+      <JsonLdBreadcrumb items={[{ name: "Home", url: "/" }, { name: "Blog", url: "/blog" }]} />
       <section className="section-padding bg-surface-dark">
         <div className="container-narrow">
           <div className="accent-line mb-4" />

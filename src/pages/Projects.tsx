@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import { MapPin } from "lucide-react";
 import { projectsData } from "@/data/projects";
 import Reveal from "@/components/Reveal";
+import PageMeta from "@/components/PageMeta";
+import { JsonLdBreadcrumb } from "@/components/JsonLd";
 import residentialImg from "@/assets/residential-renovation.jpg";
 import commercialImg from "@/assets/commercial-renovation.jpg";
 import kitchenImg from "@/assets/kitchen-cabinet.jpg";
@@ -27,6 +29,13 @@ const Projects = () => {
 
   return (
     <main className="pt-16">
+      <PageMeta
+        title="Renovation Projects Kuala Lumpur & Selangor | FLASH CAST Portfolio"
+        description="Explore completed renovation projects by FLASH CAST across Kuala Lumpur and Selangor — residential condos, commercial offices, custom kitchens, warehouses, and shopfront renovations."
+        keywords="renovation projects KL, condo renovation Kuala Lumpur, office fit-out Selangor, kitchen renovation Malaysia"
+        canonicalPath="/projects"
+      />
+      <JsonLdBreadcrumb items={[{ name: "Home", url: "/" }, { name: "Projects", url: "/projects" }]} />
       <section className="section-padding bg-surface-dark">
         <div className="container-narrow text-center">
           <div className="accent-line mx-auto mb-4 animate-fade-in" />

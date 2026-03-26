@@ -2,6 +2,8 @@ import { useParams, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, ArrowRight, MapPin, Clock, CheckCircle, Star } from "lucide-react";
 import { projectsData } from "@/data/projects";
+import PageMeta from "@/components/PageMeta";
+import { JsonLdBreadcrumb } from "@/components/JsonLd";
 import residentialImg from "@/assets/residential-renovation.jpg";
 import commercialImg from "@/assets/commercial-renovation.jpg";
 import kitchenImg from "@/assets/kitchen-cabinet.jpg";
@@ -36,6 +38,13 @@ const ProjectDetail = () => {
 
   return (
     <main className="pt-16">
+      <PageMeta
+        title={`${project.title} | ${project.location} | FLASH CAST Renovation`}
+        description={`${project.description.slice(0, 155)}...`}
+        keywords={`${project.type} renovation ${project.location}, ${project.title}, renovation project Malaysia`}
+        canonicalPath={`/projects/${project.slug}`}
+      />
+      <JsonLdBreadcrumb items={[{ name: "Home", url: "/" }, { name: "Projects", url: "/projects" }, { name: project.title, url: `/projects/${project.slug}` }]} />
       {/* Hero */}
       <section className="relative min-h-[50vh] flex items-end">
         <div className="absolute inset-0">

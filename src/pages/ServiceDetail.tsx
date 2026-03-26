@@ -4,6 +4,8 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { ArrowRight, ArrowLeft, CheckCircle, Phone } from "lucide-react";
 import { servicesData } from "@/data/services";
 import Reveal from "@/components/Reveal";
+import PageMeta from "@/components/PageMeta";
+import { JsonLdService, JsonLdBreadcrumb, JsonLdFAQ } from "@/components/JsonLd";
 import residentialImg from "@/assets/residential-renovation.jpg";
 import commercialImg from "@/assets/commercial-renovation.jpg";
 import kitchenImg from "@/assets/kitchen-cabinet.jpg";
@@ -37,6 +39,15 @@ const ServiceDetail = () => {
 
   return (
     <main className="pt-16">
+      <PageMeta
+        title={`${service.title} Kuala Lumpur | FLASH CAST Renovation Services`}
+        description={service.summary}
+        keywords={`${service.title} KL, ${service.title} Malaysia, renovation Kuala Lumpur`}
+        canonicalPath={`/services/${service.slug}`}
+      />
+      <JsonLdService name={service.title} description={service.summary} />
+      <JsonLdBreadcrumb items={[{ name: "Home", url: "/" }, { name: "Services", url: "/services" }, { name: service.title, url: `/services/${service.slug}` }]} />
+      <JsonLdFAQ faqs={service.faqs.map(f => ({ question: f.q, answer: f.a }))} />
       {/* Hero */}
       <section className="relative min-h-[50vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">

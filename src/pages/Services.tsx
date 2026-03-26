@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { servicesData } from "@/data/services";
 import Reveal from "@/components/Reveal";
+import PageMeta from "@/components/PageMeta";
+import { JsonLdBreadcrumb } from "@/components/JsonLd";
 import residentialImg from "@/assets/residential-renovation.jpg";
 import commercialImg from "@/assets/commercial-renovation.jpg";
 import kitchenImg from "@/assets/kitchen-cabinet.jpg";
@@ -22,6 +24,13 @@ const imageMap: Record<string, string> = {
 const Services = () => {
   return (
     <main className="pt-16">
+      <PageMeta
+        title="Renovation Services Kuala Lumpur | Interior, Built-In & Commercial"
+        description="Explore FLASH CAST's comprehensive renovation services in Kuala Lumpur and Selangor — interior design, custom built-in furniture, commercial fit-out, exterior works, and warehouse solutions."
+        keywords="renovation services KL, interior design Kuala Lumpur, custom built-in Malaysia, commercial renovation Selangor, shop renovation KL"
+        canonicalPath="/services"
+      />
+      <JsonLdBreadcrumb items={[{ name: "Home", url: "/" }, { name: "Services", url: "/services" }]} />
       <section className="section-padding bg-surface-dark">
         <div className="container-narrow text-center">
           <div className="accent-line mx-auto mb-4 animate-fade-in" />

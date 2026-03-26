@@ -2,10 +2,19 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { MapPin, Users, Target, Shield } from "lucide-react";
 import Reveal from "@/components/Reveal";
+import PageMeta from "@/components/PageMeta";
+import { JsonLdBreadcrumb } from "@/components/JsonLd";
 
 const About = () => {
   return (
     <main className="pt-16">
+      <PageMeta
+        title="About FLASH CAST | Renovation Company in Kuala Lumpur"
+        description="FLASH CAST SDN. BHD. is a registered renovation and interior design company based in Kuala Lumpur, Malaysia. We provide complete renovation solutions — design, custom built-in, construction, and project coordination across KL and Selangor."
+        keywords="about FLASH CAST, renovation company KL, interior design company Malaysia, SSM registered renovation"
+        canonicalPath="/about"
+      />
+      <JsonLdBreadcrumb items={[{ name: "Home", url: "/" }, { name: "About", url: "/about" }]} />
       <section className="section-padding bg-surface-dark">
         <div className="container-narrow text-center">
           <div className="accent-line mx-auto mb-4 animate-fade-in" />

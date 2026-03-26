@@ -3,10 +3,19 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { materialsData } from "@/data/materials";
 import Reveal from "@/components/Reveal";
+import PageMeta from "@/components/PageMeta";
+import { JsonLdBreadcrumb } from "@/components/JsonLd";
 
 const Materials = () => {
   return (
     <main className="pt-16">
+      <PageMeta
+        title="Renovation Materials Library | Flooring, Tiles, Cabinets | Kuala Lumpur"
+        description="Browse FLASH CAST's curated material library — flooring, tiles, doors, cabinet finishes, glass, and boards for your renovation project in Kuala Lumpur and Selangor. Request samples and pricing."
+        keywords="renovation materials KL, flooring Kuala Lumpur, kitchen cabinet materials Malaysia, tiles Selangor, SPC vinyl flooring"
+        canonicalPath="/materials"
+      />
+      <JsonLdBreadcrumb items={[{ name: "Home", url: "/" }, { name: "Materials", url: "/materials" }]} />
       <section className="section-padding bg-surface-dark">
         <div className="container-narrow text-center">
           <div className="accent-line mx-auto mb-4 animate-fade-in" />

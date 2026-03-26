@@ -4,6 +4,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Phone } from "lucide-react";
+import PageMeta from "@/components/PageMeta";
+import { JsonLdBreadcrumb } from "@/components/JsonLd";
 
 const projectTypes = [
   "Residential Renovation",
@@ -30,6 +32,13 @@ const Quote = () => {
 
   return (
     <main className="pt-16">
+      <PageMeta
+        title="Get a Free Renovation Quote | Kuala Lumpur & Selangor | FLASH CAST"
+        description="Request a free renovation quotation from FLASH CAST SDN. BHD. Free site measurement included for Kuala Lumpur and Selangor. Interior renovation, custom built-in, and commercial works."
+        keywords="free renovation quote KL, renovation quotation Malaysia, site measurement Kuala Lumpur"
+        canonicalPath="/quote"
+      />
+      <JsonLdBreadcrumb items={[{ name: "Home", url: "/" }, { name: "Get a Quote", url: "/quote" }]} />
       <section className="section-padding bg-surface-dark">
         <div className="container-narrow text-center">
           <div className="accent-line mx-auto mb-4 animate-fade-in" />

@@ -2,6 +2,8 @@ import { useParams, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Clock, Tag, ArrowRight } from "lucide-react";
 import { blogPosts } from "@/data/blog";
+import PageMeta from "@/components/PageMeta";
+import { JsonLdBreadcrumb } from "@/components/JsonLd";
 
 const BlogDetail = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -60,6 +62,14 @@ const BlogDetail = () => {
 
   return (
     <main className="pt-16">
+      <PageMeta
+        title={`${post.title} | FLASH CAST Renovation Blog`}
+        description={post.excerpt}
+        keywords={post.tags.join(", ")}
+        canonicalPath={`/blog/${post.slug}`}
+        ogType="article"
+      />
+      <JsonLdBreadcrumb items={[{ name: "Home", url: "/" }, { name: "Blog", url: "/blog" }, { name: post.title, url: `/blog/${post.slug}` }]} />
       <section className="section-padding bg-surface-dark">
         <div className="container-narrow max-w-3xl">
           <Link to="/blog" className="inline-flex items-center gap-1 text-steel text-sm hover:text-accent transition-colors mb-6">
