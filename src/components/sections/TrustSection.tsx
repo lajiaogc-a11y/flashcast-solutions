@@ -1,4 +1,4 @@
-import { Star, CheckCircle, MapPin, Clock, Shield } from "lucide-react";
+import { Star, CheckCircle, MapPin, Clock, Shield, Users } from "lucide-react";
 import Reveal from "@/components/Reveal";
 
 const stats = [
@@ -8,9 +8,30 @@ const stats = [
   { icon: Clock, value: "On-Time", label: "Delivery Guarantee", iconClass: "text-gold" },
 ];
 
+const testimonials = [
+  {
+    text: "FLASH CAST delivered our office renovation on time and within budget. Professional team, quality workmanship, and excellent communication throughout the project.",
+    client: "Corporate Client",
+    location: "Petaling Jaya",
+    type: "Office Fit-Out",
+  },
+  {
+    text: "We chose FLASH CAST for our condo renovation in Mont Kiara. The 3D design was exactly what we wanted, and the final result exceeded our expectations. Highly recommended.",
+    client: "Homeowner",
+    location: "Mont Kiara, KL",
+    type: "Condo Renovation",
+  },
+  {
+    text: "Very satisfied with the kitchen cabinet work. The team was punctual, materials were as promised, and the soft-close hardware works perfectly. Will definitely use them again.",
+    client: "Homeowner",
+    location: "Bangsar, KL",
+    type: "Custom Kitchen",
+  },
+];
+
 const TrustSection = () => {
   return (
-    <section className="section-padding bg-background">
+    <section className="section-padding bg-background" id="trust">
       <div className="container-narrow">
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
@@ -27,34 +48,53 @@ const TrustSection = () => {
           ))}
         </div>
 
-        {/* Testimonial */}
+        {/* Testimonials */}
         <Reveal delay={200}>
-          <div className="mt-12 p-6 md:p-8 bg-muted rounded-lg border border-border">
-            <div className="flex items-start gap-4">
-              <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center shrink-0">
-                <Star className="w-4 h-4 text-gold" />
-              </div>
-              <div>
-                <p className="italic text-foreground mb-2 text-sm md:text-base leading-relaxed">
-                  "FLASH CAST delivered our office renovation on time and within budget. Professional team, quality workmanship, and excellent communication throughout the project."
-                </p>
-                <p className="text-sm text-muted-foreground font-medium">— Corporate Client, Petaling Jaya</p>
-              </div>
+          <div className="mt-12">
+            <div className="text-center mb-8">
+              <div className="accent-line mx-auto mb-4" />
+              <h2 className="font-display text-2xl md:text-3xl font-bold mb-2">What Our Clients Say</h2>
+              <p className="text-muted-foreground text-sm">Feedback from homeowners and businesses across KL and Selangor.</p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+              {testimonials.map((t, i) => (
+                <Reveal key={i} delay={250 + i * 100}>
+                  <div className="p-6 bg-card rounded-lg border border-border h-full flex flex-col">
+                    <div className="flex gap-1 mb-3">
+                      {[...Array(5)].map((_, j) => (
+                        <Star key={j} className="w-3.5 h-3.5 text-gold fill-gold" />
+                      ))}
+                    </div>
+                    <p className="italic text-foreground text-sm leading-relaxed mb-4 flex-1">
+                      "{t.text}"
+                    </p>
+                    <div className="pt-3 border-t border-border">
+                      <p className="text-sm font-medium">{t.client}</p>
+                      <p className="text-xs text-muted-foreground">{t.type} · {t.location}</p>
+                    </div>
+                  </div>
+                </Reveal>
+              ))}
             </div>
           </div>
         </Reveal>
 
-        {/* Design + Build */}
-        <Reveal delay={300}>
-          <div className="mt-8 flex flex-col md:flex-row items-center justify-center gap-6 text-center">
+        {/* Trust badges */}
+        <Reveal delay={500}>
+          <div className="mt-10 flex flex-col md:flex-row items-center justify-center gap-6 text-center">
             <div className="flex items-center gap-2 text-muted-foreground text-sm">
               <Shield className="w-4 h-4 text-accent" />
-              <span className="font-medium">Design + Build Under One Roof</span>
+              <span className="font-medium">SSM Registered Company</span>
+            </div>
+            <div className="hidden md:block w-px h-5 bg-border" />
+            <div className="flex items-center gap-2 text-muted-foreground text-sm">
+              <Users className="w-4 h-4 text-accent" />
+              <span className="font-medium">In-House Design & Build Team</span>
             </div>
             <div className="hidden md:block w-px h-5 bg-border" />
             <div className="flex items-center gap-2 text-muted-foreground text-sm">
               <MapPin className="w-4 h-4 text-accent" />
-              <span className="font-medium">94, Jalan Mega Mendung, 58200 Kuala Lumpur</span>
+              <span className="font-medium">94, Jalan Mega Mendung, 58200 KL</span>
             </div>
           </div>
         </Reveal>
