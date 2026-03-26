@@ -12,12 +12,14 @@ import commercialImg from "@/assets/commercial-renovation.jpg";
 import kitchenImg from "@/assets/kitchen-cabinet.jpg";
 import warehouseImg from "@/assets/warehouse-shelving.jpg";
 import exteriorImg from "@/assets/exterior-works.jpg";
+import artisticCoatingImg from "@/assets/services/artistic-coating.jpg";
 
 const imageMap: Record<string, string> = {
   design: commercialImg,
   builtin: kitchenImg,
   renovation: residentialImg,
   commercial: commercialImg,
+  "artistic-coating": artisticCoatingImg,
   exterior: exteriorImg,
   warehouse: warehouseImg,
   approval: commercialImg,
