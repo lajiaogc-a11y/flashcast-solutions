@@ -42,9 +42,9 @@ export const materialsData: MaterialCategory[] = [
     description: "Premium custom kitchen cabinets in melamine, acrylic, lacquer, and solid wood finishes to suit every style and budget.",
     image: kitchenCabinetsImg,
     subcategories: [
-      { name: "Melamine Cabinets", slug: "melamine-cabinets", description: "Durable and affordable melamine-faced cabinets in a wide range of colours.", image: melamineGreyImg },
-      { name: "Acrylic Cabinets", slug: "acrylic-cabinets", description: "High-gloss acrylic doors for a sleek, modern kitchen look.", image: acrylicWhiteImg },
-      { name: "Solid Wood Cabinets", slug: "solid-wood-cabinets", description: "Premium solid timber cabinets with natural grain and lasting quality.", image: solidTeakImg },
+      { name: "Melamine Cabinets", slug: "melamine-cabinets", description: "Durable and affordable melamine-faced cabinets in a wide range of colours.", image: kitchenMelamineImg },
+      { name: "Acrylic Cabinets", slug: "acrylic-cabinets", description: "High-gloss acrylic doors for a sleek, modern kitchen look.", image: kitchenAcrylicImg },
+      { name: "Solid Wood Cabinets", slug: "solid-wood-cabinets", description: "Premium solid timber cabinets with natural grain and lasting quality.", image: kitchenSolidWoodImg },
     ],
     items: [
       { id: "kc-1", name: "Melamine Cabinet - Grey Oak", slug: "melamine-cabinet-grey-oak", category: "Kitchen Cabinets", subcategory: "melamine-cabinets", type: "Melamine", color: "Grey Oak", texture: "Wood Grain", suitableSpaces: ["Kitchen"], recommendedPairing: "Pairs well with quartz countertops", description: "18mm melamine-faced particleboard with soft-close hinges. Budget-friendly and durable.", note: "Most popular choice for HDB and condo kitchens.", image: melamineGreyImg },
