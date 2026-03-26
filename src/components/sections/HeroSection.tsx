@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, MapPin, CheckCircle, Shield } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
 import heroImg from "@/assets/hero-renovation-hd.jpg";
 
@@ -82,24 +82,24 @@ const HeroSection = () => {
             </Button>
           </div>
 
-          {/* Trust badges — centered with even spacing */}
+          {/* Trust info bar */}
           <div
-            className="flex flex-wrap gap-3 mt-10 animate-fade-in"
+            className="mt-10 animate-fade-in"
             style={{ animationDelay: "0.8s", opacity: 0 }}
           >
-            {[
-              { icon: MapPin, text: "KL & Selangor" },
-              { icon: CheckCircle, text: "10+ Years" },
-              { icon: Shield, text: "200+ Projects" },
-            ].map((badge) => (
-              <span
-                key={badge.text}
-                className="flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-2 hover:bg-white/15 transition-colors"
-              >
-                <badge.icon className="w-4 h-4 shrink-0 text-[hsl(var(--gold))]" />
-                <span className="text-xs font-semibold tracking-wide uppercase text-white">{badge.text}</span>
+            <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-0">
+              <span className="text-xs sm:text-[13px] font-medium tracking-wide" style={{ color: "rgba(255,255,255,0.6)" }}>
+                Kuala Lumpur & Selangor
               </span>
-            ))}
+              <span className="hidden sm:inline text-xs mx-3" style={{ color: "rgba(255,255,255,0.25)" }}>•</span>
+              <span className="text-xs sm:text-[13px] font-medium tracking-wide" style={{ color: "rgba(255,255,255,0.6)" }}>
+                10+ Years Experience
+              </span>
+              <span className="hidden sm:inline text-xs mx-3" style={{ color: "rgba(255,255,255,0.25)" }}>•</span>
+              <span className="text-xs sm:text-[13px] font-medium tracking-wide" style={{ color: "rgba(255,255,255,0.6)" }}>
+                200+ Projects Completed
+              </span>
+            </div>
           </div>
         </div>
       </div>
