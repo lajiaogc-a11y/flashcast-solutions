@@ -1,5 +1,22 @@
 import { ProjectItem } from "./types";
 
+import proj1Img1 from "@/assets/projects/proj1-condo-1.jpg";
+import proj1Img2 from "@/assets/projects/proj1-condo-2.jpg";
+import proj2Img1 from "@/assets/projects/proj2-office-1.jpg";
+import proj2Img2 from "@/assets/projects/proj2-office-2.jpg";
+import proj3Img1 from "@/assets/projects/proj3-kitchen-1.jpg";
+import proj3Img2 from "@/assets/projects/proj3-kitchen-2.jpg";
+import proj4Img1 from "@/assets/projects/proj4-warehouse-1.jpg";
+import proj4Img2 from "@/assets/projects/proj4-warehouse-2.jpg";
+import proj5Img1 from "@/assets/projects/proj5-shopfront-1.jpg";
+import proj5Img2 from "@/assets/projects/proj5-shopfront-2.jpg";
+import proj6Img1 from "@/assets/projects/proj6-bedroom-1.jpg";
+import proj6Img2 from "@/assets/projects/proj6-bedroom-2.jpg";
+import proj7Img1 from "@/assets/projects/proj7-restaurant-1.jpg";
+import proj7Img2 from "@/assets/projects/proj7-restaurant-2.jpg";
+import proj8Img1 from "@/assets/projects/proj8-homeoffice-1.jpg";
+import proj8Img2 from "@/assets/projects/proj8-homeoffice-2.jpg";
+
 export const projectsData: ProjectItem[] = [
   {
     id: "proj-1",
@@ -14,8 +31,8 @@ export const projectsData: ProjectItem[] = [
     highlights: ["Open-concept kitchen with island counter", "Walk-in wardrobe with LED lighting", "Hidden storage in every room", "Smart home lighting controls"],
     duration: "8 weeks",
     testimonial: "FLASH CAST turned our old condo into a dream home. The attention to detail was impressive, and the project was delivered on time.",
-    images: [],
-    thumbnail: "",
+    images: [proj1Img1, proj1Img2],
+    thumbnail: proj1Img1,
   },
   {
     id: "proj-2",
@@ -30,8 +47,8 @@ export const projectsData: ProjectItem[] = [
     highlights: ["Glass-enclosed meeting rooms for privacy", "Open-plan workstation layout", "Custom reception with backlit signage", "Integrated cable management"],
     duration: "10 weeks",
     testimonial: "Professional team, excellent communication, and the office looks amazing. Our staff love the new workspace.",
-    images: [],
-    thumbnail: "",
+    images: [proj2Img1, proj2Img2],
+    thumbnail: proj2Img1,
   },
   {
     id: "proj-3",
@@ -45,8 +62,8 @@ export const projectsData: ProjectItem[] = [
     scope: ["Kitchen Cabinets (upper & lower)", "Quartz Countertop", "Kitchen Island", "Shoe Cabinet", "TV Console", "Tiling"],
     highlights: ["Handleless cabinet design for clean lines", "Quartz waterfall island counter", "Built-in appliance integration", "Soft-close on all doors and drawers"],
     duration: "5 weeks",
-    images: [],
-    thumbnail: "",
+    images: [proj3Img1, proj3Img2],
+    thumbnail: proj3Img1,
   },
   {
     id: "proj-4",
@@ -60,8 +77,8 @@ export const projectsData: ProjectItem[] = [
     scope: ["Warehouse Layout Design", "Heavy-Duty Pallet Racking", "Medium-Duty Shelving", "Packing Station Setup", "Safety Barriers", "Signage"],
     highlights: ["Increased storage capacity by 300%", "Clear aisle layout for forklift access", "Dedicated packing and dispatch area", "Safety barriers at all column bases"],
     duration: "3 weeks",
-    images: [],
-    thumbnail: "",
+    images: [proj4Img1, proj4Img2],
+    thumbnail: proj4Img1,
   },
   {
     id: "proj-5",
@@ -75,8 +92,8 @@ export const projectsData: ProjectItem[] = [
     scope: ["Shopfront Glass Works", "3D Signage Fabrication & Installation", "Roller Shutter Replacement", "Interior Display Counter", "Exterior Painting", "Electrical"],
     highlights: ["Eye-catching LED backlit signage", "Full glass facade for product visibility", "Matching interior and exterior design language", "Completed within tight timeline"],
     duration: "4 weeks",
-    images: [],
-    thumbnail: "",
+    images: [proj5Img1, proj5Img2],
+    thumbnail: proj5Img1,
   },
   {
     id: "proj-6",
@@ -91,8 +108,8 @@ export const projectsData: ProjectItem[] = [
     highlights: ["Walk-in wardrobe with sensor-activated LED lighting", "Charcoal fluted feature wall as bed backdrop", "Herringbone flooring for luxury feel", "Integrated bedside USB charging"],
     duration: "4 weeks",
     testimonial: "The bedroom feels like a five-star hotel. FLASH CAST understood exactly what we wanted.",
-    images: [],
-    thumbnail: "",
+    images: [proj6Img1, proj6Img2],
+    thumbnail: proj6Img1,
   },
   {
     id: "proj-7",
@@ -106,8 +123,8 @@ export const projectsData: ProjectItem[] = [
     scope: ["Commercial Kitchen Setup", "Dining Area Design", "Bar Counter", "Feature Ceiling", "Flooring & Tiling", "Electrical & Plumbing", "Signage"],
     highlights: ["Open kitchen concept with glass partition", "Timber cladding feature wall", "Custom bar counter with stone top", "Subway tile kitchen backsplash"],
     duration: "8 weeks",
-    images: [],
-    thumbnail: "",
+    images: [proj7Img1, proj7Img2],
+    thumbnail: proj7Img1,
   },
   {
     id: "proj-8",
@@ -121,7 +138,7 @@ export const projectsData: ProjectItem[] = [
     scope: ["Built-In Desk", "Bookshelf Wall", "Overhead Cabinets", "Window Seat", "Flooring", "Lighting"],
     highlights: ["Integrated cable management system", "Floor-to-ceiling bookshelf with LED strips", "Window seat with hidden storage", "Acoustic panel on one wall"],
     duration: "3 weeks",
-    images: [],
-    thumbnail: "",
+    images: [proj8Img1, proj8Img2],
+    thumbnail: proj8Img1,
   },
 ];
