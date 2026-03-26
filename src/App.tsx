@@ -16,6 +16,7 @@ const About = lazy(() => import("./pages/About"));
 const Services = lazy(() => import("./pages/Services"));
 const ServiceDetail = lazy(() => import("./pages/ServiceDetail"));
 const Materials = lazy(() => import("./pages/Materials"));
+const MaterialCategoryPage = lazy(() => import("./pages/MaterialCategoryPage"));
 const MaterialDetail = lazy(() => import("./pages/MaterialDetail"));
 const Projects = lazy(() => import("./pages/Projects"));
 const ProjectDetail = lazy(() => import("./pages/ProjectDetail"));
@@ -53,6 +54,7 @@ const App = () => (
               <Route path="/services" element={<Services />} />
               <Route path="/services/:slug" element={<ServiceDetail />} />
               <Route path="/materials" element={<Materials />} />
+              <Route path="/materials/category/:categorySlug" element={<MaterialCategoryPage />} />
               <Route path="/materials/:slug" element={<MaterialDetail />} />
               <Route path="/projects" element={<Projects />} />
               <Route path="/projects/:slug" element={<ProjectDetail />} />
