@@ -24,10 +24,9 @@ const MaterialsSection = () => {
                 className="snap-start shrink-0 w-32 sm:w-36 md:w-auto group block"
               >
                 <div className="aspect-square rounded-lg overflow-hidden mb-2.5 bg-card border border-border img-zoom">
-                  <img src={cat.image} alt={`${cat.name} - ${cat.nameZh}`} loading="lazy" className="w-full h-full object-cover" width={200} height={200} />
+                  <img src={cat.image} alt={cat.name} loading="lazy" className="w-full h-full object-cover" width={200} height={200} />
                 </div>
                 <p className="font-medium text-xs md:text-sm text-center group-hover:text-accent transition-colors leading-tight">{cat.name}</p>
-                <p className="text-[10px] text-center text-muted-foreground">{cat.nameZh}</p>
               </Link>
             </Reveal>
           ))}

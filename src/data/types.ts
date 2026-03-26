@@ -46,7 +46,6 @@ export interface MaterialItem {
 
 export interface MaterialSubcategory {
   name: string;              // subcategory name, e.g. "Kitchen Cabinets"
-  nameZh: string;            // Chinese name, e.g. "厨柜"
   slug: string;              // URL slug
   description: string;       // subcategory description
   image: string;             // subcategory thumbnail
@@ -54,7 +53,6 @@ export interface MaterialSubcategory {
 
 export interface MaterialCategory {
   name: string;              // category name, e.g. "Whole House Custom"
-  nameZh: string;            // Chinese name, e.g. "全屋定制"
   slug: string;              // URL slug
   description: string;       // category description
   image: string;             // category thumbnail

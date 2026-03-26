@@ -23,7 +23,7 @@ const MaterialCategoryPage = () => {
   return (
     <main className="pt-16">
       <PageMeta
-        title={`${category.name} ${category.nameZh} | Renovation Materials | FLASH CAST`}
+        title={`${category.name} | Renovation Materials | FLASH CAST`}
         description={`${category.description} Browse ${category.name.toLowerCase()} options for your renovation project in Kuala Lumpur and Selangor.`}
         keywords={`${category.name} KL, ${category.name.toLowerCase()} renovation Malaysia`}
         canonicalPath={`/materials/category/${category.slug}`}
@@ -44,10 +44,9 @@ const MaterialCategoryPage = () => {
           <Link to="/materials" className="inline-flex items-center gap-1.5 text-sm hover:text-accent mb-6 transition-colors" style={{ color: "rgba(255,255,255,0.75)" }}>
             <ArrowLeft className="w-4 h-4" /> All Materials
           </Link>
-          <h1 className="font-display text-3xl md:text-4xl font-bold mb-1" style={{ color: "#fff", textShadow: "0 2px 6px rgba(0,0,0,0.5)" }}>
+          <h1 className="font-display text-3xl md:text-4xl font-bold mb-3" style={{ color: "#fff", textShadow: "0 2px 6px rgba(0,0,0,0.5)" }}>
             {category.name}
           </h1>
-          <p className="text-lg font-medium mb-3" style={{ color: "rgba(255,255,255,0.85)" }}>{category.nameZh}</p>
           <p className="max-w-xl" style={{ color: "rgba(255,255,255,0.75)" }}>{category.description}</p>
         </div>
       </section>
@@ -68,9 +67,9 @@ const MaterialCategoryPage = () => {
                   className="snap-start shrink-0 w-44 sm:w-48 md:w-auto group block hover-lift"
                 >
                   <div className="relative overflow-hidden rounded-xl aspect-square bg-muted border border-border">
-                    <img
+                     <img
                       src={sub.image}
-                      alt={`${sub.name} - ${sub.nameZh}`}
+                      alt={sub.name}
                       loading="lazy"
                       width={300}
                       height={300}
@@ -81,7 +80,6 @@ const MaterialCategoryPage = () => {
                       <h3 className="font-semibold text-sm leading-tight" style={{ color: "#fff", textShadow: "0 1px 3px rgba(0,0,0,0.5)" }}>
                         {sub.name}
                       </h3>
-                      <p className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.75)" }}>{sub.nameZh}</p>
                     </div>
                   </div>
                 </Link>

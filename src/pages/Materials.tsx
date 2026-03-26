@@ -60,7 +60,7 @@ const Materials = () => {
                   <div className="relative overflow-hidden rounded-xl aspect-[4/3] bg-muted border border-border">
                     <img
                       src={cat.image}
-                      alt={`${cat.name} - ${cat.nameZh}`}
+                      alt={cat.name}
                       loading="lazy"
                       width={400}
                       height={300}
@@ -71,9 +71,6 @@ const Materials = () => {
                       <h3 className="font-display font-bold text-sm md:text-base leading-tight" style={{ color: "#fff", textShadow: "0 1px 4px rgba(0,0,0,0.5)" }}>
                         {cat.name}
                       </h3>
-                      <p className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.8)" }}>
-                        {cat.nameZh}
-                      </p>
                       <p className="text-[10px] md:text-xs mt-1.5" style={{ color: "rgba(255,255,255,0.65)" }}>
                         {cat.subcategories.length} subcategories
                       </p>
