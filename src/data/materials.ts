@@ -24,6 +24,7 @@ import bathroomImg from "@/assets/category-bathroom.jpg";
 import flooringImg from "@/assets/category-flooring.jpg";
 import doorsWindowsImg from "@/assets/category-doors-windows.jpg";
 import wallPanelsImg from "@/assets/category-wall-panels.jpg";
+import artPaintImg from "@/assets/category-art-paint.jpg";
 
 export const materialsData: MaterialCategory[] = [
   {
@@ -138,5 +139,20 @@ export const materialsData: MaterialCategory[] = [
       { id: "panel-1", name: "Fluted Panel - Charcoal", slug: "fluted-panel-charcoal", category: "Wall & Panels", subcategory: "fluted-panel", type: "MDF Fluted", color: "Charcoal", texture: "Ribbed", suitableSpaces: ["Feature Wall", "TV Background", "Bedroom"], recommendedPairing: "Creates depth and texture on feature walls", description: "MDF fluted panel with PVC film finish. 2400x600mm per panel.", note: "Minimum order: 4 panels.", image: flutedCharcoalImg },
       { id: "panel-2", name: "Timber Cladding - Oak", slug: "timber-cladding-oak", category: "Wall & Panels", subcategory: "timber-cladding", type: "Timber", color: "Oak", texture: "Natural Wood", suitableSpaces: ["Feature Wall", "Ceiling", "Staircase"], recommendedPairing: "Adds warmth and natural beauty to any space", description: "Solid timber cladding strips in oak finish. 90x12mm strips.", note: "Natural wood variation in grain and color.", image: timberOakImg },
     ],
+  },
+  {
+    name: "Art Paint",
+    nameZh: "艺术涂料",
+    slug: "art-paint",
+    description: "Premium decorative art paint and textured plaster finishes for feature walls, ceilings, and luxury interiors.",
+    image: artPaintImg,
+    subcategories: [
+      { name: "Venetian Plaster", nameZh: "威尼斯灰泥", slug: "venetian-plaster", description: "Classic Italian-style polished plaster with marble-like depth and sheen.", image: artPaintImg },
+      { name: "Microcement", nameZh: "微水泥", slug: "microcement", description: "Ultra-thin cement coating for seamless industrial-modern surfaces.", image: artPaintImg },
+      { name: "Metallic Paint", nameZh: "金属漆", slug: "metallic-paint", description: "Shimmer and metallic effect paints for luxurious accent walls.", image: artPaintImg },
+      { name: "Texture Paint", nameZh: "肌理漆", slug: "texture-paint", description: "Sand, stone, and fabric texture finishes for unique wall effects.", image: artPaintImg },
+      { name: "Lime Wash", nameZh: "石灰涂料", slug: "lime-wash", description: "Natural lime-based wash with soft, organic color variations.", image: artPaintImg },
+    ],
+    items: [],
   },
 ];
