@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ArrowRight, Home, Info, Wrench, Layers, FolderOpen, GitBranch, BookOpen, HelpCircle, Mail } from "lucide-react";
+import { Menu, X, ArrowRight, Home, Info, Wrench, Layers, FolderOpen, GitBranch, BookOpen, HelpCircle, Mail, Globe } from "lucide-react";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/i18n/LanguageContext";
 import logoImg from "@/assets/logo-flashcast.png";
 
 const navItems = [
@@ -21,6 +22,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const { language, setLanguage } = useLanguage();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -82,6 +84,16 @@ const Navbar = () => {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-2 shrink-0">
+            <button
+              onClick={() => setLanguage(language === "en" ? "zh" : "en")}
+              className="flex items-center gap-1 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors px-2 py-1.5 rounded-md hover:bg-muted"
+              aria-label="Switch language"
+            >
+              <Globe className="w-3.5 h-3.5" />
+              <span className={language === "en" ? "text-foreground font-semibold" : ""}>EN</span>
+              <span className="text-muted-foreground/40">|</span>
+              <span className={language === "zh" ? "text-foreground font-semibold" : ""}>中</span>
+            </button>
             <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground" asChild>
               <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">
                 <WhatsAppIcon className="w-4 h-4 mr-1.5 text-[#25D366]" /> WhatsApp
@@ -146,6 +158,18 @@ const Navbar = () => {
 
           {/* Fixed bottom CTA */}
           <div className="absolute inset-x-0 bottom-0 border-t border-border bg-background/95 backdrop-blur-sm px-5 py-4 pb-[max(1rem,env(safe-area-inset-bottom))] space-y-2.5">
+            {/* Language toggle */}
+            <div className="flex items-center justify-center mb-1">
+              <button
+                onClick={() => setLanguage(language === "en" ? "zh" : "en")}
+                className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground px-3 py-1.5 rounded-full border border-border hover:bg-muted transition-colors"
+              >
+                <Globe className="w-3.5 h-3.5" />
+                <span className={language === "en" ? "text-foreground font-semibold" : ""}>EN</span>
+                <span className="text-muted-foreground/40">|</span>
+                <span className={language === "zh" ? "text-foreground font-semibold" : ""}>中文</span>
+              </button>
+            </div>
             <Button size="lg" className="w-full font-semibold h-12 text-sm justify-center" asChild>
               <Link to="/quote">Get a Free Quote</Link>
             </Button>
