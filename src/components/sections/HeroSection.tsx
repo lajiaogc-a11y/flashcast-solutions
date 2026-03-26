@@ -63,12 +63,12 @@ const HeroSection = () => {
 
           {/* CTA Buttons */}
           <div
-            className="flex flex-col sm:flex-row gap-3 animate-fade-in"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 animate-fade-in"
             style={{ animationDelay: "0.6s", opacity: 0 }}
           >
             <Button
               size="lg"
-              className="btn-press text-sm px-10 h-13 font-bold tracking-wide shadow-xl shadow-accent/40 bg-accent hover:bg-accent/90 text-accent-foreground rounded-md"
+              className="btn-press w-full sm:w-52 h-13 text-sm font-bold tracking-wide shadow-xl shadow-accent/40 bg-accent hover:bg-accent/90 text-accent-foreground rounded-md justify-center"
               asChild
             >
               <Link to="/quote">
@@ -77,7 +77,7 @@ const HeroSection = () => {
             </Button>
             <Button
               size="lg"
-              className="btn-press h-13 px-8 text-sm font-semibold bg-white/90 text-neutral-800 border-0 hover:bg-white backdrop-blur-md shadow-md rounded-md"
+              className="btn-press w-full sm:w-52 h-13 text-sm font-semibold bg-white text-neutral-800 border-0 hover:bg-white/90 backdrop-blur-md shadow-md rounded-md justify-center"
               asChild
             >
               <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer" aria-label="Contact FLASH CAST on WhatsApp">
