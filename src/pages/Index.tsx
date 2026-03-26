@@ -53,45 +53,69 @@ const Index = () => {
     <main>
       <JsonLdLocalBusiness />
 
-      {/* Hero — cinematic parallax-style with enhanced clarity */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+      {/* Hero */}
+      <section className="relative min-h-[92vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <img
             src={heroImg}
             alt="FLASH CAST luxury interior renovation in Kuala Lumpur"
-            className="w-full h-full object-cover animate-[hero-zoom_20s_ease-in-out_infinite_alternate]"
+            className="w-full h-full object-cover"
             width={1920}
             height={1080}
+            style={{ imageRendering: "auto" }}
           />
-          {/* Multi-layer overlay for text clarity without killing image */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
+          {/* Lighter gradient — shows more image detail on right side */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
         </div>
-        <div className="relative z-10 container-narrow px-4 md:px-8 py-32">
-          <div className="max-w-xl">
-            <p className="text-accent font-medium text-sm tracking-widest uppercase mb-4 animate-fade-in" style={{ animationDelay: "0.2s" }}>
+        <div className="relative z-10 container-narrow px-5 md:px-8 py-28 md:py-36">
+          <div className="max-w-lg">
+            <p
+              className="font-medium text-xs tracking-[0.25em] uppercase mb-5 animate-fade-in"
+              style={{ animationDelay: "0.2s", color: "hsl(var(--gold))" }}
+            >
               FLASH CAST SDN. BHD.
             </p>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight mb-6 text-shadow-hero animate-slide-up" style={{ animationDelay: "0.3s", opacity: 0 }}>
+            <h1
+              className="font-display text-[2.25rem] md:text-5xl lg:text-[3.5rem] font-bold leading-[1.15] mb-5 animate-slide-up"
+              style={{
+                animationDelay: "0.3s",
+                opacity: 0,
+                color: "#fff",
+                textShadow: "0 1px 3px rgba(0,0,0,0.4), 0 4px 12px rgba(0,0,0,0.15)",
+                letterSpacing: "-0.01em",
+              }}
+            >
               Complete Renovation Solutions in Kuala Lumpur
             </h1>
-            <p className="text-white/80 text-lg mb-8 leading-relaxed animate-fade-in" style={{ animationDelay: "0.5s", opacity: 0 }}>
+            <p
+              className="text-base md:text-lg mb-8 leading-relaxed animate-fade-in"
+              style={{
+                animationDelay: "0.5s",
+                opacity: 0,
+                color: "rgba(255,255,255,0.88)",
+                textShadow: "0 1px 4px rgba(0,0,0,0.3)",
+              }}
+            >
               Professional interior design, custom built-in furniture, and full renovation services.
               From concept to completion — your trusted renovation partner in Malaysia.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 animate-fade-in" style={{ animationDelay: "0.7s", opacity: 0 }}>
-              <Button size="lg" className="btn-press" asChild>
+              <Button size="lg" className="btn-press bg-white text-foreground hover:bg-white/90 font-semibold shadow-lg shadow-black/20 text-sm px-7" asChild>
                 <Link to="/quote">Get a Free Quote <ArrowRight className="w-4 h-4 ml-2" /></Link>
               </Button>
-              <Button size="lg" variant="outline" className="bg-white/10 border-white/30 text-white hover:bg-white/20 hover:text-white btn-press backdrop-blur-sm" asChild>
+              <Button size="lg" variant="outline" className="border-white/40 text-white hover:bg-white/15 hover:text-white btn-press backdrop-blur-sm font-medium text-sm px-7" asChild>
                 <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">
                   <Phone className="w-4 h-4 mr-2" /> WhatsApp Us
                 </a>
               </Button>
             </div>
-            <div className="flex items-center gap-4 mt-8 text-white/60 text-sm animate-fade-in" style={{ animationDelay: "0.9s", opacity: 0 }}>
-              <span className="flex items-center gap-1"><MapPin className="w-3.5 h-3.5" /> Kuala Lumpur</span>
-              <span className="flex items-center gap-1"><CheckCircle className="w-3.5 h-3.5" /> 10+ Years Experience</span>
+            <div
+              className="flex items-center gap-5 mt-8 text-xs font-medium tracking-wide animate-fade-in"
+              style={{ animationDelay: "0.9s", opacity: 0, color: "rgba(255,255,255,0.7)" }}
+            >
+              <span className="flex items-center gap-1.5"><MapPin className="w-3.5 h-3.5" /> Kuala Lumpur</span>
+              <span className="flex items-center gap-1.5"><CheckCircle className="w-3.5 h-3.5" /> 10+ Years Experience</span>
             </div>
           </div>
         </div>
