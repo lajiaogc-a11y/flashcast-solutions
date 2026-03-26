@@ -3,7 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Phone, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
 import PageMeta from "@/components/PageMeta";
 import { JsonLdBreadcrumb } from "@/components/JsonLd";
 import heroImg from "@/assets/hero-quote.jpg";
@@ -122,7 +123,7 @@ const Quote = () => {
             <p className="text-muted-foreground text-sm mb-3">Prefer to chat directly?</p>
             <Button variant="outline" size="lg" className="btn-press h-12 px-8" asChild>
               <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">
-                <Phone className="mr-2 w-4 h-4" /> WhatsApp Us Now
+                <WhatsAppIcon className="w-[18px] h-[18px] mr-2 text-[#25D366]" /> WhatsApp Us Now
               </a>
             </Button>
           </div>

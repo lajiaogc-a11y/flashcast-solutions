@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { MapPin, Phone, Mail, Facebook, Instagram, MessageCircle, ArrowRight, ChevronDown } from "lucide-react";
+import { MapPin, Phone, Mail, Facebook, Instagram, ArrowRight, ChevronDown } from "lucide-react";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
 import logoImg from "@/assets/logo-flashcast.png";
 
 const locationLinks = [
@@ -161,7 +162,6 @@ const Footer = () => {
                   {[
                     { icon: Facebook, label: "Facebook" },
                     { icon: Instagram, label: "Instagram" },
-                    { icon: MessageCircle, label: "WhatsApp" },
                   ].map(({ icon: Icon, label }) => (
                     <a
                       key={label}
@@ -172,6 +172,15 @@ const Footer = () => {
                       <Icon className="w-4 h-4" />
                     </a>
                   ))}
+                  <a
+                    href="https://wa.me/60123456789"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="WhatsApp"
+                    className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:bg-[#25D366] hover:text-white hover:border-[#25D366] transition-all duration-200"
+                  >
+                    <WhatsAppIcon className="w-4 h-4" />
+                  </a>
                 </div>
               </div>
 
@@ -247,7 +256,6 @@ const Footer = () => {
                   {[
                     { icon: Facebook, label: "Facebook" },
                     { icon: Instagram, label: "Instagram" },
-                    { icon: MessageCircle, label: "WhatsApp" },
                   ].map(({ icon: Icon, label }) => (
                     <a
                       key={label}
@@ -258,6 +266,15 @@ const Footer = () => {
                       <Icon className="w-5 h-5" />
                     </a>
                   ))}
+                  <a
+                    href="https://wa.me/60123456789"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="WhatsApp"
+                    className="w-11 h-11 rounded-full border border-white/10 flex items-center justify-center text-white/40 active:bg-[#25D366] active:text-white active:border-[#25D366] transition-all duration-200"
+                  >
+                    <WhatsAppIcon className="w-5 h-5" />
+                  </a>
                 </div>
               </div>
 
