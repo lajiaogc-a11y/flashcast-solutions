@@ -88,15 +88,13 @@ const MaterialSubcategoryPage = () => {
           <div className="container-narrow">
             <h2 className="font-display text-3xl font-bold mb-4">Interested in {subcategory.name}?</h2>
             <p className="text-accent-foreground/80 mb-6 max-w-lg mx-auto">Contact us to request samples, check availability, or get a quotation for your project.</p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Button variant="secondary" size="lg" className="btn-press font-semibold h-12 px-8" asChild>
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+              <Button variant="secondary" size="lg" className="btn-press w-full sm:w-auto min-h-[3rem] text-sm font-bold tracking-wide rounded-md px-8 py-3 justify-center" asChild>
                 <Link to="/quote">Request a Quote <ArrowRight className="ml-2 w-4 h-4" /></Link>
               </Button>
               <Button
                 size="lg"
-                variant="outline"
-                className="bg-white text-neutral-800 hover:bg-white/90 border-0 btn-press h-12 px-8 font-semibold shadow-md"
-                
+                className="btn-press w-full sm:w-auto min-h-[3rem] text-sm font-semibold bg-white text-neutral-800 border-0 hover:bg-white/90 shadow-md rounded-md px-8 py-3 justify-center"
                 asChild
               >
                 <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">

@@ -203,14 +203,13 @@ const ServiceDetail = () => {
         <div className="container-narrow">
           <h2 className="font-display text-3xl font-bold mb-4">Interested in {service.title}?</h2>
           <p className="mb-6 opacity-90">Contact us for a free consultation and quotation. We serve Kuala Lumpur, Selangor, and surrounding areas.</p>
-          <div className="flex flex-col sm:flex-row justify-center gap-3">
-            <Button size="lg" variant="secondary" className="btn-press font-semibold h-12 px-8" asChild>
+          <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
+            <Button size="lg" variant="secondary" className="btn-press w-full sm:w-auto min-h-[3rem] text-sm font-bold tracking-wide rounded-md px-8 py-3 justify-center" asChild>
               <Link to="/quote">Get a Free Quote</Link>
             </Button>
             <Button
               size="lg"
-              variant="outline"
-              className="bg-white text-neutral-800 hover:bg-white/90 border-0 btn-press h-12 px-8 font-semibold shadow-md"
+              className="btn-press w-full sm:w-auto min-h-[3rem] text-sm font-semibold bg-white text-neutral-800 border-0 hover:bg-white/90 shadow-md rounded-md px-8 py-3 justify-center"
               asChild
             >
               <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">

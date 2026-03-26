@@ -195,10 +195,10 @@ const ProjectDetail = () => {
               <div className="bg-accent text-accent-foreground rounded-lg p-5 text-center">
                 <h3 className="font-semibold mb-2">Want Something Similar?</h3>
                 <p className="text-sm opacity-90 mb-4">Get a free consultation and quotation for your project.</p>
-                <Button variant="secondary" size="sm" className="w-full mb-2 btn-press" asChild>
+                <Button variant="secondary" size="sm" className="w-full mb-2 btn-press min-h-[2.75rem] text-sm font-bold tracking-wide rounded-md px-6 py-2.5 justify-center" asChild>
                   <Link to="/quote">Get a Free Quote <ArrowRight className="w-3.5 h-3.5 ml-1" /></Link>
                 </Button>
-                <Button variant="outline" size="sm" className="w-full bg-white text-neutral-800 hover:bg-white/90 border-0 btn-press shadow-md" asChild>
+                <Button size="sm" className="w-full bg-white text-neutral-800 hover:bg-white/90 border-0 btn-press shadow-md min-h-[2.75rem] text-sm font-semibold rounded-md px-6 py-2.5 justify-center" asChild>
                   <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">
                     <WhatsAppIcon className="w-4 h-4 mr-1 text-[#25D366]" /> WhatsApp Us
                   </a>
