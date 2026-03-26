@@ -131,7 +131,7 @@ const Navbar = () => {
           className="lg:hidden fixed inset-x-0 top-16 bottom-0 z-[60] bg-background overflow-hidden"
         >
           {/* Scrollable nav links */}
-          <div className="absolute inset-x-0 top-0 bottom-[140px] overflow-y-auto px-5 py-4">
+          <div className="absolute inset-x-0 top-0 bottom-[185px] overflow-y-auto px-5 py-4">
             <p className="text-[10px] font-semibold tracking-[0.2em] uppercase text-muted-foreground mb-3 px-3 flex items-center">
               <span className="w-1.5 h-1.5 rounded-full bg-accent inline-block mr-2" />
               Navigation
@@ -162,14 +162,14 @@ const Navbar = () => {
           </div>
 
           {/* Gold gradient separator */}
-          <div className="absolute inset-x-0 bottom-[140px] z-10">
+          <div className="absolute inset-x-0 bottom-[185px] z-10">
             <div className="h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
           </div>
 
           {/* Fixed bottom CTA */}
-          <div className="absolute inset-x-0 bottom-0 border-t border-border bg-background/95 backdrop-blur-sm px-5 py-4 pb-[max(1rem,env(safe-area-inset-bottom))] space-y-2.5">
+          <div className="absolute inset-x-0 bottom-0 border-t border-border bg-background/95 backdrop-blur-sm px-5 pt-4 pb-[max(1rem,env(safe-area-inset-bottom))] space-y-3">
             {/* Language toggle */}
-            <div className="flex items-center justify-center mb-1">
+            <div className="flex items-center justify-center">
               <button
                 onClick={() => setLanguage(language === "en" ? "zh" : "en")}
                 className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground px-3 py-1.5 rounded-full border border-border hover:bg-muted transition-colors"
