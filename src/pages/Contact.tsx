@@ -3,10 +3,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, ArrowRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import PageMeta from "@/components/PageMeta";
 import { JsonLdBreadcrumb } from "@/components/JsonLd";
+import heroImg from "@/assets/hero-renovation-hd.jpg";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -27,11 +28,22 @@ const Contact = () => {
         canonicalPath="/contact"
       />
       <JsonLdBreadcrumb items={[{ name: "Home", url: "/" }, { name: "Contact", url: "/contact" }]} />
-      <section className="section-padding bg-surface-dark">
-        <div className="container-narrow text-center">
-          <div className="accent-line mx-auto mb-4 animate-fade-in" />
-          <h1 className="font-display text-4xl md:text-5xl font-bold text-primary-foreground mb-4 animate-slide-up" style={{ opacity: 0, animationDelay: "0.1s" }}>Contact Us</h1>
-          <p className="text-primary-foreground/70 max-w-2xl mx-auto text-lg animate-fade-in" style={{ opacity: 0, animationDelay: "0.3s" }}>
+
+      {/* Hero Banner */}
+      <section className="relative min-h-[45vh] flex items-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={heroImg} alt="Contact FLASH CAST renovation company" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent" />
+        </div>
+        <div className="relative z-10 container-narrow px-5 md:px-8 py-20 md:py-28">
+          <p className="font-body font-semibold text-[11px] tracking-[0.3em] uppercase mb-4" style={{ color: "hsl(var(--gold))" }}>Get In Touch</p>
+          <h1
+            className="font-display text-3xl md:text-5xl font-bold leading-tight mb-4 max-w-lg"
+            style={{ color: "#fff", textShadow: "0 2px 8px rgba(0,0,0,0.5)" }}
+          >
+            Contact Us
+          </h1>
+          <p className="max-w-xl text-base md:text-lg leading-relaxed" style={{ color: "rgba(255,255,255,0.9)", textShadow: "0 1px 4px rgba(0,0,0,0.4)" }}>
             Get in touch with FLASH CAST for your renovation project. We serve Kuala Lumpur, Selangor, and surrounding areas.
           </p>
         </div>
@@ -42,33 +54,38 @@ const Contact = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <Reveal direction="left">
               <div>
+                <div className="accent-line mb-4" />
                 <h2 className="font-display text-2xl font-bold mb-6">Get In Touch</h2>
-                <div className="space-y-6">
+                <div className="space-y-5">
                   {[
                     { icon: MapPin, title: "Address", text: "94, Jalan Mega Mendung, Taman United, 58200 Kuala Lumpur, Malaysia" },
                     { icon: Phone, title: "Phone / WhatsApp", text: "+60 12-345 6789" },
                     { icon: Mail, title: "Email", text: "info@flashcast.com.my" },
                     { icon: Clock, title: "Business Hours", text: "Mon – Sat: 9:00 AM – 6:00 PM\nSun: By Appointment" },
                   ].map((item) => (
-                    <div key={item.title} className="flex items-start gap-4 group">
-                      <item.icon className="w-5 h-5 text-accent mt-1 shrink-0 transition-transform duration-300 group-hover:scale-110" />
+                    <div key={item.title} className="flex items-start gap-4 group p-4 rounded-lg border border-border hover-lift">
+                      <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center shrink-0">
+                        <item.icon className="w-4 h-4 text-accent" />
+                      </div>
                       <div>
-                        <h3 className="font-semibold mb-1">{item.title}</h3>
+                        <h3 className="font-semibold text-sm mb-1">{item.title}</h3>
                         <p className="text-muted-foreground text-sm whitespace-pre-line">{item.text}</p>
                       </div>
                     </div>
                   ))}
                 </div>
                 <div className="mt-8">
-                  <Button size="lg" className="btn-press" asChild>
-                    <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
+                  <Button size="lg" className="btn-press font-semibold h-12 px-8" asChild>
+                    <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">
+                      <Phone className="w-4 h-4 mr-2" /> Chat on WhatsApp
+                    </a>
                   </Button>
                 </div>
               </div>
             </Reveal>
 
             <Reveal direction="right" delay={150}>
-              <div>
+              <div className="bg-card p-6 md:p-8 rounded-lg border border-border">
                 <h2 className="font-display text-2xl font-bold mb-6">Send Us a Message</h2>
                 <form className="space-y-4" onSubmit={handleSubmit}>
                   <div>
@@ -87,7 +104,9 @@ const Contact = () => {
                     <label className="block text-sm font-medium mb-1.5">Message</label>
                     <Textarea rows={4} placeholder="Tell us about your project..." value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} />
                   </div>
-                  <Button type="submit" size="lg" className="w-full btn-press">Send Message</Button>
+                  <Button type="submit" size="lg" className="w-full btn-press font-semibold h-12">
+                    Send Message <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
                 </form>
               </div>
             </Reveal>

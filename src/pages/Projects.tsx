@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { MapPin } from "lucide-react";
+import { MapPin, ArrowRight } from "lucide-react";
 import { projectsData } from "@/data/projects";
 import Reveal from "@/components/Reveal";
 import PageMeta from "@/components/PageMeta";
@@ -11,6 +11,7 @@ import commercialImg from "@/assets/commercial-renovation.jpg";
 import kitchenImg from "@/assets/kitchen-cabinet.jpg";
 import warehouseImg from "@/assets/warehouse-shelving.jpg";
 import exteriorImg from "@/assets/exterior-works.jpg";
+import heroImg from "@/assets/hero-renovation-hd.jpg";
 
 const typeImageMap: Record<string, string> = {
   Residential: residentialImg,
@@ -36,12 +37,23 @@ const Projects = () => {
         canonicalPath="/projects"
       />
       <JsonLdBreadcrumb items={[{ name: "Home", url: "/" }, { name: "Projects", url: "/projects" }]} />
-      <section className="section-padding bg-surface-dark">
-        <div className="container-narrow text-center">
-          <div className="accent-line mx-auto mb-4 animate-fade-in" />
-          <h1 className="font-display text-4xl md:text-5xl font-bold text-primary-foreground mb-4 animate-slide-up" style={{ opacity: 0, animationDelay: "0.1s" }}>Our Projects</h1>
-          <p className="text-primary-foreground/70 max-w-2xl mx-auto text-lg animate-fade-in" style={{ opacity: 0, animationDelay: "0.3s" }}>
-            Explore completed renovation projects by FLASH CAST across Kuala Lumpur and Selangor — from residential homes to commercial spaces and warehouses.
+
+      {/* Hero Banner */}
+      <section className="relative min-h-[45vh] flex items-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={heroImg} alt="FLASH CAST renovation projects portfolio" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent" />
+        </div>
+        <div className="relative z-10 container-narrow px-5 md:px-8 py-20 md:py-28">
+          <p className="font-body font-semibold text-[11px] tracking-[0.3em] uppercase mb-4" style={{ color: "hsl(var(--gold))" }}>Portfolio</p>
+          <h1
+            className="font-display text-3xl md:text-5xl font-bold leading-tight mb-4 max-w-lg"
+            style={{ color: "#fff", textShadow: "0 2px 8px rgba(0,0,0,0.5)" }}
+          >
+            Our Projects
+          </h1>
+          <p className="max-w-xl text-base md:text-lg leading-relaxed" style={{ color: "rgba(255,255,255,0.9)", textShadow: "0 1px 4px rgba(0,0,0,0.4)" }}>
+            Completed renovation projects across Kuala Lumpur and Selangor — from residential homes to commercial spaces and warehouses.
           </p>
         </div>
       </section>
@@ -104,8 +116,8 @@ const Projects = () => {
           <div className="container-narrow">
             <h2 className="font-display text-3xl font-bold mb-4">Have a Similar Project?</h2>
             <p className="text-accent-foreground/80 mb-6 max-w-lg mx-auto">Share your requirements and we'll provide a tailored proposal with accurate pricing.</p>
-            <Button variant="secondary" size="lg" className="btn-press" asChild>
-              <Link to="/quote">Get a Free Quote</Link>
+            <Button variant="secondary" size="lg" className="btn-press font-semibold h-12 px-8" asChild>
+              <Link to="/quote">Get a Free Quote <ArrowRight className="w-4 h-4 ml-2" /></Link>
             </Button>
           </div>
         </Reveal>

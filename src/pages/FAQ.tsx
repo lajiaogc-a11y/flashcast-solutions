@@ -4,6 +4,8 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import Reveal from "@/components/Reveal";
 import PageMeta from "@/components/PageMeta";
 import { JsonLdFAQ, JsonLdBreadcrumb } from "@/components/JsonLd";
+import { Phone } from "lucide-react";
+import heroImg from "@/assets/hero-renovation-hd.jpg";
 
 const faqData = [
   {
@@ -50,11 +52,22 @@ const FAQ = () => {
       />
       <JsonLdFAQ faqs={faqData.flatMap(cat => cat.items.map(item => ({ question: item.q, answer: item.a })))} />
       <JsonLdBreadcrumb items={[{ name: "Home", url: "/" }, { name: "FAQ", url: "/faq" }]} />
-      <section className="section-padding bg-surface-dark">
-        <div className="container-narrow text-center">
-          <div className="accent-line mx-auto mb-4 animate-fade-in" />
-          <h1 className="font-display text-4xl md:text-5xl font-bold text-primary-foreground mb-4 animate-slide-up" style={{ opacity: 0, animationDelay: "0.1s" }}>Frequently Asked Questions</h1>
-          <p className="text-primary-foreground/70 max-w-2xl mx-auto text-lg animate-fade-in" style={{ opacity: 0, animationDelay: "0.3s" }}>
+
+      {/* Hero Banner */}
+      <section className="relative min-h-[45vh] flex items-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={heroImg} alt="FLASH CAST FAQ" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent" />
+        </div>
+        <div className="relative z-10 container-narrow px-5 md:px-8 py-20 md:py-28">
+          <p className="font-body font-semibold text-[11px] tracking-[0.3em] uppercase mb-4" style={{ color: "hsl(var(--gold))" }}>Help Center</p>
+          <h1
+            className="font-display text-3xl md:text-5xl font-bold leading-tight mb-4 max-w-lg"
+            style={{ color: "#fff", textShadow: "0 2px 8px rgba(0,0,0,0.5)" }}
+          >
+            Frequently Asked Questions
+          </h1>
+          <p className="max-w-xl text-base md:text-lg leading-relaxed" style={{ color: "rgba(255,255,255,0.9)", textShadow: "0 1px 4px rgba(0,0,0,0.4)" }}>
             Common questions about our renovation services, process, pricing, and materials.
           </p>
         </div>
@@ -65,10 +78,11 @@ const FAQ = () => {
           {faqData.map((cat, catIdx) => (
             <Reveal key={cat.category} delay={catIdx * 100}>
               <div className="mb-10">
+                <div className="accent-line mb-3" />
                 <h2 className="font-display text-xl font-bold mb-4">{cat.category}</h2>
-                <Accordion type="single" collapsible>
+                <Accordion type="single" collapsible className="space-y-2">
                   {cat.items.map((item, i) => (
-                    <AccordionItem key={i} value={`${cat.category}-${i}`}>
+                    <AccordionItem key={i} value={`${cat.category}-${i}`} className="bg-card rounded-lg border border-border px-4">
                       <AccordionTrigger className="text-left text-sm font-medium">{item.q}</AccordionTrigger>
                       <AccordionContent className="text-muted-foreground text-sm">{item.a}</AccordionContent>
                     </AccordionItem>
@@ -86,12 +100,19 @@ const FAQ = () => {
             <div className="accent-line mx-auto mb-4" style={{ backgroundColor: "hsl(var(--gold))" }} />
             <h2 className="font-display text-3xl font-bold mb-4 text-primary-foreground">Still Have Questions?</h2>
             <p className="text-steel-light mb-6">Reach out to us directly — we're happy to help.</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="btn-press" asChild>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <Button size="lg" className="btn-press font-semibold h-12 px-8" asChild>
                 <Link to="/contact">Contact Us</Link>
               </Button>
-              <Button variant="outline" size="lg" className="border-steel text-primary-foreground hover:bg-primary-foreground/10 btn-press" asChild>
-                <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-white/50 text-white hover:bg-white/15 hover:text-white btn-press h-12 px-8 font-semibold"
+                asChild
+              >
+                <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">
+                  <Phone className="w-4 h-4 mr-2" /> WhatsApp Us
+                </a>
               </Button>
             </div>
           </div>

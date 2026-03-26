@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { MapPin, Users, Target, Shield } from "lucide-react";
+import { MapPin, Users, Target, Shield, ArrowRight, Phone } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import PageMeta from "@/components/PageMeta";
 import { JsonLdBreadcrumb } from "@/components/JsonLd";
+import heroImg from "@/assets/hero-renovation-hd.jpg";
 
 const About = () => {
   return (
@@ -15,12 +16,23 @@ const About = () => {
         canonicalPath="/about"
       />
       <JsonLdBreadcrumb items={[{ name: "Home", url: "/" }, { name: "About", url: "/about" }]} />
-      <section className="section-padding bg-surface-dark">
-        <div className="container-narrow text-center">
-          <div className="accent-line mx-auto mb-4 animate-fade-in" />
-          <h1 className="font-display text-4xl md:text-5xl font-bold text-primary-foreground mb-4 animate-slide-up" style={{ opacity: 0, animationDelay: "0.1s" }}>About FLASH CAST</h1>
-          <p className="text-primary-foreground/70 max-w-2xl mx-auto text-lg animate-fade-in" style={{ opacity: 0, animationDelay: "0.3s" }}>
-            FLASH CAST SDN. BHD. is a registered renovation and interior design company based in Kuala Lumpur, Malaysia. We provide complete renovation solutions — design, custom built-in, construction, and project coordination.
+
+      {/* Hero Banner */}
+      <section className="relative min-h-[45vh] flex items-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={heroImg} alt="FLASH CAST renovation company office" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent" />
+        </div>
+        <div className="relative z-10 container-narrow px-5 md:px-8 py-20 md:py-28">
+          <p className="font-body font-semibold text-[11px] tracking-[0.3em] uppercase mb-4" style={{ color: "hsl(var(--gold))" }}>About Us</p>
+          <h1
+            className="font-display text-3xl md:text-5xl font-bold leading-tight mb-4 max-w-lg"
+            style={{ color: "#fff", textShadow: "0 2px 8px rgba(0,0,0,0.5)" }}
+          >
+            About FLASH CAST
+          </h1>
+          <p className="max-w-xl text-base md:text-lg leading-relaxed" style={{ color: "rgba(255,255,255,0.9)", textShadow: "0 1px 4px rgba(0,0,0,0.4)" }}>
+            A registered renovation and interior design company based in Kuala Lumpur, Malaysia. Design, custom built-in, construction, and project coordination — all under one roof.
           </p>
         </div>
       </section>
@@ -44,17 +56,19 @@ const About = () => {
               </div>
             </Reveal>
             <Reveal direction="right" delay={150}>
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-2 gap-5">
                 {[
                   { icon: Users, title: "In-House Team", desc: "Experienced designers, carpenters & project managers" },
                   { icon: Target, title: "End-to-End", desc: "Design, build, and furnish — all under one roof" },
                   { icon: Shield, title: "SSM Registered", desc: "Fully registered company with proper documentation" },
                   { icon: MapPin, title: "KL Based", desc: "Located in Taman United, serving KL & Selangor" },
                 ].map((item, i) => (
-                  <div key={item.title} className="text-center p-6 bg-muted rounded-lg group hover-lift" style={{ animationDelay: `${i * 100}ms` }}>
-                    <item.icon className="w-8 h-8 text-accent mx-auto mb-3 transition-transform duration-300 group-hover:scale-110" />
-                    <h3 className="font-semibold mb-1">{item.title}</h3>
-                    <p className="text-muted-foreground text-sm">{item.desc}</p>
+                  <div key={item.title} className="text-center p-6 bg-card rounded-lg border border-border group hover-lift">
+                    <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-accent/10 flex items-center justify-center">
+                      <item.icon className="w-5 h-5 text-accent transition-transform duration-300 group-hover:scale-110" />
+                    </div>
+                    <h3 className="font-semibold text-sm mb-1">{item.title}</h3>
+                    <p className="text-muted-foreground text-xs leading-relaxed">{item.desc}</p>
                   </div>
                 ))}
               </div>
@@ -67,11 +81,14 @@ const About = () => {
         <Reveal>
           <div className="container-narrow">
             <div className="text-center mb-10">
+              <div className="accent-line mx-auto mb-4" />
               <h2 className="font-display text-2xl md:text-3xl font-bold mb-3">Our Location</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch max-w-3xl mx-auto">
-              <div className="bg-background p-8 rounded-lg text-center hover-lift flex flex-col items-center justify-center">
-                <MapPin className="w-8 h-8 text-accent mx-auto mb-3" />
+              <div className="bg-background p-8 rounded-lg text-center hover-lift flex flex-col items-center justify-center border border-border">
+                <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-accent/10 flex items-center justify-center">
+                  <MapPin className="w-5 h-5 text-accent" />
+                </div>
                 <p className="font-semibold mb-1">FLASH CAST SDN. BHD.</p>
                 <p className="text-muted-foreground text-sm">94, Jalan Mega Mendung, Taman United,<br />58200 Kuala Lumpur, Malaysia</p>
               </div>
@@ -84,7 +101,7 @@ const About = () => {
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="FLASH CAST office location"
+                  title="FLASH CAST office location in Kuala Lumpur"
                 />
               </div>
             </div>
@@ -97,9 +114,21 @@ const About = () => {
           <div className="container-narrow">
             <h2 className="font-display text-3xl font-bold mb-4">Work With Us</h2>
             <p className="text-accent-foreground/80 mb-6 max-w-lg mx-auto">Whether you're renovating a home, fitting out an office, or setting up a warehouse — we're ready to help.</p>
-            <Button variant="secondary" size="lg" className="btn-press" asChild>
-              <Link to="/quote">Get a Free Quote</Link>
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <Button variant="secondary" size="lg" className="btn-press font-semibold h-12 px-8" asChild>
+                <Link to="/quote">Get a Free Quote <ArrowRight className="w-4 h-4 ml-2" /></Link>
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white/50 text-white hover:bg-white/15 hover:text-white btn-press h-12 px-8 font-semibold"
+                asChild
+              >
+                <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">
+                  <Phone className="w-4 h-4 mr-2" /> WhatsApp Us
+                </a>
+              </Button>
+            </div>
           </div>
         </Reveal>
       </section>

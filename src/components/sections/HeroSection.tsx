@@ -6,7 +6,7 @@ import heroImg from "@/assets/hero-renovation-hd.jpg";
 const HeroSection = () => {
   return (
     <section className="relative min-h-[100svh] flex items-center overflow-hidden">
-      {/* Background image — sharp, no animation */}
+      {/* Background image — sharp, no overlay darkening */}
       <div className="absolute inset-0">
         <img
           src={heroImg}
@@ -16,9 +16,8 @@ const HeroSection = () => {
           height={1080}
           fetchPriority="high"
         />
-        {/* Lighter overlay — preserves image detail */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/40 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10" />
+        {/* Very subtle scrim only behind text area — no full-page darkening */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/25 to-transparent" />
       </div>
 
       <div className="relative z-10 container-narrow px-5 md:px-8 py-24 md:py-32 lg:py-40">
@@ -38,7 +37,7 @@ const HeroSection = () => {
               animationDelay: "0.25s",
               opacity: 0,
               color: "#ffffff",
-              textShadow: "0 1px 2px rgba(0,0,0,0.5), 0 4px 16px rgba(0,0,0,0.2)",
+              textShadow: "0 2px 8px rgba(0,0,0,0.6), 0 4px 20px rgba(0,0,0,0.3)",
               letterSpacing: "-0.015em",
             }}
           >
@@ -55,8 +54,8 @@ const HeroSection = () => {
             style={{
               animationDelay: "0.45s",
               opacity: 0,
-              color: "rgba(255,255,255,0.92)",
-              textShadow: "0 1px 3px rgba(0,0,0,0.4)",
+              color: "rgba(255,255,255,0.95)",
+              textShadow: "0 1px 6px rgba(0,0,0,0.5)",
             }}
           >
             Professional interior design, custom built-in furniture, and full renovation services. From concept to completion — your trusted partner in Malaysia.
@@ -79,7 +78,8 @@ const HeroSection = () => {
             <Button
               size="lg"
               variant="outline"
-              className="border-white/50 text-white hover:bg-white/15 hover:text-white btn-press backdrop-blur-sm font-medium text-sm px-8 h-12"
+              className="border-white/60 text-white hover:bg-white/20 hover:text-white btn-press backdrop-blur-sm font-semibold text-sm px-8 h-12"
+              style={{ textShadow: "0 1px 4px rgba(0,0,0,0.5)" }}
               asChild
             >
               <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">
@@ -88,20 +88,24 @@ const HeroSection = () => {
             </Button>
           </div>
 
-          {/* Trust badges */}
+          {/* Trust badges — cleaner layout */}
           <div
-            className="flex flex-wrap items-center gap-x-5 gap-y-2 mt-8 text-[11px] font-semibold tracking-wider uppercase animate-fade-in"
-            style={{ animationDelay: "0.8s", opacity: 0, color: "rgba(255,255,255,0.75)" }}
+            className="flex items-center gap-6 mt-10 animate-fade-in"
+            style={{ animationDelay: "0.8s", opacity: 0 }}
           >
-            <span className="flex items-center gap-1.5">
-              <MapPin className="w-3.5 h-3.5" /> Kuala Lumpur & Selangor
-            </span>
-            <span className="flex items-center gap-1.5">
-              <CheckCircle className="w-3.5 h-3.5" /> 10+ Years Experience
-            </span>
-            <span className="flex items-center gap-1.5">
-              <Shield className="w-3.5 h-3.5" /> 200+ Projects
-            </span>
+            {[
+              { icon: MapPin, text: "KL & Selangor" },
+              { icon: CheckCircle, text: "10+ Years" },
+              { icon: Shield, text: "200+ Projects" },
+            ].map((badge) => (
+              <span
+                key={badge.text}
+                className="flex items-center gap-1.5 text-[11px] font-semibold tracking-wider uppercase"
+                style={{ color: "rgba(255,255,255,0.8)", textShadow: "0 1px 4px rgba(0,0,0,0.5)" }}
+              >
+                <badge.icon className="w-3.5 h-3.5" /> {badge.text}
+              </span>
+            ))}
           </div>
         </div>
       </div>
