@@ -4,7 +4,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import Reveal from "@/components/Reveal";
 import PageMeta from "@/components/PageMeta";
 import { JsonLdFAQ, JsonLdBreadcrumb } from "@/components/JsonLd";
-import { Phone } from "lucide-react";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
 import heroImg from "@/assets/hero-faq.jpg";
 
 const faqData = [
@@ -111,7 +111,7 @@ const FAQ = () => {
                 asChild
               >
                 <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">
-                  <Phone className="w-4 h-4 mr-2" /> WhatsApp Us
+                  <WhatsAppIcon className="w-[18px] h-[18px] mr-2" /> WhatsApp Us
                 </a>
               </Button>
             </div>

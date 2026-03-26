@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Phone, CheckCircle, ClipboardList, Ruler, FileText, Hammer, Handshake } from "lucide-react";
+import { ArrowRight, CheckCircle, ClipboardList, Ruler, FileText, Hammer, Handshake } from "lucide-react";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
 import Reveal from "@/components/Reveal";
 import PageMeta from "@/components/PageMeta";
 import { JsonLdBreadcrumb } from "@/components/JsonLd";
@@ -125,7 +126,7 @@ const Process = () => {
                 asChild
               >
                 <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">
-                  <Phone className="w-4 h-4 mr-2" /> WhatsApp Us
+                  <WhatsAppIcon className="w-[18px] h-[18px] mr-2" /> WhatsApp Us
                 </a>
               </Button>
             </div>
