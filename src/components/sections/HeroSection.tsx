@@ -82,23 +82,32 @@ const HeroSection = () => {
             </Button>
           </div>
 
-          {/* Trust info bar */}
+          {/* Trust stats */}
           <div
             className="mt-10 animate-fade-in"
             style={{ animationDelay: "0.8s", opacity: 0 }}
           >
-            <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-0">
-              <span className="text-xs sm:text-[13px] font-medium tracking-wide" style={{ color: "rgba(255,255,255,0.6)" }}>
-                Kuala Lumpur & Selangor
-              </span>
-              <span className="hidden sm:inline text-xs mx-3" style={{ color: "rgba(255,255,255,0.25)" }}>•</span>
-              <span className="text-xs sm:text-[13px] font-medium tracking-wide" style={{ color: "rgba(255,255,255,0.6)" }}>
-                10+ Years Experience
-              </span>
-              <span className="hidden sm:inline text-xs mx-3" style={{ color: "rgba(255,255,255,0.25)" }}>•</span>
-              <span className="text-xs sm:text-[13px] font-medium tracking-wide" style={{ color: "rgba(255,255,255,0.6)" }}>
-                200+ Projects Completed
-              </span>
+            <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 sm:gap-0">
+              {[
+                { number: "200+", label: "Projects Completed" },
+                { number: "10+", label: "Years Experience" },
+                { number: "KL", label: "& Selangor Coverage" },
+              ].map((stat, i) => (
+                <div key={stat.label} className="text-center flex flex-col items-center">
+                  {i > 0 && (
+                    <div className="hidden sm:block absolute h-8 w-px -ml-[1px]" style={{ background: "rgba(255,255,255,0.15)" }} />
+                  )}
+                  <span
+                    className="font-display text-2xl sm:text-3xl font-bold leading-none"
+                    style={{ color: "rgba(255,255,255,0.95)", textShadow: "0 2px 8px rgba(0,0,0,0.4)" }}
+                  >
+                    {stat.number}
+                  </span>
+                  <span className="text-[10px] sm:text-xs font-medium tracking-wider uppercase mt-1.5" style={{ color: "rgba(255,255,255,0.45)" }}>
+                    {stat.label}
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
