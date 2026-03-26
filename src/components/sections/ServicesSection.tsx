@@ -4,38 +4,49 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 
-/* 4 core businesses highlighted at the top, then secondary services below */
-const coreServices = [
+const allServices = [
   {
     icon: Home,
     title: "Interior Design & Renovation",
-    desc: "Complete residential renovation — from space planning and 3D design to carpentry, electrical, plumbing, and finishing. Condos, landed houses, and apartments across KL and Selangor.",
+    desc: "Complete residential renovation — space planning, 3D design, carpentry, electrical, plumbing, and finishing across KL and Selangor.",
     link: "/services/renovation",
   },
   {
     icon: Ruler,
     title: "Custom Built-In Furniture",
-    desc: "Made-to-measure wardrobes, kitchen cabinets, TV consoles, shoe cabinets, vanities, and storage solutions. Premium materials with soft-close hardware as standard.",
+    desc: "Made-to-measure wardrobes, kitchen cabinets, TV consoles, shoe cabinets, vanities, and storage solutions with premium hardware.",
     link: "/services/builtin",
   },
   {
     icon: Building2,
     title: "Commercial & Shop Renovation",
-    desc: "Office fit-outs, shop lot renovation, F&B interiors, retail displays, and showroom works. We work within your business timeline to minimize downtime.",
+    desc: "Office fit-outs, shop lot renovation, F&B interiors, retail displays, and showroom works within your business timeline.",
     link: "/services/commercial",
   },
   {
     icon: Palette,
     title: "Artistic Wall Coating — Remmers",
-    desc: "Authorized applicator for German Remmers artistic coatings. Premium textured wall finishes for feature walls, accent areas, and luxury interiors with authentic European quality.",
+    desc: "Authorized German Remmers applicator. Premium textured wall finishes for feature walls, accent areas, and luxury interiors.",
     link: "/services/artistic-coating",
   },
-];
-
-const secondaryServices = [
-  { icon: PaintBucket, title: "Exterior Works", desc: "Shopfront, signage & façade", link: "/services/exterior" },
-  { icon: Warehouse, title: "Warehouse & Shelving", desc: "Racking & industrial solutions", link: "/services/warehouse" },
-  { icon: FileCheck, title: "Design & Permitting", desc: "Plans, drawings & approvals", link: "/services/design" },
+  {
+    icon: PaintBucket,
+    title: "Exterior Works",
+    desc: "Shopfront renovation, signage installation, and building façade upgrades for commercial and residential properties.",
+    link: "/services/exterior",
+  },
+  {
+    icon: Warehouse,
+    title: "Warehouse & Shelving",
+    desc: "Industrial racking systems, warehouse shelving, and storage solutions for manufacturing and logistics operations.",
+    link: "/services/warehouse",
+  },
+  {
+    icon: FileCheck,
+    title: "Design & Permitting",
+    desc: "Architectural plans, construction drawings, permit applications, and regulatory approval coordination.",
+    link: "/services/design",
+  },
 ];
 
 const ServicesSection = () => {
@@ -52,9 +63,9 @@ const ServicesSection = () => {
           </div>
         </Reveal>
 
-        {/* 4 Core Services — larger cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5 mb-5">
-          {coreServices.map((s, i) => (
+        {/* Top row: 4 cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5 mb-4 md:mb-5">
+          {allServices.slice(0, 4).map((s, i) => (
             <Reveal key={s.title} delay={i * 80}>
               <Link
                 to={s.link}
@@ -72,21 +83,21 @@ const ServicesSection = () => {
           ))}
         </div>
 
-        {/* Secondary Services — smaller cards */}
+        {/* Bottom row: 3 cards — same style as top */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-5">
-          {secondaryServices.map((s, i) => (
+          {allServices.slice(4).map((s, i) => (
             <Reveal key={s.title} delay={(i + 4) * 80}>
               <Link
                 to={s.link}
-                className="group p-5 md:p-6 rounded-lg border border-border bg-card hover-lift text-center block h-full transition-colors hover:border-accent/30"
+                className="group relative p-6 md:p-7 rounded-lg border border-border bg-card hover-lift block h-full transition-colors hover:border-accent/30"
               >
-                <div className="w-10 h-10 mx-auto mb-3 rounded-full bg-accent/10 flex items-center justify-center transition-colors group-hover:bg-accent/20">
-                  <s.icon className="w-4 h-4 text-accent transition-transform duration-300 group-hover:scale-110" />
+                <div className="w-12 h-12 mb-4 rounded-full bg-accent/10 flex items-center justify-center transition-colors group-hover:bg-accent/20">
+                  <s.icon className="w-5 h-5 text-accent transition-transform duration-300 group-hover:scale-110" />
                 </div>
-                <h3 className="font-display font-semibold text-sm mb-1 group-hover:text-accent transition-colors">
+                <h3 className="font-display font-semibold text-base md:text-lg mb-2 group-hover:text-accent transition-colors">
                   {s.title}
                 </h3>
-                <p className="text-muted-foreground text-xs leading-relaxed">{s.desc}</p>
+                <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
               </Link>
             </Reveal>
           ))}
