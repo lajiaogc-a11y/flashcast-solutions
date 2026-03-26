@@ -22,15 +22,10 @@ const MaterialsSection = () => {
     <section className="section-padding bg-muted" id="materials">
       <div className="container-narrow">
         <Reveal>
-          <div className="flex items-end justify-between mb-8">
-            <div>
-              <div className="accent-line mb-4" />
+          <div className="text-center mb-8">
+              <div className="accent-line mb-4 mx-auto" />
               <h2 className="font-display text-3xl md:text-4xl font-bold mb-2">Material Library</h2>
               <p className="text-muted-foreground text-sm">Browse quality materials — then request a quote</p>
-            </div>
-            <Link to="/materials" className="text-accent text-sm font-medium hover:underline hidden sm:flex items-center gap-1">
-              View All <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
           </div>
         </Reveal>
 
