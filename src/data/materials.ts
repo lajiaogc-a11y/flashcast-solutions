@@ -17,6 +17,11 @@ import acrylicWhiteImg from "@/assets/materials/acrylic-high-gloss-white.jpg";
 import solidTeakImg from "@/assets/materials/solid-wood-teak.jpg";
 import flutedCharcoalImg from "@/assets/materials/fluted-panel-charcoal.jpg";
 import timberOakImg from "@/assets/materials/timber-cladding-oak.jpg";
+import venetianPlasterImg from "@/assets/materials/art-venetian-plaster.jpg";
+import microcementImg from "@/assets/materials/art-microcement.jpg";
+import metallicPaintImg from "@/assets/materials/art-metallic-paint.jpg";
+import texturePaintImg from "@/assets/materials/art-texture-paint.jpg";
+import limeWashImg from "@/assets/materials/art-lime-wash.jpg";
 
 import wholeHouseImg from "@/assets/category-whole-house-custom.jpg";
 import furnitureImg from "@/assets/category-furniture.jpg";
@@ -140,11 +145,11 @@ export const materialsData: MaterialCategory[] = [
     description: "Premium decorative art paint and textured plaster finishes for feature walls, ceilings, and luxury interiors.",
     image: artPaintImg,
     subcategories: [
-      { name: "Venetian Plaster", slug: "venetian-plaster", description: "Classic Italian-style polished plaster with marble-like depth and sheen.", image: artPaintImg },
-      { name: "Microcement", slug: "microcement", description: "Ultra-thin cement coating for seamless industrial-modern surfaces.", image: artPaintImg },
-      { name: "Metallic Paint", slug: "metallic-paint", description: "Shimmer and metallic effect paints for luxurious accent walls.", image: artPaintImg },
-      { name: "Texture Paint", slug: "texture-paint", description: "Sand, stone, and fabric texture finishes for unique wall effects.", image: artPaintImg },
-      { name: "Lime Wash", slug: "lime-wash", description: "Natural lime-based wash with soft, organic color variations.", image: artPaintImg },
+      { name: "Venetian Plaster", slug: "venetian-plaster", description: "Classic Italian-style polished plaster with marble-like depth and sheen.", image: venetianPlasterImg },
+      { name: "Microcement", slug: "microcement", description: "Ultra-thin cement coating for seamless industrial-modern surfaces.", image: microcementImg },
+      { name: "Metallic Paint", slug: "metallic-paint", description: "Shimmer and metallic effect paints for luxurious accent walls.", image: metallicPaintImg },
+      { name: "Texture Paint", slug: "texture-paint", description: "Sand, stone, and fabric texture finishes for unique wall effects.", image: texturePaintImg },
+      { name: "Lime Wash", slug: "lime-wash", description: "Natural lime-based wash with soft, organic color variations.", image: limeWashImg },
     ],
     items: [],
   },
