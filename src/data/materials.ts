@@ -22,6 +22,9 @@ import microcementImg from "@/assets/materials/art-microcement.jpg";
 import metallicPaintImg from "@/assets/materials/art-metallic-paint.jpg";
 import texturePaintImg from "@/assets/materials/art-texture-paint.jpg";
 import limeWashImg from "@/assets/materials/art-lime-wash.jpg";
+import kitchenMelamineImg from "@/assets/materials/kitchen-melamine-cabinets.jpg";
+import kitchenAcrylicImg from "@/assets/materials/kitchen-acrylic-cabinets.jpg";
+import kitchenSolidWoodImg from "@/assets/materials/kitchen-solid-wood-cabinets.jpg";
 
 import wholeHouseImg from "@/assets/category-whole-house-custom.jpg";
 import furnitureImg from "@/assets/category-furniture.jpg";
