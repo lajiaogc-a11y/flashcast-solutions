@@ -1,5 +1,13 @@
 import { ServiceItem } from "./types";
 
+import designImg from "@/assets/services/design-services.jpg";
+import builtinImg from "@/assets/services/builtin-solutions.jpg";
+import renovationImg from "@/assets/services/renovation-works.jpg";
+import commercialImg from "@/assets/services/commercial-works.jpg";
+import exteriorImg from "@/assets/services/exterior-works.jpg";
+import warehouseImg from "@/assets/services/warehouse-shelving.jpg";
+import approvalImg from "@/assets/services/approval-docs.jpg";
+
 export const servicesData: ServiceItem[] = [
   {
     id: "design",
