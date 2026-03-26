@@ -168,11 +168,42 @@ const ServiceDetail = () => {
         </div>
       </section>
 
+      {/* Related Services */}
+      <section className="section-padding bg-background">
+        <div className="container-narrow">
+          <h2 className="font-display text-2xl font-bold mb-6 text-center">Related Services</h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {servicesData
+              .filter((s) => s.slug !== service.slug)
+              .slice(0, 3)
+              .map((s) => (
+                <Link
+                  key={s.slug}
+                  to={`/services/${s.slug}`}
+                  className="group p-5 rounded-lg border border-border bg-card hover-lift text-center block transition-colors hover:border-accent/30"
+                >
+                  <h3 className="font-display font-semibold text-sm mb-1 group-hover:text-accent transition-colors">
+                    {s.title}
+                  </h3>
+                  <p className="text-muted-foreground text-xs leading-relaxed line-clamp-2">{s.summary}</p>
+                </Link>
+              ))}
+          </div>
+          <div className="flex flex-wrap justify-center gap-3 mt-6 text-sm">
+            <Link to="/projects" className="text-accent hover:underline">View Projects →</Link>
+            <span className="text-border">|</span>
+            <Link to="/materials" className="text-accent hover:underline">Material Library →</Link>
+            <span className="text-border">|</span>
+            <Link to="/faq" className="text-accent hover:underline">FAQ →</Link>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="section-padding bg-accent text-accent-foreground text-center">
         <div className="container-narrow">
           <h2 className="font-display text-3xl font-bold mb-4">Interested in {service.title}?</h2>
-          <p className="mb-6 opacity-90">Contact us for a free consultation and quotation.</p>
+          <p className="mb-6 opacity-90">Contact us for a free consultation and quotation. We serve Kuala Lumpur, Selangor, and surrounding areas.</p>
           <div className="flex flex-col sm:flex-row justify-center gap-3">
             <Button size="lg" variant="secondary" className="btn-press font-semibold h-12 px-8" asChild>
               <Link to="/quote">Get a Free Quote</Link>
