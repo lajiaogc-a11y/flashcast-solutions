@@ -32,14 +32,14 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-6">
+        <nav className="hidden lg:flex items-center gap-5">
           {navItems.map((item) => (
             <Link
               key={item.path}
               to={item.path}
-              className={`text-sm font-medium transition-colors hover:text-accent ${
+              className={`text-xs font-medium transition-colors relative pb-1 hover:text-accent ${
                 location.pathname === item.path
-                  ? "text-accent"
+                  ? "text-accent after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-accent after:rounded-full"
                   : "text-muted-foreground"
               }`}
             >

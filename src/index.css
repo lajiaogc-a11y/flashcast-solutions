@@ -180,6 +180,17 @@
     scrollbar-width: none;
     &::-webkit-scrollbar { display: none; }
   }
+
+  /* Scroll fade hint — right edge gradient */
+  .scroll-fade-right {
+    -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
+    mask-image: linear-gradient(to right, black 85%, transparent 100%);
+  }
+
+  /* Text shadow for hero headlines */
+  .text-shadow-hero {
+    text-shadow: 0 2px 16px rgba(0,0,0,0.35);
+  }
 }
 
 @keyframes fade-in {
