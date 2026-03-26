@@ -118,14 +118,13 @@ const Services = () => {
             <div className="accent-line mx-auto mb-4" style={{ backgroundColor: "hsl(var(--gold))" }} />
             <h2 className="font-display text-3xl font-bold mb-4 text-primary-foreground">Not Sure What You Need?</h2>
             <p className="text-steel-light mb-6 max-w-lg mx-auto">Contact us for a free consultation. We'll assess your space and recommend the right approach.</p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Button size="lg" className="btn-press font-semibold h-12 px-8" asChild>
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+              <Button size="lg" className="btn-press w-full sm:w-auto min-h-[3rem] text-sm font-bold tracking-wide rounded-md px-8 py-3 justify-center" asChild>
                 <Link to="/quote">Get a Free Quote</Link>
               </Button>
               <Button
-                variant="outline"
                 size="lg"
-                className="bg-white text-neutral-800 hover:bg-white/90 border-0 btn-press h-12 px-8 font-semibold shadow-md"
+                className="btn-press w-full sm:w-auto min-h-[3rem] text-sm font-semibold bg-white text-neutral-800 border-0 hover:bg-white/90 shadow-md rounded-md px-8 py-3 justify-center"
                 asChild
               >
                 <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">

@@ -228,11 +228,11 @@ const LocationPage = () => {
             Renovation Services in {location.name}
           </h1>
           <p className="text-steel-light max-w-2xl text-lg mb-2">{location.description}</p>
-          <div className="flex flex-col sm:flex-row gap-3 mt-8">
-            <Button size="lg" asChild>
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-8">
+            <Button size="lg" className="btn-press w-full sm:w-auto min-h-[3rem] text-sm font-bold tracking-wide shadow-xl shadow-accent/40 bg-accent hover:bg-accent/90 text-accent-foreground rounded-md px-8 py-3 justify-center" asChild>
               <Link to="/quote">Get a Free Quote <ArrowRight className="w-4 h-4 ml-2" /></Link>
             </Button>
-            <Button size="lg" className="bg-white text-neutral-800 hover:bg-white/90 border-0 btn-press h-12 px-8 font-semibold shadow-md" asChild>
+            <Button size="lg" className="btn-press w-full sm:w-auto min-h-[3rem] text-sm font-semibold bg-white text-neutral-800 border-0 hover:bg-white/90 shadow-md rounded-md px-8 py-3 justify-center" asChild>
               <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">
                 <WhatsAppIcon className="w-[18px] h-[18px] mr-2 text-[#25D366]" /> WhatsApp Us
               </a>
@@ -382,11 +382,11 @@ const LocationPage = () => {
             Start Your {location.name} Renovation Project
           </h2>
           <p className="mb-6 opacity-90">Free consultation and site measurement for projects in {location.name} and surrounding areas.</p>
-          <div className="flex flex-col sm:flex-row justify-center gap-3">
-            <Button size="lg" variant="secondary" className="btn-press font-semibold h-12 px-8" asChild>
+          <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
+            <Button size="lg" variant="secondary" className="btn-press w-full sm:w-auto min-h-[3rem] text-sm font-bold tracking-wide rounded-md px-8 py-3 justify-center" asChild>
               <Link to="/quote">Get a Free Quote</Link>
             </Button>
-            <Button size="lg" variant="outline" className="bg-white text-neutral-800 hover:bg-white/90 border-0 btn-press h-12 px-8 font-semibold shadow-md" asChild>
+            <Button size="lg" className="btn-press w-full sm:w-auto min-h-[3rem] text-sm font-semibold bg-white text-neutral-800 border-0 hover:bg-white/90 shadow-md rounded-md px-8 py-3 justify-center" asChild>
               <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer"><WhatsAppIcon className="w-[18px] h-[18px] mr-2 text-[#25D366]" /> WhatsApp Us</a>
             </Button>
           </div>

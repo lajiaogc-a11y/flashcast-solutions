@@ -112,14 +112,14 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div className="mt-6 flex flex-col sm:flex-row gap-3">
-                  <Button size="lg" className="btn-press font-semibold h-12 px-8" asChild>
+                <div className="mt-6 flex flex-col sm:flex-row gap-3 sm:gap-4">
+                  <Button size="lg" className="btn-press w-full sm:w-auto min-h-[3rem] text-sm font-bold tracking-wide rounded-md px-8 py-3 justify-center" asChild>
+                    <Link to="/quote">Get a Free Quote <ArrowRight className="w-4 h-4 ml-2" /></Link>
+                  </Button>
+                  <Button size="lg" className="btn-press w-full sm:w-auto min-h-[3rem] text-sm font-semibold bg-white text-neutral-800 border-0 hover:bg-white/90 shadow-md rounded-md px-8 py-3 justify-center" asChild>
                     <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">
                       <WhatsAppIcon className="w-[18px] h-[18px] mr-2 text-[#25D366]" /> WhatsApp Us
                     </a>
-                  </Button>
-                  <Button size="lg" variant="outline" className="btn-press font-semibold h-12 px-8" asChild>
-                    <Link to="/quote">Get a Free Quote <ArrowRight className="w-4 h-4 ml-2" /></Link>
                   </Button>
                 </div>
               </div>
