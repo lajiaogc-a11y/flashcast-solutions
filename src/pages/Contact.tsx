@@ -3,29 +3,48 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { useToast } from "@/hooks/use-toast";
-import { MapPin, Phone, Mail, Clock, ArrowRight, CheckCircle } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, ArrowRight, CheckCircle, Loader2, AlertCircle } from "lucide-react";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
 import Reveal from "@/components/Reveal";
 import PageMeta from "@/components/PageMeta";
 import { JsonLdBreadcrumb } from "@/components/JsonLd";
 import heroImg from "@/assets/hero-contact.jpg";
 
-const Contact = () => {
-  const { toast } = useToast();
-  const [form, setForm] = useState({ name: "", phone: "", email: "", message: "" });
+type FormErrors = Partial<Record<string, string>>;
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({ title: "Message Sent!", description: "We'll get back to you within 24 hours." });
-    setForm({ name: "", phone: "", email: "", message: "" });
+const Contact = () => {
+  const [form, setForm] = useState({ name: "", phone: "", email: "", message: "" });
+  const [errors, setErrors] = useState<FormErrors>({});
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+
+  const validate = (): boolean => {
+    const e: FormErrors = {};
+    if (!form.name.trim()) e.name = "Please enter your name";
+    if (!form.phone.trim()) e.phone = "Please enter your phone number";
+    else if (!/^[+]?\d[\d\s-]{6,}$/.test(form.phone.trim())) e.phone = "Please enter a valid phone number";
+    if (form.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) e.email = "Please enter a valid email";
+    if (!form.message.trim()) e.message = "Please enter your message";
+    else if (form.message.trim().length < 10) e.message = "Please provide more details (at least 10 characters)";
+    setErrors(e);
+    return Object.keys(e).length === 0;
   };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!validate()) return;
+    setStatus("submitting");
+    await new Promise((r) => setTimeout(r, 1500));
+    setStatus("success");
+  };
+
+  const FieldError = ({ msg }: { msg?: string }) =>
+    msg ? <p className="text-destructive text-xs mt-1 flex items-center gap-1"><AlertCircle className="w-3 h-3" />{msg}</p> : null;
 
   return (
     <main className="pt-16">
       <PageMeta
         title="Contact FLASH CAST | Renovation Company Kuala Lumpur"
-        description="Get in touch with FLASH CAST SDN. BHD. for your renovation project in Kuala Lumpur and Selangor. Visit us at Taman United, KL or contact via WhatsApp, phone, or email."
+        description="Get in touch with FLASH CAST SDN. BHD. for your renovation project in Kuala Lumpur and Selangor."
         keywords="contact renovation company KL, FLASH CAST address, renovation enquiry Kuala Lumpur"
         canonicalPath="/contact"
       />
@@ -34,15 +53,12 @@ const Contact = () => {
       {/* Hero Banner */}
       <section className="relative min-h-[45vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
-          <img src={heroImg} alt="Contact FLASH CAST renovation company" className="w-full h-full object-cover" />
+          <img src={heroImg} alt="Contact FLASH CAST renovation company" className="w-full h-full object-cover" width={1920} height={800} />
           <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent" />
         </div>
         <div className="relative z-10 container-narrow px-5 md:px-8 py-20 md:py-28">
           <p className="font-body font-semibold text-[11px] tracking-[0.3em] uppercase mb-4" style={{ color: "hsl(var(--gold))" }}>Get In Touch</p>
-          <h1
-            className="font-display text-3xl md:text-5xl font-bold leading-tight mb-4 max-w-lg"
-            style={{ color: "#fff", textShadow: "0 2px 8px rgba(0,0,0,0.5)" }}
-          >
+          <h1 className="font-display text-3xl md:text-5xl font-bold leading-tight mb-4 max-w-lg" style={{ color: "#fff", textShadow: "0 2px 8px rgba(0,0,0,0.5)" }}>
             Contact Us
           </h1>
           <p className="max-w-xl text-base md:text-lg leading-relaxed" style={{ color: "rgba(255,255,255,0.9)", textShadow: "0 1px 4px rgba(0,0,0,0.4)" }}>
@@ -99,7 +115,7 @@ const Contact = () => {
                 <div className="mt-6 flex flex-col sm:flex-row gap-3">
                   <Button size="lg" className="btn-press font-semibold h-12 px-8" asChild>
                     <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">
-                      <WhatsAppIcon className="w-[18px] h-[18px] mr-2" /> WhatsApp Us
+                      <WhatsAppIcon className="w-[18px] h-[18px] mr-2 text-[#25D366]" /> WhatsApp Us
                     </a>
                   </Button>
                   <Button size="lg" variant="outline" className="btn-press font-semibold h-12 px-8" asChild>
@@ -111,28 +127,78 @@ const Contact = () => {
 
             <Reveal direction="right" delay={150}>
               <div className="bg-card p-6 md:p-8 rounded-lg border border-border">
-                <h2 className="font-display text-2xl font-bold mb-6">Send Us a Message</h2>
-                <form className="space-y-4" onSubmit={handleSubmit}>
-                  <div>
-                    <label className="block text-sm font-medium mb-1.5">Name *</label>
-                    <Input required placeholder="Your name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} />
+                {status === "success" ? (
+                  <div className="text-center py-8">
+                    <div className="w-14 h-14 mx-auto mb-5 rounded-full bg-accent/10 flex items-center justify-center">
+                      <CheckCircle className="w-7 h-7 text-accent" />
+                    </div>
+                    <h2 className="font-display text-2xl font-bold mb-3">Message Sent!</h2>
+                    <p className="text-muted-foreground text-sm mb-2">Thank you, <strong className="text-foreground">{form.name}</strong>.</p>
+                    <p className="text-muted-foreground text-sm mb-6">We'll get back to you within 24 hours.</p>
+                    <Button variant="outline" className="btn-press" onClick={() => { setStatus("idle"); setForm({ name: "", phone: "", email: "", message: "" }); }}>
+                      Send Another Message
+                    </Button>
                   </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-1.5">Phone / WhatsApp *</label>
-                    <Input type="tel" required placeholder="+60 12-345 6789" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-1.5">Email</label>
-                    <Input type="email" placeholder="your@email.com" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-1.5">Message *</label>
-                    <Textarea required rows={5} placeholder="Tell us about your project — what type of renovation, location, timeline, and any specific requirements..." value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} />
-                  </div>
-                  <Button type="submit" size="lg" className="w-full btn-press font-semibold h-12">
-                    Send Message <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button>
-                </form>
+                ) : (
+                  <>
+                    <h2 className="font-display text-2xl font-bold mb-6">Send Us a Message</h2>
+
+                    {status === "error" && (
+                      <div className="mb-6 p-4 bg-destructive/10 border border-destructive/20 rounded-lg flex items-start gap-3">
+                        <AlertCircle className="w-5 h-5 text-destructive shrink-0 mt-0.5" />
+                        <p className="text-sm text-destructive">Something went wrong. Please try again or contact us via WhatsApp.</p>
+                      </div>
+                    )}
+
+                    <form className="space-y-4" onSubmit={handleSubmit} noValidate>
+                      <div>
+                        <label className="block text-sm font-medium mb-1.5">Name <span className="text-destructive">*</span></label>
+                        <Input
+                          required placeholder="Your full name" value={form.name}
+                          className={errors.name ? "border-destructive" : ""}
+                          onChange={(e) => { setForm({ ...form, name: e.target.value }); setErrors({ ...errors, name: undefined }); }}
+                        />
+                        <FieldError msg={errors.name} />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium mb-1.5">Phone / WhatsApp <span className="text-destructive">*</span></label>
+                        <Input
+                          type="tel" required placeholder="+60 12-345 6789" value={form.phone}
+                          className={errors.phone ? "border-destructive" : ""}
+                          onChange={(e) => { setForm({ ...form, phone: e.target.value }); setErrors({ ...errors, phone: undefined }); }}
+                        />
+                        <FieldError msg={errors.phone} />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium mb-1.5">Email <span className="text-muted-foreground text-xs">(optional)</span></label>
+                        <Input
+                          type="email" placeholder="your@email.com" value={form.email}
+                          className={errors.email ? "border-destructive" : ""}
+                          onChange={(e) => { setForm({ ...form, email: e.target.value }); setErrors({ ...errors, email: undefined }); }}
+                        />
+                        <FieldError msg={errors.email} />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium mb-1.5">Message <span className="text-destructive">*</span></label>
+                        <Textarea
+                          required rows={5} placeholder="Tell us about your project — what type of renovation, location, timeline, and any specific requirements..."
+                          value={form.message}
+                          className={errors.message ? "border-destructive" : ""}
+                          onChange={(e) => { setForm({ ...form, message: e.target.value }); setErrors({ ...errors, message: undefined }); }}
+                        />
+                        <FieldError msg={errors.message} />
+                      </div>
+                      <Button type="submit" size="lg" className="w-full btn-press font-semibold h-12" disabled={status === "submitting"}>
+                        {status === "submitting" ? (
+                          <><Loader2 className="w-4 h-4 mr-2 animate-spin" /> Sending...</>
+                        ) : (
+                          <>Send Message <ArrowRight className="w-4 h-4 ml-2" /></>
+                        )}
+                      </Button>
+                      <p className="text-xs text-muted-foreground text-center">We'll respond within 24 hours. No spam.</p>
+                    </form>
+                  </>
+                )}
               </div>
             </Reveal>
           </div>

@@ -103,10 +103,12 @@ const MobileAccordion = ({
   </div>
 );
 
-const socialLinks = [
-  { icon: TikTokIcon, label: "TikTok", href: "#", hoverBg: "hover:bg-white hover:text-black hover:border-white", activeStyle: "active:bg-white active:text-black active:border-white" },
-  { icon: Instagram, label: "Instagram", href: "#", hoverBg: "hover:bg-gradient-to-br hover:from-[#f09433] hover:to-[#bc1888] hover:text-white hover:border-transparent", activeStyle: "active:bg-[#bc1888] active:text-white active:border-transparent" },
-  { icon: XiaohongshuIcon, label: "Xiaohongshu", href: "#", hoverBg: "hover:bg-[#FF2442] hover:text-white hover:border-[#FF2442]", activeStyle: "active:bg-[#FF2442] active:text-white active:border-[#FF2442]" },
+/* Social links — hidden until real URLs are provided */
+const socialLinks: { icon: React.FC<{className?: string}>; label: string; href: string; hoverBg: string; activeStyle: string }[] = [
+  // Uncomment and update with real URLs when available:
+  // { icon: TikTokIcon, label: "TikTok", href: "https://tiktok.com/@flashcast", hoverBg: "hover:bg-white hover:text-black hover:border-white", activeStyle: "active:bg-white active:text-black active:border-white" },
+  // { icon: Instagram, label: "Instagram", href: "https://instagram.com/flashcast", hoverBg: "hover:bg-gradient-to-br hover:from-[#f09433] hover:to-[#bc1888] hover:text-white hover:border-transparent", activeStyle: "active:bg-[#bc1888] active:text-white active:border-transparent" },
+  // { icon: XiaohongshuIcon, label: "Xiaohongshu", href: "https://xiaohongshu.com/flashcast", hoverBg: "hover:bg-[#FF2442] hover:text-white hover:border-[#FF2442]", activeStyle: "active:bg-[#FF2442] active:text-white active:border-[#FF2442]" },
 ];
 
 const Footer = () => {
