@@ -129,7 +129,7 @@ const Services = () => {
                 asChild
               >
                 <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">
-                  <WhatsAppIcon className="w-[18px] h-[18px] mr-2" /> WhatsApp Us
+                  <WhatsAppIcon className="w-[18px] h-[18px] mr-2 text-[#25D366]" /> WhatsApp Us
                 </a>
               </Button>
             </div>
