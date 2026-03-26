@@ -101,14 +101,14 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Menu — Full-screen overlay */}
+      {/* Mobile Menu */}
       {isOpen && (
         <div
-          className="lg:hidden fixed inset-x-0 top-16 bottom-0 z-40 bg-background animate-fade-in flex flex-col"
+          className="lg:hidden fixed inset-x-0 top-16 bottom-0 z-40 bg-background animate-fade-in overflow-hidden"
           style={{ animationDuration: "0.15s" }}
         >
-          {/* Navigation links */}
-          <div className="flex-1 min-h-0 overflow-y-auto px-5 py-4">
+          {/* Scrollable nav links */}
+          <div className="absolute inset-x-0 top-0 bottom-[140px] overflow-y-auto px-5 py-4">
             <p className="text-[10px] font-semibold tracking-[0.2em] uppercase text-muted-foreground mb-3 px-3">
               Navigation
             </p>
@@ -134,8 +134,8 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Bottom CTA — no icons, centered text */}
-          <div className="shrink-0 border-t border-border bg-background px-5 py-4 space-y-2.5">
+          {/* Fixed bottom CTA */}
+          <div className="absolute inset-x-0 bottom-0 border-t border-border bg-background px-5 py-4 space-y-2.5">
             <Button size="lg" className="w-full font-semibold h-12 text-sm justify-center" asChild>
               <Link to="/quote">Get a Free Quote</Link>
             </Button>
