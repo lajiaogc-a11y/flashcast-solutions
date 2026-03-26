@@ -1,6 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Clock, Tag, ArrowRight } from "lucide-react";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
 import { blogPosts } from "@/data/blog";
 import PageMeta from "@/components/PageMeta";
 import { JsonLdBreadcrumb } from "@/components/JsonLd";
