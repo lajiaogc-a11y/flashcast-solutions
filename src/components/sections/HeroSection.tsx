@@ -107,7 +107,7 @@ const HeroSection = () => {
           </h1>
 
           <p
-            className="text-[15px] md:text-lg leading-relaxed mb-8 max-w-md animate-fade-in"
+            className="text-[15px] md:text-lg leading-relaxed mb-8 max-w-md md:mx-auto animate-fade-in"
             style={{
               animationDelay: "0.45s",
               opacity: 0,
