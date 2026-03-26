@@ -1,7 +1,8 @@
 import { useParams, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { ArrowRight, ArrowLeft, CheckCircle, Phone } from "lucide-react";
+import { ArrowRight, ArrowLeft, CheckCircle } from "lucide-react";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
 import { servicesData } from "@/data/services";
 import Reveal from "@/components/Reveal";
 import PageMeta from "@/components/PageMeta";

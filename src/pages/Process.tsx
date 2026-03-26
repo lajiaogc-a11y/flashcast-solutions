@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Phone, CheckCircle, ClipboardList, Ruler, FileText, Hammer, Handshake } from "lucide-react";
+import { ArrowRight, CheckCircle, ClipboardList, Ruler, FileText, Hammer, Handshake } from "lucide-react";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
 import Reveal from "@/components/Reveal";
 import PageMeta from "@/components/PageMeta";
 import { JsonLdBreadcrumb } from "@/components/JsonLd";
