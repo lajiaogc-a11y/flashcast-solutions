@@ -1,40 +1,26 @@
 
 
-## Hero Trust Badges Redesign
+## Fix: Mobile Navigation Menu Links Not Visible
 
-Currently the three badges (KL & Selangor, 10+ Years, 200+ Projects) are plain text with small icons — they look flat and easily overlooked against the hero image.
+### Problem
+When tapping the hamburger menu, the menu opens (X icon appears) but the 9 navigation links are invisible. The page content shows through the menu area because the mobile menu panel's `z-40` is lower than needed, and being a `fixed` child inside a `fixed` header creates stacking context issues.
 
-### Design Concept: Frosted Glass Pill Badges
+### Root Cause
+The mobile menu uses `fixed` positioning with `z-40` inside a header with `z-50`. Since both are `fixed`, they compete in the root stacking context, and the main page content can overlap the menu.
 
-Each badge becomes a semi-transparent frosted glass pill with a subtle border, creating depth and premium feel while maintaining readability over any background image.
+### Solution
 
-```text
-┌─────────────────┐  ┌──────────────┐  ┌──────────────────┐
-│ 📍 KL & Selangor│  │ ✓ 10+ Years  │  │ 🛡 200+ Projects │
-└─────────────────┘  └──────────────┘  └──────────────────┘
-   frosted glass        frosted glass       frosted glass
-   bg-white/10          bg-white/10         bg-white/10
-   backdrop-blur-md     backdrop-blur-md    backdrop-blur-md
-   border-white/20      border-white/20     border-white/20
-```
+**File: `src/components/Navbar.tsx`**
 
-### Visual Details
+1. Move the mobile menu **outside** the `<header>` element (render it as a sibling) so it's not constrained by the header's stacking context
+2. Increase z-index to `z-[60]` to ensure it sits above everything
+3. Ensure `bg-background` is fully opaque (no transparency)
+4. Remove `animate-fade-in` (which starts at opacity 0 with translateY) and use a simpler opacity transition or no animation to prevent the invisible state
 
-- **Background**: `bg-white/10 backdrop-blur-md` — frosted glass effect
-- **Border**: `border border-white/20 rounded-full` — soft pill shape with subtle edge
-- **Padding**: `px-4 py-2` — comfortable internal spacing
-- **Icon**: gold accent color (`text-gold`) to match brand, slightly larger (`w-4 h-4`)
-- **Text**: pure white, `text-xs font-semibold tracking-wide uppercase`
-- **Layout**: `flex flex-wrap gap-3` — wraps gracefully on mobile
-- **Hover**: subtle `hover:bg-white/15` transition for interactivity feel
+### Technical Details
 
-### File Changes
-
-**`src/components/sections/HeroSection.tsx`** — Update the trust badges section (lines 85-104):
-- Wrap each badge in a pill-shaped container with frosted glass styling
-- Change icon color to gold accent
-- Increase icon size slightly
-- Add rounded-full pill shape with border
-
-This creates a cohesive, premium look that elevates the hero section while keeping the badges readable across different background images.
+- Restructure the component to render the mobile menu overlay as a portal-like sibling to `<header>`, not a child
+- Use `z-[60]` on the mobile menu container
+- Replace `animate-fade-in` with a simpler `animate-in fade-in-0` from tailwindcss-animate or remove animation entirely
+- Keep the absolute positioning strategy for the scrollable nav area (`top-0 bottom-[140px]`) and fixed CTA (`bottom-0`)
 
