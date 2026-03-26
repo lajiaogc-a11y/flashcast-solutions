@@ -35,6 +35,35 @@ const useCountUp = (end: number, duration = 1800) => {
 
   return { count, ref };
 };
+const HeroStats = () => {
+  const projects = useCountUp(200);
+  const years = useCountUp(10);
+
+  return (
+    <div className="mt-10 animate-fade-in" style={{ animationDelay: "0.8s", opacity: 0 }}>
+      <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-0">
+        <div ref={projects.ref} className="text-center sm:text-left">
+          <span className="font-display text-2xl sm:text-3xl font-bold leading-none block" style={{ color: "rgba(255,255,255,0.95)", textShadow: "0 2px 8px rgba(0,0,0,0.4)" }}>
+            {projects.count}+
+          </span>
+          <span className="text-[10px] sm:text-xs font-medium tracking-wider uppercase mt-1.5 block" style={{ color: "rgba(255,255,255,0.45)" }}>Projects Completed</span>
+        </div>
+        <div className="hidden sm:block w-px h-10 mx-6" style={{ background: "rgba(255,255,255,0.15)" }} />
+        <div ref={years.ref} className="text-center sm:text-left">
+          <span className="font-display text-2xl sm:text-3xl font-bold leading-none block" style={{ color: "rgba(255,255,255,0.95)", textShadow: "0 2px 8px rgba(0,0,0,0.4)" }}>
+            {years.count}+
+          </span>
+          <span className="text-[10px] sm:text-xs font-medium tracking-wider uppercase mt-1.5 block" style={{ color: "rgba(255,255,255,0.45)" }}>Years Experience</span>
+        </div>
+        <div className="hidden sm:block w-px h-10 mx-6" style={{ background: "rgba(255,255,255,0.15)" }} />
+        <div className="text-center sm:text-left">
+          <span className="font-display text-2xl sm:text-3xl font-bold leading-none block" style={{ color: "rgba(255,255,255,0.95)", textShadow: "0 2px 8px rgba(0,0,0,0.4)" }}>KL</span>
+          <span className="text-[10px] sm:text-xs font-medium tracking-wider uppercase mt-1.5 block" style={{ color: "rgba(255,255,255,0.45)" }}>& Selangor Coverage</span>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const HeroSection = () => {
   return (
