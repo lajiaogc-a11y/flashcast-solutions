@@ -26,7 +26,7 @@ const MaterialSubcategoryPage = () => {
   return (
     <main className="pt-16">
       <PageMeta
-        title={`${subcategory.name} ${subcategory.nameZh} | ${category.name} | FLASH CAST`}
+        title={`${subcategory.name} | ${category.name} | FLASH CAST`}
         description={`${subcategory.description} Browse ${subcategory.name.toLowerCase()} for your renovation project in Kuala Lumpur.`}
         keywords={`${subcategory.name} KL, ${subcategory.name.toLowerCase()} Malaysia, ${category.name.toLowerCase()} renovation`}
         canonicalPath={`/materials/category/${category.slug}/${subcategory.slug}`}
@@ -45,8 +45,7 @@ const MaterialSubcategoryPage = () => {
             <ArrowLeft className="w-4 h-4" /> {category.name}
           </Link>
           <div className="accent-line mb-4" />
-          <h1 className="font-display text-3xl md:text-4xl font-bold mb-1">{subcategory.name}</h1>
-          <p className="text-lg text-muted-foreground/80 font-medium mb-2">{subcategory.nameZh}</p>
+          <h1 className="font-display text-3xl md:text-4xl font-bold mb-2">{subcategory.name}</h1>
           <p className="text-muted-foreground max-w-xl">{subcategory.description}</p>
         </div>
       </section>
