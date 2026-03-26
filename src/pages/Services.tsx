@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, CheckCircle } from "lucide-react";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
 import { servicesData } from "@/data/services";
 import Reveal from "@/components/Reveal";
@@ -11,6 +11,7 @@ import commercialImg from "@/assets/commercial-renovation.jpg";
 import kitchenImg from "@/assets/kitchen-cabinet.jpg";
 import warehouseImg from "@/assets/warehouse-shelving.jpg";
 import exteriorImg from "@/assets/exterior-works.jpg";
+import artisticCoatingImg from "@/assets/services/artistic-coating.jpg";
 import heroImg from "@/assets/hero-services.jpg";
 
 const imageMap: Record<string, string> = {
@@ -18,6 +19,7 @@ const imageMap: Record<string, string> = {
   builtin: kitchenImg,
   renovation: residentialImg,
   commercial: commercialImg,
+  "artistic-coating": artisticCoatingImg,
   exterior: exteriorImg,
   warehouse: warehouseImg,
   approval: commercialImg,
@@ -27,9 +29,9 @@ const Services = () => {
   return (
     <main className="pt-16">
       <PageMeta
-        title="Renovation Services Kuala Lumpur | Interior, Built-In & Commercial"
-        description="Explore FLASH CAST's comprehensive renovation services in Kuala Lumpur and Selangor — interior design, custom built-in furniture, commercial fit-out, exterior works, and warehouse solutions."
-        keywords="renovation services KL, interior design Kuala Lumpur, custom built-in Malaysia, commercial renovation Selangor, shop renovation KL"
+        title="Renovation Services Kuala Lumpur | Interior, Built-In, Commercial & Artistic Coating"
+        description="Explore FLASH CAST's comprehensive renovation services in Kuala Lumpur and Selangor — interior design, custom built-in furniture, commercial fit-out, artistic wall coating (German Remmers), exterior works, and warehouse solutions."
+        keywords="renovation services KL, interior design Kuala Lumpur, custom built-in Malaysia, commercial renovation Selangor, artistic wall coating Remmers, shop renovation KL"
         canonicalPath="/services"
       />
       <JsonLdBreadcrumb items={[{ name: "Home", url: "/" }, { name: "Services", url: "/services" }]} />
@@ -37,7 +39,7 @@ const Services = () => {
       {/* Hero Banner */}
       <section className="relative min-h-[45vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
-          <img src={heroImg} alt="FLASH CAST renovation services" className="w-full h-full object-cover" />
+          <img src={heroImg} alt="FLASH CAST renovation services in Kuala Lumpur" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent" />
         </div>
         <div className="relative z-10 container-narrow px-5 md:px-8 py-20 md:py-28">
@@ -49,7 +51,16 @@ const Services = () => {
             Our Services
           </h1>
           <p className="max-w-xl text-base md:text-lg leading-relaxed" style={{ color: "rgba(255,255,255,0.9)", textShadow: "0 1px 4px rgba(0,0,0,0.4)" }}>
-            Comprehensive renovation services across Kuala Lumpur and Selangor — from interior design and custom built-in to commercial fit-out and warehouse systems.
+            Comprehensive renovation services across Kuala Lumpur and Selangor — from interior design and custom built-in to commercial fit-out, artistic wall coating, and warehouse systems.
+          </p>
+        </div>
+      </section>
+
+      {/* GEO Summary */}
+      <section className="py-8 bg-muted border-b border-border">
+        <div className="container-narrow">
+          <p className="text-muted-foreground text-sm leading-relaxed text-center max-w-3xl mx-auto">
+            <strong className="text-foreground">FLASH CAST SDN. BHD.</strong> provides {servicesData.length} core renovation services in <strong className="text-foreground">Kuala Lumpur</strong> and <strong className="text-foreground">Selangor</strong>, Malaysia — covering residential homes, commercial spaces, industrial facilities, and specialty finishes including German Remmers artistic coatings.
           </p>
         </div>
       </section>
@@ -62,11 +73,22 @@ const Services = () => {
                 <div className={i % 2 !== 0 ? "lg:order-2" : ""}>
                   <div className="accent-line mb-4" />
                   <h2 className="font-display text-2xl md:text-3xl font-bold mb-4">{cat.title}</h2>
-                  <p className="text-muted-foreground mb-6">{cat.summary}</p>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">{cat.summary}</p>
+
+                  {/* Suitable For */}
+                  <div className="mb-4">
+                    <h3 className="font-semibold text-sm mb-2">Suitable For:</h3>
+                    <div className="flex flex-wrap gap-2">
+                      {cat.suitableFor.slice(0, 4).map((s) => (
+                        <span key={s} className="text-xs px-3 py-1 bg-accent/10 text-accent rounded-full">{s}</span>
+                      ))}
+                    </div>
+                  </div>
+
                   <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-6">
                     {cat.items.slice(0, 8).map((item) => (
                       <li key={item} className="flex items-center gap-2 text-sm">
-                        <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
+                        <CheckCircle className="w-3.5 h-3.5 text-accent shrink-0" />
                         {item}
                       </li>
                     ))}
@@ -75,7 +97,7 @@ const Services = () => {
                     )}
                   </ul>
                   <Button className="btn-press" asChild>
-                    <Link to={`/services/${cat.slug}`}>Learn More <ArrowRight className="ml-2 w-4 h-4" /></Link>
+                    <Link to={`/services/${cat.slug}`}>View Full Details <ArrowRight className="ml-2 w-4 h-4" /></Link>
                   </Button>
                 </div>
               </Reveal>
@@ -89,6 +111,7 @@ const Services = () => {
         </section>
       ))}
 
+      {/* CTA */}
       <section className="section-padding bg-surface-dark text-center">
         <Reveal>
           <div className="container-narrow">
@@ -112,6 +135,19 @@ const Services = () => {
             </div>
           </div>
         </Reveal>
+      </section>
+
+      {/* Internal Links */}
+      <section className="py-8 bg-background border-t border-border">
+        <div className="container-narrow text-center">
+          <p className="text-muted-foreground text-sm">
+            <Link to="/projects" className="text-accent hover:underline">Projects</Link>{" · "}
+            <Link to="/materials" className="text-accent hover:underline">Materials</Link>{" · "}
+            <Link to="/blog" className="text-accent hover:underline">Blog</Link>{" · "}
+            <Link to="/faq" className="text-accent hover:underline">FAQ</Link>{" · "}
+            <Link to="/contact" className="text-accent hover:underline">Contact</Link>
+          </p>
+        </div>
       </section>
     </main>
   );
