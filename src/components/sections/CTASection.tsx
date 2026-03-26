@@ -16,7 +16,12 @@ const CTASection = () => {
             <Button size="lg" variant="secondary" className="btn-press font-semibold h-12 px-8" asChild>
               <Link to="/quote">Get a Free Quote <ArrowRight className="w-4 h-4 ml-2" /></Link>
             </Button>
-            <Button size="lg" variant="outline" className="border-accent-foreground/40 text-accent-foreground hover:bg-accent-foreground/10 btn-press h-12 px-8" asChild>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white/50 text-white hover:bg-white/15 hover:text-white btn-press h-12 px-8 font-semibold"
+              asChild
+            >
               <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">
                 <Phone className="w-4 h-4 mr-2" /> WhatsApp Us
               </a>

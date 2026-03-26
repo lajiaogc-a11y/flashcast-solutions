@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Phone } from "lucide-react";
 import { materialsData } from "@/data/materials";
 import Reveal from "@/components/Reveal";
 import PageMeta from "@/components/PageMeta";
 import { JsonLdBreadcrumb } from "@/components/JsonLd";
+import heroImg from "@/assets/hero-renovation-hd.jpg";
 
 const Materials = () => {
   return (
@@ -16,17 +17,28 @@ const Materials = () => {
         canonicalPath="/materials"
       />
       <JsonLdBreadcrumb items={[{ name: "Home", url: "/" }, { name: "Materials", url: "/materials" }]} />
-      <section className="section-padding bg-surface-dark">
-        <div className="container-narrow text-center">
-          <div className="accent-line mx-auto mb-4 animate-fade-in" />
-          <h1 className="font-display text-4xl md:text-5xl font-bold text-primary-foreground mb-4 animate-slide-up" style={{ opacity: 0, animationDelay: "0.1s" }}>Material Library</h1>
-          <p className="text-primary-foreground/70 max-w-2xl mx-auto text-lg animate-fade-in" style={{ opacity: 0, animationDelay: "0.3s" }}>
+
+      {/* Hero Banner */}
+      <section className="relative min-h-[45vh] flex items-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={heroImg} alt="FLASH CAST material library" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent" />
+        </div>
+        <div className="relative z-10 container-narrow px-5 md:px-8 py-20 md:py-28">
+          <p className="font-body font-semibold text-[11px] tracking-[0.3em] uppercase mb-4" style={{ color: "hsl(var(--gold))" }}>Browse & Select</p>
+          <h1
+            className="font-display text-3xl md:text-5xl font-bold leading-tight mb-4 max-w-lg"
+            style={{ color: "#fff", textShadow: "0 2px 8px rgba(0,0,0,0.5)" }}
+          >
+            Material Library
+          </h1>
+          <p className="max-w-xl text-base md:text-lg leading-relaxed" style={{ color: "rgba(255,255,255,0.9)", textShadow: "0 1px 4px rgba(0,0,0,0.4)" }}>
             Browse our curated material selection for your renovation project. View finishes, textures, and styles — then contact us for samples and pricing.
           </p>
         </div>
       </section>
 
-      {materialsData.map((cat, catIdx) => (
+      {materialsData.map((cat) => (
         <section key={cat.slug} className="section-padding bg-background border-b border-border">
           <div className="container-narrow">
             <Reveal>
@@ -70,12 +82,19 @@ const Materials = () => {
           <div className="container-narrow">
             <h2 className="font-display text-3xl font-bold mb-4">Interested in a Material?</h2>
             <p className="text-accent-foreground/80 mb-6 max-w-lg mx-auto">Contact us to request samples, check availability, or get a quotation for your project.</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="secondary" size="lg" className="btn-press" asChild>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <Button variant="secondary" size="lg" className="btn-press font-semibold h-12 px-8" asChild>
                 <Link to="/quote">Request a Quote <ArrowRight className="ml-2 w-4 h-4" /></Link>
               </Button>
-              <Button variant="outline" size="lg" className="border-accent-foreground/30 text-accent-foreground hover:bg-accent-foreground/10 btn-press" asChild>
-                <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white/50 text-white hover:bg-white/15 hover:text-white btn-press h-12 px-8 font-semibold"
+                asChild
+              >
+                <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">
+                  <Phone className="w-4 h-4 mr-2" /> WhatsApp Us
+                </a>
               </Button>
             </div>
           </div>

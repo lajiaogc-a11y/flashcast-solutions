@@ -4,6 +4,7 @@ import { ArrowRight, Phone, CheckCircle, ClipboardList, Ruler, FileText, Hammer,
 import Reveal from "@/components/Reveal";
 import PageMeta from "@/components/PageMeta";
 import { JsonLdBreadcrumb } from "@/components/JsonLd";
+import heroImg from "@/assets/hero-renovation-hd.jpg";
 
 const steps = [
   {
@@ -53,12 +54,23 @@ const Process = () => {
         canonicalPath="/process"
       />
       <JsonLdBreadcrumb items={[{ name: "Home", url: "/" }, { name: "Our Process", url: "/process" }]} />
-      <section className="section-padding bg-surface-dark">
-        <div className="container-narrow text-center">
-          <div className="accent-line mx-auto mb-4 animate-fade-in" />
-          <h1 className="font-display text-3xl md:text-5xl font-bold text-primary-foreground mb-4 animate-slide-up" style={{ opacity: 0, animationDelay: "0.1s" }}>Our Process</h1>
-          <p className="text-steel-light max-w-2xl mx-auto text-lg animate-fade-in" style={{ opacity: 0, animationDelay: "0.3s" }}>
-            A clear, structured process to take your renovation project from initial enquiry to final handover. No surprises, no guesswork — just reliable execution.
+
+      {/* Hero Banner */}
+      <section className="relative min-h-[45vh] flex items-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={heroImg} alt="FLASH CAST renovation process" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent" />
+        </div>
+        <div className="relative z-10 container-narrow px-5 md:px-8 py-20 md:py-28">
+          <p className="font-body font-semibold text-[11px] tracking-[0.3em] uppercase mb-4" style={{ color: "hsl(var(--gold))" }}>How We Work</p>
+          <h1
+            className="font-display text-3xl md:text-5xl font-bold leading-tight mb-4 max-w-lg"
+            style={{ color: "#fff", textShadow: "0 2px 8px rgba(0,0,0,0.5)" }}
+          >
+            Our Process
+          </h1>
+          <p className="max-w-xl text-base md:text-lg leading-relaxed" style={{ color: "rgba(255,255,255,0.9)", textShadow: "0 1px 4px rgba(0,0,0,0.4)" }}>
+            A clear, structured process from initial enquiry to final handover. No surprises, no guesswork — just reliable execution.
           </p>
         </div>
       </section>
@@ -103,10 +115,15 @@ const Process = () => {
             <h2 className="font-display text-3xl font-bold mb-4">Ready to Start?</h2>
             <p className="mb-6 opacity-90 max-w-md mx-auto">Get in touch today — the first step is a simple conversation.</p>
             <div className="flex flex-col sm:flex-row justify-center gap-3">
-              <Button size="lg" variant="secondary" className="btn-press" asChild>
+              <Button size="lg" variant="secondary" className="btn-press font-semibold h-12 px-8" asChild>
                 <Link to="/quote">Get a Free Quote <ArrowRight className="w-4 h-4 ml-2" /></Link>
               </Button>
-              <Button size="lg" variant="outline" className="border-accent-foreground text-accent-foreground hover:bg-accent-foreground/10 btn-press" asChild>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white/50 text-white hover:bg-white/15 hover:text-white btn-press h-12 px-8 font-semibold"
+                asChild
+              >
                 <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">
                   <Phone className="w-4 h-4 mr-2" /> WhatsApp Us
                 </a>

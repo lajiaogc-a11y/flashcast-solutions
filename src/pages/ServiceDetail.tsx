@@ -52,20 +52,26 @@ const ServiceDetail = () => {
       <section className="relative min-h-[50vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <img src={heroImage} alt={service.title} className="w-full h-full object-cover scale-105 animate-[scale-up_1.2s_ease-out_forwards]" />
-          <div className="absolute inset-0 bg-gradient-to-r from-foreground/90 via-foreground/75 to-foreground/40" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent" />
         </div>
         <div className="relative z-10 container-narrow px-4 md:px-8 py-20">
-          <Link to="/services" className="inline-flex items-center gap-1 text-steel-light text-sm hover:text-accent transition-colors mb-6">
+          <Link to="/services" className="inline-flex items-center gap-1 text-sm hover:text-accent transition-colors mb-6" style={{ color: "rgba(255,255,255,0.8)" }}>
             <ArrowLeft className="w-3.5 h-3.5" /> All Services
           </Link>
-          <div className="accent-line mb-4 animate-fade-in" />
-          <h1 className="font-display text-3xl md:text-5xl font-bold text-primary-foreground mb-4 animate-slide-up" style={{ opacity: 0, animationDelay: "0.15s" }}>{service.title}</h1>
-          <p className="text-steel-light max-w-2xl text-lg animate-fade-in" style={{ opacity: 0, animationDelay: "0.3s" }}>{service.summary}</p>
+          <p className="font-body font-semibold text-[11px] tracking-[0.3em] uppercase mb-4" style={{ color: "hsl(var(--gold))" }}>Services</p>
+          <h1 className="font-display text-3xl md:text-5xl font-bold mb-4 max-w-lg" style={{ color: "#fff", textShadow: "0 2px 8px rgba(0,0,0,0.5)" }}>{service.title}</h1>
+          <p className="max-w-2xl text-base md:text-lg leading-relaxed" style={{ color: "rgba(255,255,255,0.9)", textShadow: "0 1px 4px rgba(0,0,0,0.4)" }}>{service.summary}</p>
           <div className="flex flex-col sm:flex-row gap-3 mt-8">
-            <Button size="lg" asChild>
+            <Button size="lg" className="btn-press bg-accent hover:bg-accent/90 text-accent-foreground font-semibold h-12 px-8" asChild>
               <Link to="/quote">Get a Quote <ArrowRight className="w-4 h-4 ml-2" /></Link>
             </Button>
-            <Button size="lg" variant="outline" className="border-steel text-primary-foreground hover:bg-primary-foreground/10" asChild>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white/50 text-white hover:bg-white/15 hover:text-white btn-press h-12 px-8 font-semibold"
+              style={{ textShadow: "0 1px 4px rgba(0,0,0,0.5)" }}
+              asChild
+            >
               <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">
                 <Phone className="w-4 h-4 mr-2" /> WhatsApp Us
               </a>
@@ -165,11 +171,18 @@ const ServiceDetail = () => {
           <h2 className="font-display text-3xl font-bold mb-4">Interested in {service.title}?</h2>
           <p className="mb-6 opacity-90">Contact us for a free consultation and quotation.</p>
           <div className="flex flex-col sm:flex-row justify-center gap-3">
-            <Button size="lg" variant="secondary" asChild>
+            <Button size="lg" variant="secondary" className="btn-press font-semibold h-12 px-8" asChild>
               <Link to="/quote">Get a Free Quote</Link>
             </Button>
-            <Button size="lg" variant="outline" className="border-accent-foreground text-accent-foreground hover:bg-accent-foreground/10" asChild>
-              <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white/50 text-white hover:bg-white/15 hover:text-white btn-press h-12 px-8 font-semibold"
+              asChild
+            >
+              <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">
+                <Phone className="w-4 h-4 mr-2" /> WhatsApp Us
+              </a>
             </Button>
           </div>
         </div>
