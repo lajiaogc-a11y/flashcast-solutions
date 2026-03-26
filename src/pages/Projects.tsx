@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { MapPin, ArrowRight } from "lucide-react";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
 import { projectsData } from "@/data/projects";
 import Reveal from "@/components/Reveal";
 import PageMeta from "@/components/PageMeta";
@@ -121,7 +122,9 @@ const Projects = () => {
                 <Link to="/quote">Get a Free Quote <ArrowRight className="w-4 h-4 ml-2" /></Link>
               </Button>
               <Button variant="outline" size="lg" className="bg-white text-neutral-800 hover:bg-white/90 border-0 btn-press h-12 px-8 font-semibold shadow-md" asChild>
-                <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
+                <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">
+                  <WhatsAppIcon className="w-[18px] h-[18px] mr-2 text-[#25D366]" /> WhatsApp Us
+                </a>
               </Button>
             </div>
           </div>
