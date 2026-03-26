@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { MapPin, ArrowRight } from "lucide-react";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
 import { projectsData } from "@/data/projects";
 import Reveal from "@/components/Reveal";
 import PageMeta from "@/components/PageMeta";
