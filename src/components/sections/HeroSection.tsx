@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Phone, ArrowRight, MapPin, CheckCircle, Shield } from "lucide-react";
+import { ArrowRight, MapPin, CheckCircle, Shield } from "lucide-react";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
 import heroImg from "@/assets/hero-renovation-hd.jpg";
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-[100svh] flex items-center overflow-hidden">
-      {/* Background image — sharp, no overlay darkening */}
       <div className="absolute inset-0">
         <img
           src={heroImg}
@@ -16,13 +16,11 @@ const HeroSection = () => {
           height={1080}
           fetchPriority="high"
         />
-        {/* Very subtle scrim only behind text area — no full-page darkening */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/25 to-transparent" />
       </div>
 
       <div className="relative z-10 container-narrow px-5 md:px-8 py-24 md:py-32 lg:py-40">
         <div className="max-w-xl">
-          {/* Tag line */}
           <p
             className="font-body font-semibold text-[11px] tracking-[0.3em] uppercase mb-6 animate-fade-in"
             style={{ animationDelay: "0.15s", color: "hsl(var(--gold))" }}
@@ -30,7 +28,6 @@ const HeroSection = () => {
             FLASH CAST SDN. BHD. — Kuala Lumpur
           </p>
 
-          {/* Main heading */}
           <h1
             className="font-display text-[2rem] sm:text-[2.5rem] md:text-5xl lg:text-[3.25rem] font-bold leading-[1.12] mb-5 animate-slide-up"
             style={{
@@ -48,7 +45,6 @@ const HeroSection = () => {
             {" "}Kuala Lumpur
           </h1>
 
-          {/* Subtitle */}
           <p
             className="text-[15px] md:text-lg leading-relaxed mb-8 max-w-md animate-fade-in"
             style={{
@@ -61,34 +57,34 @@ const HeroSection = () => {
             Professional interior design, custom built-in furniture, and full renovation services. From concept to completion — your trusted partner in Malaysia.
           </p>
 
-          {/* CTA Buttons */}
+          {/* CTA Buttons — icons both on left for alignment */}
           <div
             className="flex flex-col sm:flex-row gap-3 sm:gap-4 animate-fade-in"
             style={{ animationDelay: "0.6s", opacity: 0 }}
           >
             <Button
               size="lg"
-              className="btn-press w-full sm:w-52 h-13 text-sm font-bold tracking-wide shadow-xl shadow-accent/40 bg-accent hover:bg-accent/90 text-accent-foreground rounded-md justify-center"
+              className="btn-press w-full sm:w-auto h-13 text-sm font-bold tracking-wide shadow-xl shadow-accent/40 bg-accent hover:bg-accent/90 text-accent-foreground rounded-md px-8 justify-center"
               asChild
             >
               <Link to="/quote">
-                Get a Free Quote <ArrowRight className="w-4 h-4 ml-2" />
+                <ArrowRight className="w-4 h-4 mr-2" /> Get a Free Quote
               </Link>
             </Button>
             <Button
               size="lg"
-              className="btn-press w-full sm:w-52 h-13 text-sm font-semibold bg-white text-neutral-800 border-0 hover:bg-white/90 backdrop-blur-md shadow-md rounded-md justify-center"
+              className="btn-press w-full sm:w-auto h-13 text-sm font-semibold bg-white text-neutral-800 border-0 hover:bg-white/90 backdrop-blur-md shadow-md rounded-md px-8 justify-center"
               asChild
             >
               <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer" aria-label="Contact FLASH CAST on WhatsApp">
-                <Phone className="w-4 h-4 mr-2 text-green-600" /> WhatsApp Us
+                <WhatsAppIcon className="w-[18px] h-[18px] mr-2 text-[#25D366]" /> WhatsApp Us
               </a>
             </Button>
           </div>
 
-          {/* Trust badges — cleaner layout */}
+          {/* Trust badges — centered with even spacing */}
           <div
-            className="flex items-center gap-6 mt-10 animate-fade-in"
+            className="flex items-center justify-start gap-5 sm:gap-8 mt-10 animate-fade-in"
             style={{ animationDelay: "0.8s", opacity: 0 }}
           >
             {[
@@ -98,10 +94,11 @@ const HeroSection = () => {
             ].map((badge) => (
               <span
                 key={badge.text}
-                className="flex items-center gap-1.5 text-[11px] font-semibold tracking-wider uppercase"
-                style={{ color: "rgba(255,255,255,0.8)", textShadow: "0 1px 4px rgba(0,0,0,0.5)" }}
+                className="flex items-center gap-2 text-[11px] font-semibold tracking-wider uppercase whitespace-nowrap"
+                style={{ color: "rgba(255,255,255,0.85)", textShadow: "0 1px 4px rgba(0,0,0,0.5)" }}
               >
-                <badge.icon className="w-3.5 h-3.5" /> {badge.text}
+                <badge.icon className="w-4 h-4 shrink-0" />
+                <span>{badge.text}</span>
               </span>
             ))}
           </div>
