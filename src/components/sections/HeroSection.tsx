@@ -120,7 +120,7 @@ const HeroSection = () => {
 
           {/* CTA Buttons — icons both on left for alignment */}
           <div
-            className="flex flex-col sm:flex-row gap-3 sm:gap-4 animate-fade-in"
+            className="flex flex-col sm:flex-row sm:justify-center gap-3 sm:gap-4 animate-fade-in"
             style={{ animationDelay: "0.6s", opacity: 0 }}
           >
             <Button
