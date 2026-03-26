@@ -94,6 +94,20 @@ const Blog = () => {
           </div>
         </div>
       </section>
+
+      {/* Internal Links */}
+      <section className="py-8 bg-muted border-t border-border">
+        <div className="container-narrow text-center">
+          <p className="text-muted-foreground text-sm">
+            <Link to="/services" className="text-accent hover:underline">Services</Link>{" · "}
+            <Link to="/projects" className="text-accent hover:underline">Projects</Link>{" · "}
+            <Link to="/materials" className="text-accent hover:underline">Materials</Link>{" · "}
+            <Link to="/faq" className="text-accent hover:underline">FAQ</Link>{" · "}
+            <Link to="/contact" className="text-accent hover:underline">Contact</Link>{" · "}
+            <Link to="/quote" className="text-accent hover:underline">Get a Quote</Link>
+          </p>
+        </div>
+      </section>
     </main>
   );
 };
