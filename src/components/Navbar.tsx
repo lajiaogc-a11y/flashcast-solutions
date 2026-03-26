@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navItems = [
@@ -17,84 +17,114 @@ const navItems = [
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location.pathname]);
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-background/98 backdrop-blur-md border-b border-border shadow-sm"
+          : "bg-background/95 backdrop-blur-md border-b border-border"
+      }`}
+    >
       <div className="container-narrow flex items-center justify-between h-16 px-4 md:px-8">
-        <Link to="/" className="flex items-center gap-2">
-          <span className="font-display text-xl font-bold tracking-tight text-foreground">
+        {/* Logo */}
+        <Link to="/" className="flex items-center gap-2 shrink-0">
+          <span className="font-display text-lg md:text-xl font-bold tracking-tight text-foreground">
             FLASH CAST
           </span>
-          <span className="hidden sm:inline text-steel text-xs font-body tracking-widest uppercase">
+          <span className="hidden sm:inline text-steel text-[10px] font-body tracking-[0.2em] uppercase font-medium">
             SDN. BHD.
           </span>
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-5">
-          {navItems.map((item) => (
-            <Link
-              key={item.path}
-              to={item.path}
-              className={`text-xs font-medium transition-colors relative pb-1 hover:text-accent ${
-                location.pathname === item.path
-                  ? "text-accent after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-accent after:rounded-full"
-                  : "text-muted-foreground"
-              }`}
-            >
-              {item.label}
-            </Link>
-          ))}
+        <nav className="hidden lg:flex items-center gap-1">
+          {navItems.map((item) => {
+            const isActive = location.pathname === item.path;
+            return (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={`text-[13px] font-medium px-3 py-2 rounded-md transition-colors ${
+                  isActive
+                    ? "text-accent bg-accent/8"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                }`}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
 
-        <div className="hidden lg:flex items-center gap-3">
-          <Button variant="outline" size="sm" asChild>
+        {/* Desktop CTA */}
+        <div className="hidden lg:flex items-center gap-2 shrink-0">
+          <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground" asChild>
             <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">
-              <Phone className="w-4 h-4 mr-1" /> WhatsApp
+              <Phone className="w-4 h-4 mr-1.5" /> WhatsApp
             </a>
           </Button>
-          <Button size="sm" asChild>
-            <Link to="/quote">Get a Quote</Link>
+          <Button size="sm" className="font-semibold" asChild>
+            <Link to="/quote">Get a Quote <ArrowRight className="w-3.5 h-3.5 ml-1" /></Link>
           </Button>
         </div>
 
         {/* Mobile Toggle */}
         <button
-          className="lg:hidden p-2"
+          className="lg:hidden p-2.5 -mr-2 rounded-md hover:bg-muted transition-colors"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >
-          {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
       </div>
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="lg:hidden bg-background border-b border-border">
-          <nav className="flex flex-col px-4 py-4 gap-1">
-            {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                onClick={() => setIsOpen(false)}
-                className={`py-3 px-3 rounded-md text-sm font-medium transition-colors ${
-                  location.pathname === item.path
-                    ? "text-accent bg-muted"
-                    : "text-foreground hover:bg-muted"
-                }`}
-              >
-                {item.label}
-              </Link>
-            ))}
-            <div className="flex gap-2 mt-3 pt-3 border-t border-border">
+        <div className="lg:hidden bg-background border-b border-border animate-fade-in" style={{ animationDuration: "0.2s" }}>
+          <nav className="flex flex-col px-4 py-3">
+            {/* Main links */}
+            <div className="space-y-0.5">
+              {navItems.map((item) => {
+                const isActive = location.pathname === item.path;
+                return (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    className={`block py-3 px-4 rounded-md text-sm font-medium transition-colors ${
+                      isActive
+                        ? "text-accent bg-accent/8"
+                        : "text-foreground hover:bg-muted"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
+            </div>
+
+            {/* CTA buttons */}
+            <div className="flex gap-2 mt-4 pt-4 border-t border-border">
               <Button variant="outline" size="sm" className="flex-1" asChild>
                 <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">
-                  WhatsApp
+                  <Phone className="w-4 h-4 mr-1.5" /> WhatsApp
                 </a>
               </Button>
-              <Button size="sm" className="flex-1" asChild>
-                <Link to="/quote" onClick={() => setIsOpen(false)}>Get a Quote</Link>
+              <Button size="sm" className="flex-1 font-semibold" asChild>
+                <Link to="/quote">Get a Quote</Link>
               </Button>
             </div>
           </nav>
