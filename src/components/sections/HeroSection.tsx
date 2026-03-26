@@ -84,7 +84,7 @@ const HeroSection = () => {
 
           {/* Trust badges — centered with even spacing */}
           <div
-            className="flex items-center justify-start gap-5 sm:gap-8 mt-10 animate-fade-in"
+            className="flex flex-wrap items-center gap-x-5 gap-y-2 sm:gap-x-8 mt-10 animate-fade-in"
             style={{ animationDelay: "0.8s", opacity: 0 }}
           >
             {[
@@ -94,10 +94,10 @@ const HeroSection = () => {
             ].map((badge) => (
               <span
                 key={badge.text}
-                className="flex items-center gap-2 text-[11px] font-semibold tracking-wider uppercase whitespace-nowrap"
+                className="flex items-center gap-1.5 text-[11px] font-semibold tracking-wider uppercase"
                 style={{ color: "rgba(255,255,255,0.85)", textShadow: "0 1px 4px rgba(0,0,0,0.5)" }}
               >
-                <badge.icon className="w-4 h-4 shrink-0" />
+                <badge.icon className="w-3.5 h-3.5 shrink-0" />
                 <span>{badge.text}</span>
               </span>
             ))}
