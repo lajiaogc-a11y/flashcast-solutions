@@ -67,16 +67,17 @@ const Services = () => {
         </section>
       ))}
 
-      <section className="section-padding bg-accent text-accent-foreground text-center">
+      <section className="section-padding bg-surface-dark text-center">
         <Reveal>
           <div className="container-narrow">
-            <h2 className="font-display text-3xl font-bold mb-4">Not Sure What You Need?</h2>
-            <p className="text-accent-foreground/80 mb-6 max-w-lg mx-auto">Contact us for a free consultation. We'll assess your space and recommend the right approach.</p>
+            <div className="accent-line mx-auto mb-4" style={{ backgroundColor: "hsl(var(--gold))" }} />
+            <h2 className="font-display text-3xl font-bold mb-4 text-primary-foreground">Not Sure What You Need?</h2>
+            <p className="text-steel-light mb-6 max-w-lg mx-auto">Contact us for a free consultation. We'll assess your space and recommend the right approach.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="secondary" size="lg" className="btn-press" asChild>
+              <Button size="lg" className="btn-press" asChild>
                 <Link to="/quote">Get a Free Quote</Link>
               </Button>
-              <Button variant="outline" size="lg" className="border-accent-foreground/30 text-accent-foreground hover:bg-accent-foreground/10 btn-press" asChild>
+              <Button variant="outline" size="lg" className="border-steel text-primary-foreground hover:bg-primary-foreground/10 btn-press" asChild>
                 <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
               </Button>
             </div>

@@ -70,16 +70,17 @@ const FAQ = () => {
         </div>
       </section>
 
-      <section className="section-padding bg-accent text-accent-foreground text-center">
+      <section className="section-padding bg-surface-dark text-center">
         <Reveal>
           <div className="container-narrow">
-            <h2 className="font-display text-3xl font-bold mb-4">Still Have Questions?</h2>
-            <p className="text-accent-foreground/80 mb-6">Reach out to us directly — we're happy to help.</p>
+            <div className="accent-line mx-auto mb-4" style={{ backgroundColor: "hsl(var(--gold))" }} />
+            <h2 className="font-display text-3xl font-bold mb-4 text-primary-foreground">Still Have Questions?</h2>
+            <p className="text-steel-light mb-6">Reach out to us directly — we're happy to help.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="secondary" size="lg" className="btn-press" asChild>
+              <Button size="lg" className="btn-press" asChild>
                 <Link to="/contact">Contact Us</Link>
               </Button>
-              <Button variant="outline" size="lg" className="border-accent-foreground/30 text-accent-foreground hover:bg-accent-foreground/10 btn-press" asChild>
+              <Button variant="outline" size="lg" className="border-steel text-primary-foreground hover:bg-primary-foreground/10 btn-press" asChild>
                 <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
               </Button>
             </div>

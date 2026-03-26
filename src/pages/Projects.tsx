@@ -61,7 +61,7 @@ const Projects = () => {
             {filtered.map((p, i) => (
               <Reveal key={p.id} delay={i * 80}>
                 <Link to={`/projects/${p.slug}`} className="group hover-lift block">
-                  <div className="relative overflow-hidden rounded-lg aspect-[16/10] mb-4 img-zoom">
+                  <div className="relative overflow-hidden rounded-lg aspect-[4/3] mb-4 img-zoom">
                     <img
                       src={typeImageMap[p.type] || residentialImg}
                       alt={p.title}
