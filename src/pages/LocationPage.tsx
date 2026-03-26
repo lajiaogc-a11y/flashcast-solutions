@@ -195,7 +195,7 @@ const LocationPage = () => {
         keywords={`renovation ${location.name}, interior design ${location.name}, custom built-in ${location.name}, commercial renovation ${location.name}`}
         canonicalPath={`/locations/${location.slug}`}
       />
-      <JsonLdBreadcrumb items={[{ name: "Home", url: "/" }, { name: "Locations" }, { name: location.name, url: `/locations/${location.slug}` }]} />
+      <JsonLdBreadcrumb items={[{ name: "Home", url: "/" }, { name: "Locations", url: "/" }, { name: location.name, url: `/locations/${location.slug}` }]} />
 
       {/* JSON-LD */}
       <script
