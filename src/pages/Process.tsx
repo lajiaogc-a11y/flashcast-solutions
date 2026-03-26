@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone, CheckCircle, ClipboardList, Ruler, FileText, Hammer, Handshake } from "lucide-react";
 import Reveal from "@/components/Reveal";
+import PageMeta from "@/components/PageMeta";
+import { JsonLdBreadcrumb } from "@/components/JsonLd";
 
 const steps = [
   {
@@ -44,6 +46,13 @@ const steps = [
 const Process = () => {
   return (
     <main className="pt-16">
+      <PageMeta
+        title="Renovation Process | How We Work | FLASH CAST Kuala Lumpur"
+        description="Learn how FLASH CAST handles your renovation from enquiry to handover — a structured 5-step process covering consultation, design, construction, and aftercare in Kuala Lumpur and Selangor."
+        keywords="renovation process KL, how renovation works Malaysia, renovation steps Kuala Lumpur"
+        canonicalPath="/process"
+      />
+      <JsonLdBreadcrumb items={[{ name: "Home", url: "/" }, { name: "Our Process", url: "/process" }]} />
       <section className="section-padding bg-surface-dark">
         <div className="container-narrow text-center">
           <div className="accent-line mx-auto mb-4 animate-fade-in" />

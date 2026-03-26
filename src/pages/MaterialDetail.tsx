@@ -2,6 +2,8 @@ import { useParams, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, ArrowRight, Phone } from "lucide-react";
 import { materialsData } from "@/data/materials";
+import PageMeta from "@/components/PageMeta";
+import { JsonLdBreadcrumb } from "@/components/JsonLd";
 
 const MaterialDetail = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -31,6 +33,13 @@ const MaterialDetail = () => {
 
   return (
     <main className="pt-16">
+      <PageMeta
+        title={`${material.name} | Renovation Material in Kuala Lumpur`}
+        description={`${material.description} Suitable for: ${material.suitableSpaces.join(", ")}. Available at FLASH CAST, Kuala Lumpur.`}
+        keywords={`${material.name}, ${material.category} KL, renovation material Malaysia`}
+        canonicalPath={`/materials/${material.slug}`}
+      />
+      <JsonLdBreadcrumb items={[{ name: "Home", url: "/" }, { name: "Materials", url: "/materials" }, { name: category.name, url: "/materials" }, { name: material.name, url: `/materials/${material.slug}` }]} />
       {/* Breadcrumb */}
       <section className="bg-muted px-4 md:px-8 py-3">
         <div className="container-narrow flex items-center gap-2 text-sm text-muted-foreground">

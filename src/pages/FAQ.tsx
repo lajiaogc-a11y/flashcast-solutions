@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import Reveal from "@/components/Reveal";
+import PageMeta from "@/components/PageMeta";
+import { JsonLdFAQ, JsonLdBreadcrumb } from "@/components/JsonLd";
 
 const faqData = [
   {
@@ -40,6 +42,14 @@ const faqData = [
 const FAQ = () => {
   return (
     <main className="pt-16">
+      <PageMeta
+        title="FAQ | Renovation Questions Kuala Lumpur | FLASH CAST"
+        description="Frequently asked questions about renovation services, pricing, materials, custom built-in furniture, and permits in Kuala Lumpur and Selangor by FLASH CAST SDN. BHD."
+        keywords="renovation FAQ Malaysia, renovation questions KL, built-in furniture FAQ, renovation permit KL"
+        canonicalPath="/faq"
+      />
+      <JsonLdFAQ faqs={faqData.flatMap(cat => cat.items.map(item => ({ question: item.q, answer: item.a })))} />
+      <JsonLdBreadcrumb items={[{ name: "Home", url: "/" }, { name: "FAQ", url: "/faq" }]} />
       <section className="section-padding bg-surface-dark">
         <div className="container-narrow text-center">
           <div className="accent-line mx-auto mb-4 animate-fade-in" />

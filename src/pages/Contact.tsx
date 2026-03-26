@@ -5,6 +5,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import Reveal from "@/components/Reveal";
+import PageMeta from "@/components/PageMeta";
+import { JsonLdBreadcrumb } from "@/components/JsonLd";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -18,6 +20,13 @@ const Contact = () => {
 
   return (
     <main className="pt-16">
+      <PageMeta
+        title="Contact FLASH CAST | Renovation Company Kuala Lumpur"
+        description="Get in touch with FLASH CAST SDN. BHD. for your renovation project in Kuala Lumpur and Selangor. Visit us at Taman United, KL or contact via WhatsApp, phone, or email."
+        keywords="contact renovation company KL, FLASH CAST address, renovation enquiry Kuala Lumpur"
+        canonicalPath="/contact"
+      />
+      <JsonLdBreadcrumb items={[{ name: "Home", url: "/" }, { name: "Contact", url: "/contact" }]} />
       <section className="section-padding bg-surface-dark">
         <div className="container-narrow text-center">
           <div className="accent-line mx-auto mb-4 animate-fade-in" />
