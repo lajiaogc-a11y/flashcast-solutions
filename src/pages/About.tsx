@@ -73,7 +73,7 @@ const About = () => {
       <section className="section-padding bg-muted">
         <div className="container-narrow">
           <SectionHeader title="Our Core Values" description="These principles guide every project we take on." />
-          <IconCardGrid items={coreValues} columns={2} />
+          <IconCardGrid items={coreValues} columns={2} layout="horizontal" />
         </div>
       </section>
 
@@ -81,7 +81,7 @@ const About = () => {
       <section className="section-padding bg-background">
         <div className="container-narrow">
           <SectionHeader title="Our Team" description="A dedicated in-house team of professionals — no outsourced labour." />
-          <IconCardGrid items={teamHighlights} columns={4} alignLeft={false} />
+          <IconCardGrid items={teamHighlights} columns={4} layout="horizontal" />
         </div>
       </section>
 
