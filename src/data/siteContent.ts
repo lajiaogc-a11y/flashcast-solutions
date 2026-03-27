@@ -275,6 +275,24 @@ export const homeFAQs: FAQItem[] = [
   { q: "Do you handle renovation permits?", a: "Yes. We handle all permit applications — condo management office applications, DBKL permits, and local council approvals. This is included in our project management service." },
 ];
 
+// ============ HOMEPAGE PROCESS STEPS (simplified) ============
+export interface HomepageProcessStep {
+  num: string;
+  title: string;
+  desc: string;
+}
+
+export const homepageProcessSteps: HomepageProcessStep[] = [
+  { num: "01", title: "Free Consultation", desc: "Tell us about your project — we'll discuss your requirements, preferences, and budget." },
+  { num: "02", title: "Site Measurement", desc: "Our team visits the site for precise on-site measurements and condition assessment." },
+  { num: "03", title: "Design & 3D Proposal", desc: "We create layout plans, material recommendations, and 3D visualizations for your approval." },
+  { num: "04", title: "Detailed Quotation", desc: "You receive an itemized quotation with clear pricing — no hidden costs, no lump-sum guesswork." },
+  { num: "05", title: "Construction", desc: "Our team executes the renovation with weekly progress updates and professional project management." },
+  { num: "06", title: "Handover & Warranty", desc: "Final inspection, defect rectification, thorough cleaning, and workmanship warranty handover." },
+];
+
+export const homepageProcessIntro = "A clear, structured process from first contact to project handover. Every step is designed to give you confidence and control over your renovation.";
+
 // ============ SERVICE AREA SECTION ============
 export interface ServiceAreaItem {
   name: string;
