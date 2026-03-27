@@ -18,31 +18,17 @@ const ServicesSection = () => {
           </div>
         </Reveal>
 
-        {/* Top row: first 4 cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5 mb-4 md:mb-5">
-          {homepageServices.slice(0, 4).map((s, i) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5">
+          {homepageServices.map((s, i) => (
             <Reveal key={s.title} delay={i * 80}>
-              <Link to={s.link} className="group relative p-6 md:p-7 rounded-lg border border-border bg-card hover-lift block h-full transition-colors hover:border-accent/30">
-                <div className="w-12 h-12 mb-4 rounded-full bg-accent/10 flex items-center justify-center transition-colors group-hover:bg-accent/20">
+              <Link to={s.link} className="group flex items-start gap-4 p-5 md:p-6 rounded-lg border border-border bg-card hover-lift transition-colors hover:border-accent/30">
+                <div className="w-10 h-10 shrink-0 rounded-full bg-accent/10 flex items-center justify-center transition-colors group-hover:bg-accent/20">
                   <s.icon className="w-5 h-5 text-accent transition-transform duration-300 group-hover:scale-110" />
                 </div>
-                <h3 className="font-display font-semibold text-base md:text-lg mb-2 group-hover:text-accent transition-colors">{s.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
-              </Link>
-            </Reveal>
-          ))}
-        </div>
-
-        {/* Bottom row: remaining cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-5">
-          {homepageServices.slice(4).map((s, i) => (
-            <Reveal key={s.title} delay={(i + 4) * 80}>
-              <Link to={s.link} className="group relative p-6 md:p-7 rounded-lg border border-border bg-card hover-lift block h-full transition-colors hover:border-accent/30">
-                <div className="w-12 h-12 mb-4 rounded-full bg-accent/10 flex items-center justify-center transition-colors group-hover:bg-accent/20">
-                  <s.icon className="w-5 h-5 text-accent transition-transform duration-300 group-hover:scale-110" />
+                <div>
+                  <h3 className="font-display font-semibold text-base md:text-lg mb-1 group-hover:text-accent transition-colors">{s.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
                 </div>
-                <h3 className="font-display font-semibold text-base md:text-lg mb-2 group-hover:text-accent transition-colors">{s.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
               </Link>
             </Reveal>
           ))}
