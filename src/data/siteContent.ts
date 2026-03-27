@@ -11,6 +11,18 @@ import {
   Home, Building2, PaintBucket, Warehouse, FileCheck, Palette,
 } from "lucide-react";
 
+// ============ SECTION HEADERS ============
+export const sectionHeaders = {
+  services: {
+    title: "Our Services",
+    subtitle: "Complete renovation and design solutions for residential, commercial, and industrial spaces across Kuala Lumpur and Selangor, Malaysia.",
+  },
+  whyChooseUs: {
+    title: "Why Choose FLASH CAST",
+    subtitle: "Over 200 projects completed across Kuala Lumpur and Selangor. Here's what sets us apart from other renovation companies in Malaysia.",
+  },
+};
+
 // ============ HOMEPAGE SERVICES SECTION ============
 export interface HomepageService {
   icon: LucideIcon;

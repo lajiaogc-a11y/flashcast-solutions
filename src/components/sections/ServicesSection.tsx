@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import IconCardGrid from "@/components/templates/IconCardGrid";
-import { homepageServices } from "@/data/siteContent";
+import { homepageServices, sectionHeaders } from "@/data/siteContent";
 
 const ServicesSection = () => {
   return (
@@ -12,9 +12,9 @@ const ServicesSection = () => {
         <Reveal>
           <div className="text-center mb-10 md:mb-14">
             <div className="accent-line mx-auto mb-4" />
-            <h2 className="font-display text-3xl md:text-4xl font-bold mb-3">Our Services</h2>
+            <h2 className="font-display text-3xl md:text-4xl font-bold mb-3">{sectionHeaders.services.title}</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto text-sm md:text-base">
-              Complete renovation and design solutions for residential, commercial, and industrial spaces across Kuala Lumpur and Selangor, Malaysia.
+              {sectionHeaders.services.subtitle}
             </p>
           </div>
         </Reveal>
