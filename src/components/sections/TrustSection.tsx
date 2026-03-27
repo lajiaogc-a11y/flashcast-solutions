@@ -1,33 +1,6 @@
-import { Star, CheckCircle, MapPin, Clock, Shield, Users } from "lucide-react";
+import { Star, Shield, Users, MapPin } from "lucide-react";
 import Reveal from "@/components/Reveal";
-
-const stats = [
-  { icon: Star, value: "200+", label: "Projects Completed", iconClass: "text-gold" },
-  { icon: CheckCircle, value: "10+ Years", label: "Industry Experience", iconClass: "text-accent" },
-  { icon: MapPin, value: "KL & Selangor", label: "Service Coverage", iconClass: "text-accent" },
-  { icon: Clock, value: "On-Time", label: "Delivery Guarantee", iconClass: "text-gold" },
-];
-
-const testimonials = [
-  {
-    text: "FLASH CAST delivered our office renovation on time and within budget. Professional team, quality workmanship, and excellent communication throughout the project.",
-    client: "Corporate Client",
-    location: "Petaling Jaya",
-    type: "Office Fit-Out",
-  },
-  {
-    text: "We chose FLASH CAST for our condo renovation in Mont Kiara. The 3D design was exactly what we wanted, and the final result exceeded our expectations. Highly recommended.",
-    client: "Homeowner",
-    location: "Mont Kiara, KL",
-    type: "Condo Renovation",
-  },
-  {
-    text: "Very satisfied with the kitchen cabinet work. The team was punctual, materials were as promised, and the soft-close hardware works perfectly. Will definitely use them again.",
-    client: "Homeowner",
-    location: "Bangsar, KL",
-    type: "Custom Kitchen",
-  },
-];
+import { trustStats, testimonials } from "@/data/siteContent";
 
 const TrustSection = () => {
   return (
@@ -35,7 +8,7 @@ const TrustSection = () => {
       <div className="container-narrow">
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
-          {stats.map((item, i) => (
+          {trustStats.map((item, i) => (
             <Reveal key={item.label} delay={i * 100}>
               <div className="text-center p-5 md:p-6 rounded-lg border border-border bg-card group h-full">
                 <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-muted flex items-center justify-center">

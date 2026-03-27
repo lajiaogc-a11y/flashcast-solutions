@@ -6,7 +6,7 @@
 import { LucideIcon } from "lucide-react";
 import {
   Paintbrush, Wrench, Layers, Clock, MessageCircle, ShieldCheck,
-  Award, Eye, Heart, Hammer, Users, Target, Star,
+  Award, Eye, Heart, Hammer, Users, Target, Star, CheckCircle, MapPin,
   ClipboardList, Ruler, FileText, Handshake,
   Home, Building2, PaintBucket, Warehouse, FileCheck, Palette,
 } from "lucide-react";
@@ -214,6 +214,50 @@ export const companyStats = [
   { value: "10+", label: "Years Experience" },
   { value: "50+", label: "Team Members" },
   { value: "98%", label: "Client Satisfaction" },
+];
+
+// ============ TRUST SECTION — STATS ============
+export interface TrustStat {
+  icon: LucideIcon;
+  value: string;
+  label: string;
+  iconClass: string;
+}
+
+export const trustStats: TrustStat[] = [
+  { icon: Star, value: "200+", label: "Projects Completed", iconClass: "text-gold" },
+  { icon: CheckCircle, value: "10+ Years", label: "Industry Experience", iconClass: "text-accent" },
+  { icon: MapPin, value: "KL & Selangor", label: "Service Coverage", iconClass: "text-accent" },
+  { icon: Clock, value: "On-Time", label: "Delivery Guarantee", iconClass: "text-gold" },
+];
+
+// ============ TRUST SECTION — TESTIMONIALS ============
+export interface Testimonial {
+  text: string;
+  client: string;
+  location: string;
+  type: string;
+}
+
+export const testimonials: Testimonial[] = [
+  {
+    text: "FLASH CAST delivered our office renovation on time and within budget. Professional team, quality workmanship, and excellent communication throughout the project.",
+    client: "Corporate Client",
+    location: "Petaling Jaya",
+    type: "Office Fit-Out",
+  },
+  {
+    text: "We chose FLASH CAST for our condo renovation in Mont Kiara. The 3D design was exactly what we wanted, and the final result exceeded our expectations. Highly recommended.",
+    client: "Homeowner",
+    location: "Mont Kiara, KL",
+    type: "Condo Renovation",
+  },
+  {
+    text: "Very satisfied with the kitchen cabinet work. The team was punctual, materials were as promised, and the soft-close hardware works perfectly. Will definitely use them again.",
+    client: "Homeowner",
+    location: "Bangsar, KL",
+    type: "Custom Kitchen",
+  },
 ];
 
 // ============ HOMEPAGE FAQ ============
