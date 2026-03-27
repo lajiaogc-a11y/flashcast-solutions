@@ -6,7 +6,7 @@
 import { LucideIcon } from "lucide-react";
 import {
   Paintbrush, Wrench, Layers, Clock, MessageCircle, ShieldCheck,
-  Award, Eye, Heart, Hammer, Users, Target, Star,
+  Award, Eye, Heart, Hammer, Users, Target, Star, CheckCircle, MapPin,
   ClipboardList, Ruler, FileText, Handshake,
   Home, Building2, PaintBucket, Warehouse, FileCheck, Palette,
 } from "lucide-react";
