@@ -274,3 +274,28 @@ export const homeFAQs: FAQItem[] = [
   { q: "What areas do you serve?", a: "We serve all areas in Kuala Lumpur and Selangor including Mont Kiara, Bangsar, Cheras, Petaling Jaya, Subang Jaya, Shah Alam, Puchong, and surrounding areas." },
   { q: "Do you handle renovation permits?", a: "Yes. We handle all permit applications — condo management office applications, DBKL permits, and local council approvals. This is included in our project management service." },
 ];
+
+// ============ SERVICE AREA SECTION ============
+export interface ServiceAreaItem {
+  name: string;
+  slug: string;
+  areas: string;
+}
+
+export const serviceAreas: ServiceAreaItem[] = [
+  { name: "Kuala Lumpur", slug: "kuala-lumpur", areas: "Mont Kiara, Bangsar, Cheras, Kepong, Sentul, Sri Hartamas, City Centre" },
+  { name: "Petaling Jaya", slug: "petaling-jaya", areas: "SS2, Damansara, Kelana Jaya, PJ New Town, Section 17, Taman SEA" },
+  { name: "Subang Jaya", slug: "subang-jaya", areas: "USJ, SS15, SS16, Sunway, Putra Heights" },
+  { name: "Shah Alam", slug: "selangor", areas: "All sections, Setia Alam, Kota Kemuning, Bukit Jelutong" },
+  { name: "Puchong", slug: "selangor", areas: "Bandar Puteri, IOI Boulevard, Taman Puchong" },
+  { name: "Cheras", slug: "cheras", areas: "Taman Connaught, Taman Midah, Taman Segar, Batu 9" },
+];
+
+export const serviceAreaIntro = "FLASH CAST SDN. BHD. is based in Kuala Lumpur and provides renovation services across the entire KL and Selangor region. Free site measurement for all enquiries within our coverage area.";
+
+export const serviceAreaFooter = {
+  text: "Don't see your area? We may still be able to help.",
+  link: "/contact",
+  linkText: "Contact us",
+  suffix: "to check availability.",
+};
