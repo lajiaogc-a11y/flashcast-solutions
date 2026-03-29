@@ -1,48 +1,57 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, MapPin } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import { projectsData } from "@/data/projects";
 
-/** Show first 4 projects on homepage */
-const featured = projectsData.slice(0, 4);
+const featured = projectsData.slice(0, 6);
 
 const ProjectsSection = () => {
   return (
-    <section className="section-padding bg-background" id="projects">
+    <section className="section-padding bg-muted" id="projects">
       <div className="container-narrow">
         <Reveal>
           <div className="text-center mb-10 md:mb-14">
             <div className="accent-line mx-auto mb-4" />
-            <h2 className="font-display text-3xl md:text-4xl font-bold mb-3">Featured Projects</h2>
+            <h2 className="font-display text-3xl md:text-4xl font-bold mb-3">Our Recent Projects</h2>
             <p className="text-muted-foreground max-w-lg mx-auto text-sm md:text-base">
-              Explore completed renovation projects across Kuala Lumpur, Selangor, and surrounding areas.
+              Explore completed renovation projects across Kuala Lumpur and Selangor.
             </p>
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {featured.map((p, i) => (
-            <Reveal key={p.slug} delay={i * 100}>
-              <Link to={`/projects/${p.slug}`} className="group rounded-lg overflow-hidden bg-card border border-border hover-lift block h-full">
-                <div className="aspect-[4/3] overflow-hidden img-zoom">
-                  <img src={p.thumbnail} alt={`${p.title} - ${p.type} renovation project in ${p.location}`} loading="lazy" width={800} height={600} className="w-full h-full object-cover" />
-                </div>
-                <div className="p-5 md:p-6">
-                  <span className="inline-block text-accent text-[10px] font-bold uppercase tracking-widest bg-accent/10 px-2.5 py-1 rounded-sm mb-2">
+            <Reveal key={p.slug} delay={i * 80}>
+              <Link
+                to={`/projects/${p.slug}`}
+                className="group block rounded-lg overflow-hidden bg-card border border-border hover-lift h-full"
+              >
+                <div className="aspect-[4/3] overflow-hidden img-zoom relative">
+                  <img
+                    src={p.thumbnail}
+                    alt={`${p.title} - ${p.type} renovation in ${p.location}`}
+                    loading="lazy"
+                    width={800}
+                    height={600}
+                    className="w-full h-full object-cover"
+                  />
+                  <span className="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-widest bg-white/90 text-foreground px-2.5 py-1 rounded-sm">
                     {p.type}
                   </span>
-                  <h3 className="font-display text-lg font-semibold mb-1 group-hover:text-accent transition-colors">{p.title}</h3>
-                  <p className="text-muted-foreground text-sm flex items-center gap-1">
-                    <MapPin className="w-3.5 h-3.5" /> {p.location}
-                  </p>
+                </div>
+                <div className="p-5">
+                  <h3 className="font-display text-lg font-semibold mb-1 group-hover:text-gold transition-colors">
+                    {p.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm">{p.location}</p>
                 </div>
               </Link>
             </Reveal>
           ))}
         </div>
 
-        <Reveal delay={400}>
+        <Reveal delay={500}>
           <div className="text-center mt-10">
             <Button variant="outline" className="btn-press" asChild>
               <Link to="/projects">View All Projects <ArrowRight className="w-4 h-4 ml-2" /></Link>
