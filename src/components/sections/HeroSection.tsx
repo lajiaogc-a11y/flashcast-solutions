@@ -79,9 +79,9 @@ const HeroSection = () => {
           height={1080}
           fetchPriority="high"
         />
-        {/* Mobile: directional gradient | Desktop: centered overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/25 to-transparent md:bg-none" />
-        <div className="absolute inset-0 hidden md:block bg-black/40" />
+        {/* Localized gradient under text area only — keeps image sharp */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-[70%] bg-gradient-to-t from-black/20 to-transparent md:hidden" />
       </div>
 
       <div className="relative z-10 container-narrow px-5 md:px-8 py-24 md:py-32 lg:py-40">
