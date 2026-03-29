@@ -32,6 +32,7 @@ const LocationPage = lazy(() => import("./pages/LocationPage"));
 const LandingPage = lazy(() => import("./pages/LandingPage"));
 const Privacy = lazy(() => import("./pages/Privacy"));
 const Terms = lazy(() => import("./pages/Terms"));
+const OldHouseRenovation = lazy(() => import("./pages/OldHouseRenovation"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -57,6 +58,7 @@ const App = () => (
               <Route path="/" element={<Index />} />
               <Route path="/about" element={<About />} />
               <Route path="/services" element={<Services />} />
+              <Route path="/services/old-house" element={<OldHouseRenovation />} />
               <Route path="/services/:slug" element={<ServiceDetail />} />
               <Route path="/materials" element={<Materials />} />
               <Route path="/materials/category/:categorySlug" element={<MaterialCategoryPage />} />

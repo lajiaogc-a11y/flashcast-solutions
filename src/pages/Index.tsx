@@ -2,6 +2,7 @@ import PageMeta from "@/components/PageMeta";
 import { JsonLdLocalBusiness, JsonLdOrganization } from "@/components/JsonLd";
 import HeroSection from "@/components/sections/HeroSection";
 import StatsSection from "@/components/sections/StatsSection";
+import BrandLogosSection from "@/components/sections/BrandLogosSection";
 import ServicesSection from "@/components/sections/ServicesSection";
 import BeforeAfterSection from "@/components/sections/BeforeAfterSection";
 import ProjectsSection from "@/components/sections/ProjectsSection";
@@ -22,6 +23,7 @@ const Index = () => {
       <JsonLdOrganization />
       <HeroSection />
       <StatsSection />
+      <BrandLogosSection />
       <ServicesSection />
       <BeforeAfterSection />
       <ProjectsSection />
