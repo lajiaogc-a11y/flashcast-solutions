@@ -2,25 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
-import { servicesData } from "@/data/services";
-
-const featuredServices = [
-  {
-    slug: "renovation",
-    title: "Full Renovation",
-    desc: "Complete renovation for condos and landed properties, including hacking, tiling, electrical, and finishing works.",
-  },
-  {
-    slug: "design",
-    title: "Interior Design",
-    desc: "We design spaces that are functional, modern, and tailored to your lifestyle.",
-  },
-  {
-    slug: "builtin",
-    title: "Custom Built-In Furniture",
-    desc: "Custom carpentry including kitchen cabinets, wardrobes, and storage solutions built for durability.",
-  },
-];
+import { homepageServices, sectionHeaders } from "@/data/siteContent";
 
 const ServicesSection = () => {
   return (
@@ -29,47 +11,40 @@ const ServicesSection = () => {
         <Reveal>
           <div className="text-center mb-10 md:mb-14">
             <div className="accent-line mx-auto mb-4" />
-            <h2 className="font-display text-3xl md:text-4xl font-bold mb-3">Our Renovation Services</h2>
+            <h2 className="font-display text-3xl md:text-4xl font-bold mb-3">{sectionHeaders.services.title}</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto text-sm md:text-base">
-              From concept to completion — professional renovation solutions for every space.
+              {sectionHeaders.services.subtitle}
             </p>
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {featuredServices.map((service, i) => {
-            const data = servicesData.find(s => s.slug === service.slug);
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+          {homepageServices.map((service, i) => {
+            const Icon = service.icon;
             return (
-              <Reveal key={service.slug} delay={i * 120}>
+              <Reveal key={service.link} delay={i * 60}>
                 <Link
-                  to={`/services/${service.slug}`}
-                  className="group block rounded-lg overflow-hidden bg-card border border-border hover-lift h-full"
+                  to={service.link}
+                  className="group block rounded-lg bg-card border border-border p-5 hover-lift h-full"
                 >
-                  {data?.image && (
-                    <div className="aspect-[4/3] overflow-hidden img-zoom">
-                      <img
-                        src={data.image}
-                        alt={service.title}
-                        loading="lazy"
-                        width={800}
-                        height={600}
-                        className="w-full h-full object-cover"
-                      />
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 rounded-md bg-muted flex items-center justify-center shrink-0 group-hover:bg-accent/10 transition-colors">
+                      <Icon className="w-5 h-5 text-gold" />
                     </div>
-                  )}
-                  <div className="p-6">
-                    <h3 className="font-display text-xl font-semibold mb-2 group-hover:text-gold transition-colors">
+                    <h3 className="font-display text-sm font-semibold leading-tight group-hover:text-gold transition-colors">
                       {service.title}
                     </h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">{service.desc}</p>
                   </div>
+                  <p className="text-muted-foreground text-xs leading-relaxed">
+                    {service.desc}
+                  </p>
                 </Link>
               </Reveal>
             );
           })}
         </div>
 
-        <Reveal delay={400}>
+        <Reveal delay={600}>
           <div className="text-center mt-10">
             <Button variant="outline" className="btn-press" asChild>
               <Link to="/services">View All Services <ArrowRight className="w-4 h-4 ml-2" /></Link>

@@ -8,18 +8,18 @@ import {
   Paintbrush, Wrench, Layers, Clock, MessageCircle, ShieldCheck,
   Award, Eye, Heart, Hammer, Users, Target, Star, CheckCircle, MapPin,
   ClipboardList, Ruler, FileText, Handshake,
-  Home, Building2, PaintBucket, Warehouse, FileCheck, Palette,
+  Home, Building2, PaintBucket, Palette, FileCheck, UtensilsCrossed, Bath, Briefcase, Store,
 } from "lucide-react";
 
 // ============ SECTION HEADERS ============
 export const sectionHeaders = {
   services: {
-    title: "Our Services",
-    subtitle: "Complete renovation and design solutions for residential, commercial, and industrial spaces across Kuala Lumpur and Selangor, Malaysia.",
+    title: "Our Renovation Services",
+    subtitle: "From residential interiors to commercial fit-outs — professional renovation solutions for every space in Kuala Lumpur and Selangor.",
   },
   whyChooseUs: {
     title: "Why Choose FLASH CAST",
-    subtitle: "Over 200 projects completed across Kuala Lumpur and Selangor. Here's what sets us apart from other renovation companies in Malaysia.",
+    subtitle: "We focus on practical renovation planning, reliable execution, and quality finishing. Here's what sets us apart.",
   },
 };
 
@@ -34,51 +34,63 @@ export interface HomepageService {
 export const homepageServices: HomepageService[] = [
   {
     icon: Home,
-    title: "Interior Design & Renovation",
-    desc: "Complete residential renovation — space planning, 3D design, carpentry, electrical, plumbing, and finishing across KL and Selangor.",
+    title: "Full Renovation",
+    desc: "Complete renovation for condos and landed properties, including hacking, tiling, electrical, carpentry, painting, and finishing works.",
     link: "/services/renovation",
+  },
+  {
+    icon: Paintbrush,
+    title: "Interior Design",
+    desc: "We design spaces that are functional, modern, and tailored to your lifestyle — with 3D visualization before any work begins.",
+    link: "/services/design",
   },
   {
     icon: Ruler,
     title: "Custom Built-In Furniture",
-    desc: "Made-to-measure wardrobes, kitchen cabinets, TV consoles, shoe cabinets, vanities, and storage solutions with premium hardware.",
+    desc: "Made-to-measure cabinets, wardrobes, TV consoles, shoe cabinets, vanities, and storage solutions built for durability.",
     link: "/services/builtin",
   },
   {
-    icon: Building2,
-    title: "Commercial & Shop Renovation",
-    desc: "Office fit-outs, shop lot renovation, F&B interiors, retail displays, and showroom works within your business timeline.",
-    link: "/services/commercial",
+    icon: UtensilsCrossed,
+    title: "Kitchen Renovation",
+    desc: "Complete kitchen renovation including cabinet replacement, countertop upgrade, tiling, plumbing, and appliance integration.",
+    link: "/services/kitchen",
+  },
+  {
+    icon: Bath,
+    title: "Bathroom Renovation",
+    desc: "Full bathroom renovation with proper waterproofing, modern tiling, vanity installation, and shower system upgrade.",
+    link: "/services/bathroom",
+  },
+  {
+    icon: Briefcase,
+    title: "Office Renovation",
+    desc: "Practical office layout planning, partition works, furniture installation, data cabling, and professional finishing.",
+    link: "/services/office",
+  },
+  {
+    icon: Store,
+    title: "Shoplot Renovation",
+    desc: "Complete shop lot fit-out for retail, F&B, clinic, and service businesses — from shopfront design to interior and signage.",
+    link: "/services/shoplot",
   },
   {
     icon: Palette,
-    title: "Artistic Wall Coating — Remmers",
-    desc: "Authorized German Remmers applicator. Premium textured wall finishes for feature walls, accent areas, and luxury interiors.",
+    title: "Artistic Wall Coating",
+    desc: "Authorized German Remmers applicator. Premium textured wall finishes for feature walls and luxury interiors.",
     link: "/services/artistic-coating",
-  },
-  {
-    icon: PaintBucket,
-    title: "Exterior Works",
-    desc: "Shopfront renovation, signage installation, and building façade upgrades for commercial and residential properties.",
-    link: "/services/exterior",
-  },
-  {
-    icon: Warehouse,
-    title: "Warehouse & Shelving",
-    desc: "Industrial racking systems, warehouse shelving, and storage solutions for manufacturing and logistics operations.",
-    link: "/services/warehouse",
-  },
-  {
-    icon: FileCheck,
-    title: "Design & Permitting",
-    desc: "Architectural plans, construction drawings, permit applications, and regulatory approval coordination.",
-    link: "/services/design",
   },
   {
     icon: Wrench,
     title: "Old House Renovation",
-    desc: "Comprehensive renovation for aging terrace houses and bungalows — structural repair, rewiring, replumbing, and full interior makeover.",
+    desc: "Comprehensive renovation for aging terrace houses and bungalows — structural repair, rewiring, replumbing, and full makeover.",
     link: "/services/old-house",
+  },
+  {
+    icon: FileCheck,
+    title: "Permit & Drawing Support",
+    desc: "Renovation permit applications, management office coordination, architectural drawings, and documentation services.",
+    link: "/services/approval",
   },
 ];
 
@@ -92,34 +104,50 @@ export interface WhyChooseItem {
 export const whyChooseUsReasons: WhyChooseItem[] = [
   {
     icon: Paintbrush,
-    title: "In-House Design Team",
-    desc: "Professional interior designers create 3D visualizations and detailed construction drawings — so you see the result before any work begins.",
-  },
-  {
-    icon: Wrench,
-    title: "One-Stop Renovation",
-    desc: "From demolition to painting, carpentry to electrical — we manage all trades under one contract. No need to coordinate multiple contractors.",
-  },
-  {
-    icon: Layers,
-    title: "Quality Materials",
-    desc: "We source materials from trusted suppliers and maintain a curated materials library. Visit our showroom to compare options before committing.",
-  },
-  {
-    icon: Clock,
-    title: "On-Time Delivery",
-    desc: "Every project comes with a detailed timeline and milestones. We keep you updated weekly and deliver on schedule.",
+    title: "In-House Design & Coordination",
+    desc: "Our design team creates 3D visualizations and construction drawings. A dedicated project manager coordinates every trade so you only deal with one team.",
   },
   {
     icon: MessageCircle,
-    title: "Transparent Communication",
-    desc: "Itemized quotations, weekly progress reports, and a dedicated project manager for every project. No hidden costs, no surprises.",
+    title: "Clear Quotation Breakdown",
+    desc: "Every quotation is itemized with clear pricing — no lump sums, no hidden costs. You know exactly what you're paying for before any work begins.",
+  },
+  {
+    icon: Layers,
+    title: "Material Selection Support",
+    desc: "We source materials from trusted suppliers and help you compare options. Visit our showroom to see and touch samples before committing.",
+  },
+  {
+    icon: Target,
+    title: "Regular Site Supervision",
+    desc: "Our project managers conduct regular site inspections and provide weekly photo updates so you always know the progress of your renovation.",
+  },
+  {
+    icon: Wrench,
+    title: "Quality Workmanship",
+    desc: "We focus on practical renovation planning, reliable execution, and quality finishing. Every project is built to last, not just to look good.",
   },
   {
     icon: ShieldCheck,
     title: "SSM Registered & Warranty",
     desc: "FLASH CAST SDN. BHD. is a fully SSM-registered company. All renovation works come with workmanship warranty for your peace of mind.",
   },
+];
+
+// ============ TRUST STATS ============
+export interface TrustStat {
+  icon: LucideIcon;
+  value: string;
+  label: string;
+  desc: string;
+  iconClass: string;
+}
+
+export const trustStats: TrustStat[] = [
+  { icon: Star, value: "200+", label: "Completed Projects", desc: "Across Kuala Lumpur and Selangor — residential, commercial, and industrial", iconClass: "text-gold" },
+  { icon: Clock, value: "10+", label: "Years Experience", desc: "A decade of renovation experience in the Malaysian market", iconClass: "text-gold" },
+  { icon: Users, value: "Trusted", label: "By Homeowners & Businesses", desc: "Repeat clients and referrals are our strongest endorsement", iconClass: "text-gold" },
+  { icon: ShieldCheck, value: "SSM", label: "Registered Company", desc: "Fully registered with workmanship warranty on all projects", iconClass: "text-gold" },
 ];
 
 // ============ PROCESS STEPS ============
@@ -135,37 +163,44 @@ export const processSteps: ProcessStep[] = [
   {
     num: "01",
     icon: ClipboardList,
-    title: "Enquiry & Consultation",
-    desc: "Tell us about your project — what you need, your preferences, and your budget. We'll discuss your requirements and suggest the best approach.",
+    title: "Consultation",
+    desc: "We understand your goals, space, style, and budget. Tell us about your project via WhatsApp, phone, or our website.",
     details: ["Submit enquiry via website, WhatsApp, or phone", "Discuss requirements, timeline, and budget", "We provide initial advice and recommendations"],
   },
   {
     num: "02",
     icon: Ruler,
     title: "Site Measurement",
-    desc: "Our team visits your site to take precise measurements and assess the existing conditions. This step is free for all enquiries in KL and Selangor.",
+    desc: "We inspect the site and take precise measurements. Free for all enquiries in KL and Selangor.",
     details: ["Free on-site measurement", "Assess existing conditions and constraints", "Take photos and notes for design reference"],
   },
   {
     num: "03",
-    icon: FileText,
-    title: "Design & Quotation",
-    desc: "We prepare a detailed quotation with itemized costs, material specifications, and 3D visualizations so you can see the result before committing.",
-    details: ["Space planning and layout design", "3D visualization of proposed design", "Detailed quotation with itemized pricing", "Material samples and selection"],
+    icon: Paintbrush,
+    title: "Design Proposal",
+    desc: "We prepare layout ideas and visual direction — including 3D renders so you can see the result before committing.",
+    details: ["Space planning and layout design", "3D visualization of proposed design", "Material samples and selection"],
   },
   {
     num: "04",
-    icon: Hammer,
-    title: "Construction & Execution",
-    desc: "Upon confirmation, we handle all permits, coordinate all trades, and execute the renovation with regular progress updates.",
-    details: ["Permit application and coordination", "Demolition and preparation works", "All trades executed by our team", "Weekly progress updates with photos"],
+    icon: FileText,
+    title: "Quotation & Material Selection",
+    desc: "We provide a clear breakdown and discuss materials. No hidden costs, no lump-sum guesswork.",
+    details: ["Itemized quotation with clear pricing", "Material comparison and recommendations", "Payment schedule discussion"],
   },
   {
     num: "05",
+    icon: Hammer,
+    title: "Construction",
+    desc: "Work is managed by our team with site supervision. Weekly progress updates with photos.",
+    details: ["Permit application and coordination", "All trades executed by our team", "Regular progress updates with photos"],
+  },
+  {
+    num: "06",
     icon: Handshake,
-    title: "Handover & Aftercare",
-    desc: "Final inspection, defect rectification, thorough cleaning, and handover. We provide warranty and post-project support.",
-    details: ["Final walkthrough and inspection", "Defect list and rectification", "Professional cleaning", "Warranty and aftercare support"],
+    title: "Handover",
+    desc: "Final quality check, defect rectification, thorough cleaning, and workmanship warranty handover.",
+    details: ["Final walkthrough and inspection", "Defect list and rectification", "Professional cleaning", "Warranty handover"],
   },
 ];
 
@@ -195,12 +230,12 @@ export const coreValues: CoreValueItem[] = [
   {
     icon: Award,
     title: "Quality Craftsmanship",
-    desc: "Every project is executed with precision and attention to detail. We use premium materials and proven construction methods to ensure lasting results.",
+    desc: "Every project is executed with precision and attention to detail. We use premium materials and proven construction methods.",
   },
   {
     icon: Eye,
     title: "Transparency",
-    desc: "Clear quotations with no hidden costs. We provide itemized pricing, regular progress updates, and honest communication throughout your project.",
+    desc: "Clear quotations with no hidden costs. Itemized pricing, regular progress updates, and honest communication throughout.",
   },
   {
     icon: Clock,
@@ -210,7 +245,7 @@ export const coreValues: CoreValueItem[] = [
   {
     icon: Heart,
     title: "Client-First Approach",
-    desc: "Your vision drives our work. We listen carefully, provide professional advice, and adapt our solutions to match your needs and budget.",
+    desc: "Your vision drives our work. We listen carefully, provide professional advice, and adapt our solutions to your needs and budget.",
   },
 ];
 
@@ -234,22 +269,7 @@ export const companyStats = [
   { value: "98%", label: "Client Satisfaction" },
 ];
 
-// ============ TRUST SECTION — STATS ============
-export interface TrustStat {
-  icon: LucideIcon;
-  value: string;
-  label: string;
-  iconClass: string;
-}
-
-export const trustStats: TrustStat[] = [
-  { icon: Star, value: "200+", label: "Projects Completed", iconClass: "text-gold" },
-  { icon: CheckCircle, value: "10+ Years", label: "Industry Experience", iconClass: "text-accent" },
-  { icon: MapPin, value: "KL & Selangor", label: "Service Coverage", iconClass: "text-accent" },
-  { icon: Clock, value: "On-Time", label: "Delivery Guarantee", iconClass: "text-gold" },
-];
-
-// ============ TRUST SECTION — TESTIMONIALS ============
+// ============ TESTIMONIALS ============
 export interface Testimonial {
   text: string;
   client: string;
@@ -259,22 +279,22 @@ export interface Testimonial {
 
 export const testimonials: Testimonial[] = [
   {
-    text: "FLASH CAST delivered our office renovation on time and within budget. Professional team, quality workmanship, and excellent communication throughout the project.",
-    client: "Corporate Client",
-    location: "Petaling Jaya",
-    type: "Office Fit-Out",
-  },
-  {
-    text: "We chose FLASH CAST for our condo renovation in Mont Kiara. The 3D design was exactly what we wanted, and the final result exceeded our expectations. Highly recommended.",
-    client: "Homeowner",
+    text: "Very responsive team and solid workmanship. The project was delivered on time and the final result looks clean and premium. The quotation was transparent with no hidden costs.",
+    client: "Mr. Tan",
     location: "Mont Kiara, KL",
     type: "Condo Renovation",
   },
   {
-    text: "Very satisfied with the kitchen cabinet work. The team was punctual, materials were as promised, and the soft-close hardware works perfectly. Will definitely use them again.",
-    client: "Homeowner",
+    text: "Good communication throughout the renovation process. The site supervisor was always available and the weekly photo updates gave us confidence. The final result matches the 3D design perfectly.",
+    client: "Ms. Lee",
+    location: "Petaling Jaya",
+    type: "Office Fit-Out",
+  },
+  {
+    text: "We chose FLASH CAST for our kitchen renovation. The cabinet quality is excellent, soft-close hardware works perfectly, and the countertop installation was precise. Will use them again for our bedroom.",
+    client: "Mr. & Mrs. Wong",
     location: "Bangsar, KL",
-    type: "Custom Kitchen",
+    type: "Kitchen Renovation",
   },
 ];
 
@@ -285,12 +305,13 @@ export interface FAQItem {
 }
 
 export const homeFAQs: FAQItem[] = [
-  { q: "How much does a renovation cost in KL?", a: "A typical condo renovation in Kuala Lumpur ranges from RM 30,000 – RM 150,000+ depending on scope, size, and materials. We provide a detailed itemized quotation after a free site measurement." },
-  { q: "How long does a typical renovation take?", a: "Most residential renovations take 6-12 weeks. Kitchen cabinet projects take 2-4 weeks. Commercial fit-outs take 4-8 weeks. We provide a detailed timeline with milestones." },
-  { q: "Do you provide free quotations?", a: "Yes. We provide free site measurements and detailed quotations for all projects in Kuala Lumpur and Selangor — no obligation, no hidden charges." },
-  { q: "Are you a registered company?", a: "Yes. FLASH CAST SDN. BHD. is a fully SSM-registered company (Company No. XXXXXXXXXX) based in Kuala Lumpur." },
-  { q: "What areas do you serve?", a: "We serve all areas in Kuala Lumpur and Selangor including Mont Kiara, Bangsar, Cheras, Petaling Jaya, Subang Jaya, Shah Alam, Puchong, and surrounding areas." },
-  { q: "Do you handle renovation permits?", a: "Yes. We handle all permit applications — condo management office applications, DBKL permits, and local council approvals. This is included in our project management service." },
+  { q: "What types of renovation do you handle?", a: "We handle full residential renovation (condo and landed), kitchen renovation, bathroom renovation, office fit-out, shop lot renovation, custom built-in furniture, artistic wall coating, and old house renovation. We also assist with permit applications and architectural drawings." },
+  { q: "Do you provide a quotation after site visit?", a: "Yes. We provide free site measurements and detailed itemized quotations for all projects in Kuala Lumpur and Selangor — no obligation, no hidden charges." },
+  { q: "Do you serve Kuala Lumpur and Selangor only?", a: "Yes, we currently serve all areas in Kuala Lumpur and Selangor including Mont Kiara, Bangsar, Cheras, Petaling Jaya, Subang Jaya, Shah Alam, Puchong, and surrounding areas." },
+  { q: "Can you handle condo renovation approval?", a: "Yes. We handle all permit applications — condo management office applications, DBKL permits, and local council approvals. This is included in our project management service." },
+  { q: "Do you provide design and carpentry work?", a: "Yes. We have an in-house design team for space planning and 3D visualization, and an in-house carpentry team for custom built-in furniture including wardrobes, kitchen cabinets, and storage solutions." },
+  { q: "How long does a renovation project usually take?", a: "Most residential renovations take 6-12 weeks. Kitchen projects take 3-5 weeks. Bathroom renovations take 2-3 weeks. Office and shop lot fit-outs take 4-8 weeks. We provide a detailed timeline with milestones." },
+  { q: "Do you provide warranty or after-sales support?", a: "Yes. All renovation works come with workmanship warranty. We also provide after-sales support for any issues that arise after handover." },
 ];
 
 // ============ HOMEPAGE PROCESS STEPS (simplified) ============
@@ -301,12 +322,12 @@ export interface HomepageProcessStep {
 }
 
 export const homepageProcessSteps: HomepageProcessStep[] = [
-  { num: "01", title: "Free Consultation", desc: "Tell us about your project — we'll discuss your requirements, preferences, and budget." },
-  { num: "02", title: "Site Measurement", desc: "Our team visits the site for precise on-site measurements and condition assessment." },
-  { num: "03", title: "Design & 3D Proposal", desc: "We create layout plans, material recommendations, and 3D visualizations for your approval." },
-  { num: "04", title: "Detailed Quotation", desc: "You receive an itemized quotation with clear pricing — no hidden costs, no lump-sum guesswork." },
-  { num: "05", title: "Construction", desc: "Our team executes the renovation with weekly progress updates and professional project management." },
-  { num: "06", title: "Handover & Warranty", desc: "Final inspection, defect rectification, thorough cleaning, and workmanship warranty handover." },
+  { num: "01", title: "Consultation", desc: "We understand your goals, space, style, and budget." },
+  { num: "02", title: "Site Measurement", desc: "We inspect the site and confirm key dimensions." },
+  { num: "03", title: "Design Proposal", desc: "We prepare layout ideas and visual direction." },
+  { num: "04", title: "Quotation & Material Selection", desc: "We provide a clear breakdown and discuss materials." },
+  { num: "05", title: "Construction", desc: "Work is managed by our team with site supervision." },
+  { num: "06", title: "Handover", desc: "Final quality check and project delivery." },
 ];
 
 export const homepageProcessIntro = "A clear, structured process from first contact to project handover. Every step is designed to give you confidence and control over your renovation.";

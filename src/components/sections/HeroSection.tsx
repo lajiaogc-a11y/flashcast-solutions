@@ -1,4 +1,3 @@
-import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
@@ -8,24 +7,24 @@ import heroImg from "@/assets/hero-luxury-living.jpg";
 const HeroSection = () => {
   return (
     <section className="relative min-h-[100svh] flex items-center overflow-hidden">
-      {/* Background — sharp, no blur, no heavy overlay */}
+      {/* Background — sharp, no heavy overlay */}
       <div className="absolute inset-0">
         <img
           src={heroImg}
-          alt="Luxury modern living room renovation by FLASH CAST in Kuala Lumpur"
+          alt="Modern luxury living room renovation by FLASH CAST in Kuala Lumpur"
           className="w-full h-full object-cover"
           width={1920}
           height={1080}
           fetchPriority="high"
         />
-        {/* Subtle gradient only at bottom-left where text sits */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/20 to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black/30 to-transparent" />
+        {/* Localized gradient only where text sits */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/15 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-t from-black/20 to-transparent" />
       </div>
 
       <div className="relative z-10 container-narrow px-5 md:px-8 py-24 md:py-32 lg:py-40">
         <div className="max-w-2xl">
-          {/* Tagline */}
+          {/* Company badge */}
           <p
             className="font-body font-semibold text-[11px] tracking-[0.3em] uppercase mb-5 animate-fade-in"
             style={{ animationDelay: "0.15s", color: "hsl(var(--gold))" }}
@@ -33,9 +32,9 @@ const HeroSection = () => {
             FLASH CAST SDN. BHD. — Kuala Lumpur
           </p>
 
-          {/* Main headline */}
+          {/* Main headline — specific, not generic */}
           <h1
-            className="font-display text-[2rem] sm:text-[2.5rem] md:text-5xl lg:text-[3.5rem] font-bold leading-[1.1] mb-6 animate-slide-up"
+            className="font-display text-[1.85rem] sm:text-[2.3rem] md:text-[2.8rem] lg:text-[3.25rem] font-bold leading-[1.12] mb-6 animate-slide-up"
             style={{
               animationDelay: "0.25s",
               opacity: 0,
@@ -44,16 +43,16 @@ const HeroSection = () => {
               letterSpacing: "-0.02em",
             }}
           >
-            Renovation Experts
+            Condo, Landed &
             <br />
-            in Kuala Lumpur for
+            Commercial Renovation
             <br />
-            Modern Living Spaces
+            in Kuala Lumpur
           </h1>
 
-          {/* Subtitle */}
+          {/* Subtitle — concrete capability statement */}
           <p
-            className="text-[15px] md:text-lg leading-relaxed mb-10 max-w-lg animate-fade-in"
+            className="text-[14px] md:text-[16px] leading-relaxed mb-10 max-w-lg animate-fade-in"
             style={{
               animationDelay: "0.45s",
               opacity: 0,
@@ -61,10 +60,10 @@ const HeroSection = () => {
               textShadow: "0 1px 8px rgba(0,0,0,0.5)",
             }}
           >
-            We specialize in condo, landed, and commercial renovation with a focus on quality, functionality, and long-term durability.
+            We provide renovation, interior design, carpentry, and construction solutions for homes and commercial spaces in Kuala Lumpur and Selangor. Our focus is on quality workmanship, clear communication, and reliable project delivery.
           </p>
 
-          {/* CTA Buttons — left aligned */}
+          {/* CTA Buttons */}
           <div
             className="flex flex-col sm:flex-row gap-3 sm:gap-4 animate-fade-in"
             style={{ animationDelay: "0.6s", opacity: 0 }}
