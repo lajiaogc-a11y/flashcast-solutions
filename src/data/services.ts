@@ -8,6 +8,7 @@ import exteriorImg from "@/assets/services/exterior-works.jpg";
 import warehouseImg from "@/assets/services/warehouse-shelving.jpg";
 import approvalImg from "@/assets/services/approval-docs.jpg";
 import artisticCoatingImg from "@/assets/services/artistic-coating.jpg";
+import oldHouseImg from "@/assets/services/old-house-renovation.jpg";
 
 export const servicesData: ServiceItem[] = [
   {
