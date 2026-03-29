@@ -213,7 +213,7 @@ const ProjectDetail = () => {
             {related.map((p) => (
               <Link key={p.id} to={`/projects/${p.slug}`} className="group rounded-lg overflow-hidden bg-card border border-border hover-lift">
                 <div className="aspect-[4/3] overflow-hidden">
-                  <img src={imageMap[p.type] || residentialImg} alt={p.title} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <img src={p.images[0]} alt={p.title} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="p-4">
                   <span className="text-accent text-xs font-medium uppercase tracking-wider">{p.type}</span>
