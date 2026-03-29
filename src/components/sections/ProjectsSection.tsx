@@ -15,7 +15,7 @@ const ProjectsSection = () => {
             <div className="accent-line mx-auto mb-4" />
             <h2 className="font-display text-3xl md:text-4xl font-bold mb-3">Our Recent Projects</h2>
             <p className="text-muted-foreground max-w-lg mx-auto text-sm md:text-base">
-              Explore completed renovation projects across Kuala Lumpur and Selangor.
+              Completed renovation projects across Kuala Lumpur and Selangor — residential, commercial, and built-in furniture.
             </p>
           </div>
         </Reveal>
@@ -41,10 +41,11 @@ const ProjectsSection = () => {
                   </span>
                 </div>
                 <div className="p-5">
-                  <h3 className="font-display text-lg font-semibold mb-1 group-hover:text-gold transition-colors">
+                  <h3 className="font-display text-base font-semibold mb-1 group-hover:text-gold transition-colors">
                     {p.title}
                   </h3>
-                  <p className="text-muted-foreground text-sm">{p.location}</p>
+                  <p className="text-muted-foreground text-xs mb-2">{p.location}</p>
+                  <p className="text-muted-foreground text-xs leading-relaxed line-clamp-2">{p.description}</p>
                 </div>
               </Link>
             </Reveal>
