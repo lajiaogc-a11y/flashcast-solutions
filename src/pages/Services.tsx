@@ -6,16 +6,7 @@ import { servicesData } from "@/data/services";
 import Reveal from "@/components/Reveal";
 import PageMeta from "@/components/PageMeta";
 import { JsonLdBreadcrumb } from "@/components/JsonLd";
-import residentialImg from "@/assets/residential-renovation.jpg";
-import commercialImg from "@/assets/commercial-renovation.jpg";
-import kitchenImg from "@/assets/kitchen-cabinet.jpg";
-import warehouseImg from "@/assets/warehouse-shelving.jpg";
-import exteriorImg from "@/assets/exterior-works.jpg";
-import artisticCoatingImg from "@/assets/services/artistic-coating.jpg";
 import heroImg from "@/assets/hero-services.jpg";
-
-import oldHouseImg from "@/assets/services/old-house-renovation.jpg";
-
 // Use images from servicesData directly — no separate map needed
 
 const Services = () => {
