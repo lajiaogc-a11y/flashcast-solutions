@@ -13,7 +13,7 @@ import heroImg from "@/assets/hero-contact.jpg";
 type FormErrors = Partial<Record<string, string>>;
 
 const Contact = () => {
-  const [form, setForm] = useState({ name: "", phone: "", email: "", message: "" });
+  const [form, setForm] = useState({ name: "", phone: "", email: "", projectType: "", location: "", message: "" });
   const [errors, setErrors] = useState<FormErrors>({});
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
 
@@ -135,7 +135,7 @@ const Contact = () => {
                     <h2 className="font-display text-2xl font-bold mb-3">Message Sent!</h2>
                     <p className="text-muted-foreground text-sm mb-2">Thank you, <strong className="text-foreground">{form.name}</strong>.</p>
                     <p className="text-muted-foreground text-sm mb-6">We'll get back to you within 24 hours.</p>
-                    <Button variant="outline" className="btn-press" onClick={() => { setStatus("idle"); setForm({ name: "", phone: "", email: "", message: "" }); }}>
+                    <Button variant="outline" className="btn-press" onClick={() => { setStatus("idle"); setForm({ name: "", phone: "", email: "", projectType: "", location: "", message: "" }); }}>
                       Send Another Message
                     </Button>
                   </div>
@@ -178,10 +178,51 @@ const Contact = () => {
                         />
                         <FieldError msg={errors.email} />
                       </div>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-sm font-medium mb-1.5">Project Type</label>
+                          <select
+                            className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                            value={form.projectType}
+                            onChange={(e) => setForm({ ...form, projectType: e.target.value })}
+                          >
+                            <option value="">Select type...</option>
+                            <option value="condo">Condo Renovation</option>
+                            <option value="landed">Landed House Renovation</option>
+                            <option value="kitchen">Kitchen Renovation</option>
+                            <option value="bathroom">Bathroom Renovation</option>
+                            <option value="office">Office Renovation</option>
+                            <option value="shoplot">Shoplot / Commercial</option>
+                            <option value="builtin">Custom Built-In Furniture</option>
+                            <option value="old-house">Old House Renovation</option>
+                            <option value="other">Other</option>
+                          </select>
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium mb-1.5">Location</label>
+                          <select
+                            className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                            value={form.location}
+                            onChange={(e) => setForm({ ...form, location: e.target.value })}
+                          >
+                            <option value="">Select area...</option>
+                            <option value="kl-city">KL City Centre</option>
+                            <option value="mont-kiara">Mont Kiara / Sri Hartamas</option>
+                            <option value="bangsar">Bangsar / Mid Valley</option>
+                            <option value="cheras">Cheras</option>
+                            <option value="kepong">Kepong / Sentul</option>
+                            <option value="pj">Petaling Jaya</option>
+                            <option value="subang">Subang Jaya</option>
+                            <option value="shah-alam">Shah Alam / Setia Alam</option>
+                            <option value="puchong">Puchong</option>
+                            <option value="other">Other</option>
+                          </select>
+                        </div>
+                      </div>
                       <div>
                         <label className="block text-sm font-medium mb-1.5">Message <span className="text-destructive">*</span></label>
                         <Textarea
-                          required rows={5} placeholder="Tell us about your project — what type of renovation, location, timeline, and any specific requirements..."
+                          required rows={4} placeholder="Tell us about your project — property type, approximate size, timeline, budget range, and any specific requirements..."
                           value={form.message}
                           className={errors.message ? "border-destructive" : ""}
                           onChange={(e) => { setForm({ ...form, message: e.target.value }); setErrors({ ...errors, message: undefined }); }}

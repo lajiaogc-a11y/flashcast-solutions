@@ -16,17 +16,7 @@ import heroImg from "@/assets/hero-services.jpg";
 
 import oldHouseImg from "@/assets/services/old-house-renovation.jpg";
 
-const imageMap: Record<string, string> = {
-  design: commercialImg,
-  builtin: kitchenImg,
-  renovation: residentialImg,
-  commercial: commercialImg,
-  "artistic-coating": artisticCoatingImg,
-  exterior: exteriorImg,
-  warehouse: warehouseImg,
-  approval: commercialImg,
-  "old-house": oldHouseImg,
-};
+// Use images from servicesData directly — no separate map needed
 
 const Services = () => {
   return (
@@ -106,7 +96,7 @@ const Services = () => {
               </Reveal>
               <Reveal direction={i % 2 !== 0 ? "left" : "right"} delay={150}>
                 <div className={`${i % 2 !== 0 ? "lg:order-1" : ""} overflow-hidden rounded-lg img-zoom`}>
-                  <img src={imageMap[cat.slug] || residentialImg} alt={`${cat.title} service by FLASH CAST in Kuala Lumpur`} loading="lazy" width={800} height={600} className="w-full object-cover aspect-[4/3]" />
+                  <img src={cat.image} alt={`${cat.title} service by FLASH CAST in Kuala Lumpur`} loading="lazy" width={800} height={600} className="w-full object-cover aspect-[4/3]" />
                 </div>
               </Reveal>
             </div>
