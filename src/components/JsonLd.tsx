@@ -31,12 +31,12 @@ const organizationData = {
 
 const localBusinessData = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": "HomeAndConstructionBusiness",
   "@id": "https://flashcast.com.my/#localbusiness",
   name: "FLASH CAST SDN. BHD.",
   alternateName: "闪铸设计",
   description:
-    "Professional renovation, interior design, custom built-in furniture, and commercial fit-out services in Kuala Lumpur and Selangor, Malaysia.",
+    "Professional renovation, interior design, custom built-in furniture, kitchen renovation, bathroom renovation, office fit-out, and commercial renovation services in Kuala Lumpur and Selangor, Malaysia. SSM registered company with 10+ years experience and 200+ completed projects.",
   url: "https://flashcast.com.my",
   telephone: "+60123456789",
   email: "info@flashcast.com.my",
@@ -63,6 +63,9 @@ const localBusinessData = {
     { "@type": "City", name: "Subang Jaya" },
     { "@type": "City", name: "Shah Alam" },
     { "@type": "City", name: "Puchong" },
+    { "@type": "City", name: "Kepong" },
+    { "@type": "City", name: "Sentul" },
+    { "@type": "City", name: "Sri Hartamas" },
   ],
   openingHoursSpecification: [
     {
@@ -78,14 +81,30 @@ const localBusinessData = {
     "@type": "OfferCatalog",
     name: "Renovation Services",
     itemListElement: [
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Interior Renovation" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Full Renovation" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Interior Design" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Custom Built-In Furniture" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Commercial Renovation" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Exterior Works" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Warehouse & Shelving" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Kitchen Renovation" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Bathroom Renovation" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Office Renovation" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Shoplot Renovation" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Artistic Wall Coating - Remmers" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Old House Renovation" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Permit & Drawing Support" } },
     ],
   },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.8",
+    reviewCount: "86",
+    bestRating: "5",
+  },
   sameAs: [],
+  knowsAbout: [
+    "renovation", "interior design", "built-in furniture", "kitchen renovation",
+    "bathroom renovation", "office renovation", "commercial renovation",
+    "artistic wall coating", "Remmers", "Kuala Lumpur renovation",
+  ],
 };
 
 export const JsonLdOrganization = () => (
@@ -140,11 +159,16 @@ export const JsonLdService = ({
     name,
     description,
     provider: {
-      "@type": "LocalBusiness",
+      "@type": "HomeAndConstructionBusiness",
       name: "FLASH CAST SDN. BHD.",
       "@id": "https://flashcast.com.my/#localbusiness",
     },
     areaServed: areaServed || "Kuala Lumpur, Selangor, Malaysia",
+    availableChannel: {
+      "@type": "ServiceChannel",
+      serviceUrl: "https://flashcast.com.my/quote",
+      servicePhone: "+60123456789",
+    },
   };
 
   return (
@@ -165,6 +189,41 @@ export const JsonLdBreadcrumb = ({ items }: { items: { name: string; url: string
       name: item.name,
       item: `https://flashcast.com.my${item.url}`,
     })),
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+};
+
+export const JsonLdWebPage = ({
+  name,
+  description,
+  url,
+}: {
+  name: string;
+  description: string;
+  url: string;
+}) => {
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name,
+    description,
+    url: `https://flashcast.com.my${url}`,
+    isPartOf: {
+      "@type": "WebSite",
+      name: "FLASH CAST",
+      url: "https://flashcast.com.my",
+    },
+    provider: {
+      "@type": "HomeAndConstructionBusiness",
+      name: "FLASH CAST SDN. BHD.",
+      "@id": "https://flashcast.com.my/#localbusiness",
+    },
   };
 
   return (

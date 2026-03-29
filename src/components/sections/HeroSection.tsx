@@ -2,12 +2,14 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
+import { useT } from "@/i18n/useT";
 import heroImg from "@/assets/hero-luxury-living.jpg";
 
 const HeroSection = () => {
+  const t = useT();
+
   return (
     <section className="relative min-h-[100svh] flex items-center overflow-hidden">
-      {/* Background — sharp, no heavy overlay */}
       <div className="absolute inset-0">
         <img
           src={heroImg}
@@ -17,22 +19,19 @@ const HeroSection = () => {
           height={1080}
           fetchPriority="high"
         />
-        {/* Localized gradient only where text sits */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/15 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-t from-black/20 to-transparent" />
       </div>
 
       <div className="relative z-10 container-narrow px-5 md:px-8 py-24 md:py-32 lg:py-40">
         <div className="max-w-2xl">
-          {/* Company badge */}
           <p
             className="font-body font-semibold text-[11px] tracking-[0.3em] uppercase mb-5 animate-fade-in"
             style={{ animationDelay: "0.15s", color: "hsl(var(--gold))" }}
           >
-            FLASH CAST SDN. BHD. — Kuala Lumpur
+            {t("hero.badge")}
           </p>
 
-          {/* Main headline — specific, not generic */}
           <h1
             className="font-display text-[1.85rem] sm:text-[2.3rem] md:text-[2.8rem] lg:text-[3.25rem] font-bold leading-[1.12] mb-6 animate-slide-up"
             style={{
@@ -43,14 +42,13 @@ const HeroSection = () => {
               letterSpacing: "-0.02em",
             }}
           >
-            Condo, Landed &
+            {t("hero.title.line1")}
             <br />
-            Commercial Renovation
+            {t("hero.title.line2")}
             <br />
-            in Kuala Lumpur
+            {t("hero.title.line3")}
           </h1>
 
-          {/* Subtitle — concrete capability statement */}
           <p
             className="text-[14px] md:text-[16px] leading-relaxed mb-10 max-w-lg animate-fade-in"
             style={{
@@ -60,10 +58,9 @@ const HeroSection = () => {
               textShadow: "0 1px 8px rgba(0,0,0,0.5)",
             }}
           >
-            We provide renovation, interior design, carpentry, and construction solutions for homes and commercial spaces in Kuala Lumpur and Selangor. Our focus is on quality workmanship, clear communication, and reliable project delivery.
+            {t("hero.subtitle")}
           </p>
 
-          {/* CTA Buttons */}
           <div
             className="flex flex-col sm:flex-row gap-3 sm:gap-4 animate-fade-in"
             style={{ animationDelay: "0.6s", opacity: 0 }}
@@ -74,7 +71,7 @@ const HeroSection = () => {
               asChild
             >
               <Link to="/quote">
-                <ArrowRight className="w-4 h-4 mr-2" /> Get Free Quote
+                <ArrowRight className="w-4 h-4 mr-2" /> {t("cta.getQuote")}
               </Link>
             </Button>
             <Button
@@ -83,7 +80,7 @@ const HeroSection = () => {
               asChild
             >
               <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer" aria-label="Contact FLASH CAST on WhatsApp">
-                <WhatsAppIcon className="w-[18px] h-[18px] mr-2 text-[#25D366]" /> WhatsApp Us
+                <WhatsAppIcon className="w-[18px] h-[18px] mr-2 text-[#25D366]" /> {t("cta.whatsapp")}
               </a>
             </Button>
           </div>
