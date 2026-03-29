@@ -3,6 +3,7 @@ import { JsonLdLocalBusiness, JsonLdOrganization } from "@/components/JsonLd";
 import HeroSection from "@/components/sections/HeroSection";
 import StatsSection from "@/components/sections/StatsSection";
 import ServicesSection from "@/components/sections/ServicesSection";
+import BeforeAfterSection from "@/components/sections/BeforeAfterSection";
 import ProjectsSection from "@/components/sections/ProjectsSection";
 import ProcessSection from "@/components/sections/ProcessSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
@@ -22,6 +23,7 @@ const Index = () => {
       <HeroSection />
       <StatsSection />
       <ServicesSection />
+      <BeforeAfterSection />
       <ProjectsSection />
       <ProcessSection />
       <TestimonialsSection />

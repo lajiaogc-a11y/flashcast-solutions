@@ -14,6 +14,8 @@ import exteriorImg from "@/assets/exterior-works.jpg";
 import artisticCoatingImg from "@/assets/services/artistic-coating.jpg";
 import heroImg from "@/assets/hero-services.jpg";
 
+import oldHouseImg from "@/assets/services/old-house-renovation.jpg";
+
 const imageMap: Record<string, string> = {
   design: commercialImg,
   builtin: kitchenImg,
@@ -23,6 +25,7 @@ const imageMap: Record<string, string> = {
   exterior: exteriorImg,
   warehouse: warehouseImg,
   approval: commercialImg,
+  "old-house": oldHouseImg,
 };
 
 const Services = () => {
