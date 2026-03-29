@@ -6,21 +6,7 @@ import { projectsData } from "@/data/projects";
 import Reveal from "@/components/Reveal";
 import PageMeta from "@/components/PageMeta";
 import { JsonLdBreadcrumb } from "@/components/JsonLd";
-import residentialImg from "@/assets/residential-renovation.jpg";
-import commercialImg from "@/assets/commercial-renovation.jpg";
-import kitchenImg from "@/assets/kitchen-cabinet.jpg";
-import warehouseImg from "@/assets/warehouse-shelving.jpg";
-import exteriorImg from "@/assets/exterior-works.jpg";
-import heroImg from "@/assets/hero-renovation.jpg";
-
-const imageMap: Record<string, string> = {
-  "Residential": residentialImg,
-  "Commercial": commercialImg,
-  "Built-In": kitchenImg,
-  "Warehouse": warehouseImg,
-  "Exterior": exteriorImg,
-  "Office": heroImg,
-};
+// Project images come from projectsData directly
 
 /* Map project type to related service slug */
 const typeToService: Record<string, { name: string; slug: string }> = {
@@ -48,7 +34,7 @@ const ProjectDetail = () => {
     );
   }
 
-  const mainImage = imageMap[project.type] || residentialImg;
+  const mainImage = project.images[0];
   const relatedService = typeToService[project.type];
 
   return (
@@ -227,7 +213,7 @@ const ProjectDetail = () => {
             {related.map((p) => (
               <Link key={p.id} to={`/projects/${p.slug}`} className="group rounded-lg overflow-hidden bg-card border border-border hover-lift">
                 <div className="aspect-[4/3] overflow-hidden">
-                  <img src={imageMap[p.type] || residentialImg} alt={p.title} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <img src={p.images[0]} alt={p.title} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="p-4">
                   <span className="text-accent text-xs font-medium uppercase tracking-wider">{p.type}</span>

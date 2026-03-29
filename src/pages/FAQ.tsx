@@ -11,32 +11,42 @@ const faqData = [
   {
     category: "General",
     items: [
-      { q: "What renovation services does FLASH CAST provide?", a: "We provide comprehensive renovation services including interior design, residential and commercial renovation, custom built-in furniture (wardrobes, kitchen cabinets, vanities), exterior works, warehouse shelving, and permit coordination — all across Kuala Lumpur and Selangor." },
-      { q: "Which areas do you serve?", a: "We serve Kuala Lumpur, Selangor, Petaling Jaya, Cheras, Mont Kiara, Bangsar, Subang Jaya, Shah Alam, and surrounding areas." },
+      { q: "What renovation services does FLASH CAST provide?", a: "We provide full renovation, interior design, custom built-in furniture, kitchen renovation, bathroom renovation, office renovation, shoplot renovation, artistic wall coating (German Remmers), old house renovation, and permit coordination — all across Kuala Lumpur and Selangor." },
+      { q: "Which areas do you serve?", a: "We serve all areas in Kuala Lumpur and Selangor including Mont Kiara, Bangsar, Cheras, Petaling Jaya, Subang Jaya, Shah Alam, Puchong, and surrounding areas." },
       { q: "Is FLASH CAST a registered company?", a: "Yes, FLASH CAST SDN. BHD. is a fully SSM-registered company based in Taman United, Kuala Lumpur." },
     ],
   },
   {
     category: "Process & Pricing",
     items: [
-      { q: "How do I get a quotation?", a: "You can contact us via WhatsApp, phone, or our online quote form. We'll arrange a site measurement and provide a detailed quotation based on your requirements." },
-      { q: "Do you offer free site measurements?", a: "Yes, we provide free on-site measurements for projects in KL and Selangor as part of our quotation process." },
-      { q: "Can I see material samples before committing?", a: "Absolutely. We encourage clients to view material samples — flooring, tiles, boards, and cabinet finishes — before making a decision. Contact us to arrange a viewing." },
-      { q: "How long does a typical renovation take?", a: "Timeline depends on the scope. A simple built-in project may take 2–3 weeks, while a full home renovation typically takes 6–12 weeks. We provide a detailed timeline with every quotation." },
+      { q: "How do I get a quotation?", a: "Contact us via WhatsApp, phone, or our online quote form. We'll arrange a free site measurement and provide a detailed itemized quotation — no obligation, no hidden charges." },
+      { q: "Do you offer free site measurements?", a: "Yes, we provide free on-site measurements for all projects in KL and Selangor as part of our quotation process." },
+      { q: "How long does a typical renovation take?", a: "Most residential renovations take 6-12 weeks. Kitchen projects take 3-5 weeks. Bathroom renovations take 2-3 weeks. Office and shop lot fit-outs take 4-8 weeks. We provide a detailed timeline with milestones." },
+      { q: "Do you provide warranty or after-sales support?", a: "Yes. All renovation works come with workmanship warranty. We also provide after-sales support for any issues that arise after handover." },
     ],
   },
   {
-    category: "Custom Built-In",
+    category: "Kitchen & Bathroom",
     items: [
-      { q: "Can you build custom furniture to my exact dimensions?", a: "Yes, all our built-in furniture is made to measure — wardrobes, kitchen cabinets, TV consoles, shoe cabinets, and more. We tailor everything to fit your space." },
-      { q: "What materials do you use for cabinets?", a: "We use melamine boards, plywood, solid timber, and premium hardware from established suppliers. Material selection is based on your budget, style preference, and usage requirements." },
+      { q: "How long does a kitchen renovation take?", a: "A typical kitchen renovation takes 3-5 weeks depending on the scope and whether plumbing changes are needed." },
+      { q: "Is waterproofing included in bathroom renovation?", a: "Absolutely. We apply multiple layers of waterproof membrane and conduct a 48-hour water test before tiling. Proper waterproofing is the most critical aspect of any bathroom renovation." },
+      { q: "Can you install kitchen appliances?", a: "Yes. We integrate ovens, hoods, hobs, dishwashers, and other appliances into the cabinet design." },
+    ],
+  },
+  {
+    category: "Custom Built-In & Materials",
+    items: [
+      { q: "Can you build custom furniture to my exact dimensions?", a: "Yes, all our built-in furniture is made to measure — wardrobes, kitchen cabinets, TV consoles, shoe cabinets, vanities, and more. We tailor everything to fit your space." },
+      { q: "What materials do you use for cabinets?", a: "We use melamine, acrylic, solid wood, laminate, and other premium materials. All come with soft-close hardware as standard." },
+      { q: "Can I see material samples before committing?", a: "Yes. We encourage clients to view material samples — tiles, boards, countertops, and cabinet finishes — before making a decision." },
     ],
   },
   {
     category: "Commercial & Permits",
     items: [
-      { q: "Do you handle renovation permits and approvals?", a: "Yes, we assist with management office renovation applications, DBKL permit submissions, drawing coordination, and site inspection scheduling." },
-      { q: "Can you renovate my shop or office?", a: "Yes, we handle shop renovation, office fit-out, F&B interiors, showroom works, and retail displays for commercial clients across KL and Selangor." },
+      { q: "Do you handle renovation permits and approvals?", a: "Yes, we assist with condo management office applications, DBKL permits, local council approvals, drawing coordination, and site inspection scheduling." },
+      { q: "Can you renovate my shop or office?", a: "Yes, we handle shop lot renovation, office fit-out, F&B interiors, clinic setup, showroom works, and retail displays for commercial clients across KL and Selangor." },
+      { q: "Can you work after business hours for office renovation?", a: "Yes. We can arrange night or weekend work to minimize disruption to your operations." },
     ],
   },
 ];
