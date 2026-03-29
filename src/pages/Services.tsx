@@ -6,27 +6,8 @@ import { servicesData } from "@/data/services";
 import Reveal from "@/components/Reveal";
 import PageMeta from "@/components/PageMeta";
 import { JsonLdBreadcrumb } from "@/components/JsonLd";
-import residentialImg from "@/assets/residential-renovation.jpg";
-import commercialImg from "@/assets/commercial-renovation.jpg";
-import kitchenImg from "@/assets/kitchen-cabinet.jpg";
-import warehouseImg from "@/assets/warehouse-shelving.jpg";
-import exteriorImg from "@/assets/exterior-works.jpg";
-import artisticCoatingImg from "@/assets/services/artistic-coating.jpg";
 import heroImg from "@/assets/hero-services.jpg";
-
-import oldHouseImg from "@/assets/services/old-house-renovation.jpg";
-
-const imageMap: Record<string, string> = {
-  design: commercialImg,
-  builtin: kitchenImg,
-  renovation: residentialImg,
-  commercial: commercialImg,
-  "artistic-coating": artisticCoatingImg,
-  exterior: exteriorImg,
-  warehouse: warehouseImg,
-  approval: commercialImg,
-  "old-house": oldHouseImg,
-};
+// Use images from servicesData directly — no separate map needed
 
 const Services = () => {
   return (
@@ -106,7 +87,7 @@ const Services = () => {
               </Reveal>
               <Reveal direction={i % 2 !== 0 ? "left" : "right"} delay={150}>
                 <div className={`${i % 2 !== 0 ? "lg:order-1" : ""} overflow-hidden rounded-lg img-zoom`}>
-                  <img src={imageMap[cat.slug] || residentialImg} alt={`${cat.title} service by FLASH CAST in Kuala Lumpur`} loading="lazy" width={800} height={600} className="w-full object-cover aspect-[4/3]" />
+                  <img src={cat.image} alt={`${cat.title} service by FLASH CAST in Kuala Lumpur`} loading="lazy" width={800} height={600} className="w-full object-cover aspect-[4/3]" />
                 </div>
               </Reveal>
             </div>
