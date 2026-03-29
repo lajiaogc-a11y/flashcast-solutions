@@ -23,10 +23,10 @@ const About = () => {
 
       <HeroBanner
         image={heroImg}
-        imageAlt="FLASH CAST renovation company office and showroom in Kuala Lumpur"
+        imageAlt="FLASH CAST renovation company office and team in Kuala Lumpur"
         label="About Us"
         title="Building Spaces, Building Trust"
-        description="FLASH CAST SDN. BHD. — a registered renovation and interior design company in Kuala Lumpur, delivering complete solutions from concept to completion since 2015."
+        description="FLASH CAST SDN. BHD. — a registered renovation and interior design company based in Kuala Lumpur, providing complete design-and-build solutions for residential, commercial, and industrial spaces across KL and Selangor since 2015."
       />
 
       {/* Company Introduction */}
@@ -88,7 +88,7 @@ const About = () => {
       {/* Milestones */}
       <section className="section-padding bg-muted">
         <div className="container-narrow">
-          <SectionHeader title="Our Journey" description="Key milestones in the growth of FLASH CAST." />
+          <SectionHeader title="Our Journey" description="From a small residential renovation team to a full-service design-and-build company serving Kuala Lumpur and Selangor." />
           <div className="max-w-2xl mx-auto">
             {companyMilestones.map((milestone, i) => (
               <Reveal key={milestone.year} delay={i * 60}>
