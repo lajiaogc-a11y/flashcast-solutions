@@ -55,23 +55,28 @@ const BeforeAfterSlider = ({
     setPosition((x / rect.width) * 100);
   }, []);
 
-  const handleMouseDown = () => { isDragging.current = true; };
+  const handleMouseDown = (e: React.MouseEvent) => { e.preventDefault(); isDragging.current = true; };
   const handleMouseUp = () => { isDragging.current = false; };
   const handleMouseMove = (e: React.MouseEvent) => {
     if (isDragging.current) updatePosition(e.clientX);
   };
+  const handleTouchStart = () => { isDragging.current = true; };
+  const handleTouchEnd = () => { isDragging.current = false; };
   const handleTouchMove = (e: React.TouchEvent) => {
+    e.preventDefault();
     updatePosition(e.touches[0].clientX);
   };
 
   return (
     <div
       ref={containerRef}
-      className="relative aspect-[4/3] rounded-lg overflow-hidden cursor-col-resize select-none"
+      className="relative aspect-[4/3] rounded-lg overflow-hidden cursor-col-resize select-none touch-none"
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseUp}
       onMouseMove={handleMouseMove}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
       onTouchMove={handleTouchMove}
       onClick={(e) => updatePosition(e.clientX)}
     >
