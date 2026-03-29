@@ -7,23 +7,7 @@ import { servicesData } from "@/data/services";
 import Reveal from "@/components/Reveal";
 import PageMeta from "@/components/PageMeta";
 import { JsonLdService, JsonLdBreadcrumb, JsonLdFAQ } from "@/components/JsonLd";
-import residentialImg from "@/assets/residential-renovation.jpg";
-import commercialImg from "@/assets/commercial-renovation.jpg";
-import kitchenImg from "@/assets/kitchen-cabinet.jpg";
-import warehouseImg from "@/assets/warehouse-shelving.jpg";
-import exteriorImg from "@/assets/exterior-works.jpg";
-import artisticCoatingImg from "@/assets/services/artistic-coating.jpg";
-
-const imageMap: Record<string, string> = {
-  design: commercialImg,
-  builtin: kitchenImg,
-  renovation: residentialImg,
-  commercial: commercialImg,
-  "artistic-coating": artisticCoatingImg,
-  exterior: exteriorImg,
-  warehouse: warehouseImg,
-  approval: commercialImg,
-};
+// Images are now stored in servicesData directly
 
 const ServiceDetail = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -38,7 +22,7 @@ const ServiceDetail = () => {
     );
   }
 
-  const heroImage = imageMap[service.slug] || residentialImg;
+  const heroImage = service.image;
 
   return (
     <main className="pt-16">

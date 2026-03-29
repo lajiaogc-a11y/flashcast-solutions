@@ -34,7 +34,7 @@ const Process = () => {
       <section className="section-padding bg-background">
         <div className="container-narrow">
           <SectionHeader
-            title="5 Steps to Your Dream Space"
+            title="6 Steps to Your Dream Space"
             description="Every project follows the same proven process — designed for transparency, efficiency, and client satisfaction."
           />
 
