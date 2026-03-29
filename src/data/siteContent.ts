@@ -74,6 +74,12 @@ export const homepageServices: HomepageService[] = [
     desc: "Architectural plans, construction drawings, permit applications, and regulatory approval coordination.",
     link: "/services/design",
   },
+  {
+    icon: Wrench,
+    title: "Old House Renovation",
+    desc: "Comprehensive renovation for aging terrace houses and bungalows — structural repair, rewiring, replumbing, and full interior makeover.",
+    link: "/services/old-house",
+  },
 ];
 
 // ============ WHY CHOOSE US ============
